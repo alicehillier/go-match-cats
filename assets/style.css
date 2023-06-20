@@ -82,8 +82,8 @@ h1 {
 }
 
 .card {
-    /* height: 170px;
-    width: 120px; */
+    height: 25%;
+    width: 25%;
     position: relative;
     object-fit: cover;
     margin: 0.25rem;
