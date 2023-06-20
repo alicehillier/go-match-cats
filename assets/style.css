@@ -53,10 +53,10 @@ h1 {
 
 /* Styles for game area */
 .cards-grid {
-    height: min-content;
+    height: 100%;
     width: 90%;
-    margin: 0 auto;
-    margin-bottom: 0;
+    margin: auto;
+    /* margin-bottom: 0; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -134,13 +134,22 @@ h1 {
 
 @media only screen and (min-width: 1201px) {
 
+    header {
+        height: 8rem;
+    }
+
     .header {
         width: 70%;
     }
 
+    .cards-grid {
+        margin: 2rem auto;
+        width: 70%;
+    }
+
     .card {
-        height: 210px;
-        width: 160px;
+        height: 170px;
+        width: 120px;
         margin: 0.25rem;
     }
 }
@@ -168,8 +177,8 @@ h1 {
     }
 
     .card {
-        height: 180px;
-        width: 130px;
+        height: 170px;
+        width: 120px;
     }
 }
 
@@ -221,8 +230,8 @@ h1 {
     }
 
     .card {
-        height: 110px;
-        width: 60px;
+        height: 120px;
+        width: 70px;
     }
 }
 
