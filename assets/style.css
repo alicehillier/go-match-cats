@@ -82,8 +82,8 @@ h1 {
 }
 
 .card {
-    height: 25%;
-    width: 25%;
+    height: 170px;
+    width: 120px;
     position: relative;
     object-fit: cover;
     margin: 0.25rem;
@@ -97,7 +97,7 @@ h1 {
     position: absolute;
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
     background: aliceblue;
     border-radius: 1rem;
@@ -187,7 +187,7 @@ h1 {
     }
 }
 
-@media only screen and (max-width: 480px) {
+/* @media only screen and (max-width: 458px) {
 
     header {
         height: 6rem;
@@ -202,9 +202,18 @@ h1 {
         height: 110px;
         width: 60px;
     }
-}
+} */
 
-@media only screen and (max-width: 391px) {
+@media only screen and (max-width: 458px) {
+
+    header {
+        height: 6rem;
+    }
+
+    .header {
+        flex-direction: column;
+        line-height: 2.5rem;
+    }
 
     .cards-grid {
         margin: 0 auto;
