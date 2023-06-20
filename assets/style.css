@@ -89,3 +89,111 @@ h1 {
     object-fit: cover;
     visibility: hidden;
 }
+
+/* Media Queries */
+
+@media only screen and (min-width: 1201px) {
+
+    .header {
+        width: 70%;
+    }
+
+    .card {
+        height: 210px;
+        width: 160px;
+        margin: 0.25rem;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .cards-grid {
+        margin: 2rem auto;
+    }
+
+    .card {
+        height: 200px;
+        width: 150px;
+        margin: 0.25rem;
+    }
+}
+
+@media only screen and (max-width: 1020px) {
+
+    .header {
+        width: 99%;
+    }
+
+    .cards-grid {
+        margin: 1rem auto;
+    }
+
+    .card {
+        height: 180px;
+        width: 130px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .cards-grid {
+        margin: 3rem auto;
+    }
+
+    .card {
+        height: 150px;
+        width: 100px;
+        margin: 0.25rem;
+    }
+}
+
+@media only screen and (max-width: 679px) {
+    h1 {
+        font-size: 1rem;
+    }
+
+    /* Styles for score and restart button */
+    .score-label,
+    .restart {
+        line-height: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .cards-grid {
+        width: 100%;
+    }
+
+    .card {
+        height: 160px;
+        width: 110px;
+        margin: 0.15rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+
+    header {
+        height: 6rem;
+    }
+
+    .header {
+        flex-direction: column;
+        line-height: 2.5rem;
+    }
+
+    .card {
+        height: 110px;
+        width: 60px;
+    }
+}
+
+@media only screen and (max-width: 391px) {
+
+    .cards-grid {
+        margin: 0 auto;
+    }
+
+    .card {
+        height: 110px;
+        width: 60px;
+    }
+}
