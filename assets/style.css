@@ -55,7 +55,7 @@ h1 {
 .cards-grid {
     height: min-content;
     width: 90%;
-    margin: 0 auto;
+    margin: 1rem auto;
     margin-bottom: 0;
     display: flex;
     flex-wrap: wrap;
@@ -153,9 +153,9 @@ h1 {
 
 @media only screen and (max-width: 767px) {
 
-    .cards-grid {
+    /* .cards-grid {
         margin: 3rem auto;
-    }
+    } */
 
     .card {
         height: 150px;
@@ -221,6 +221,5 @@ h1 {
 
     .card {
         height: 110px;
-        width: 60px;
     }
 }
