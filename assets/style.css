@@ -55,15 +55,17 @@ h1 {
 .cards-grid {
     height: min-content;
     width: 90%;
-    margin: 1rem auto;
+    margin: 0 auto;
     margin-bottom: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    perspective: 1000px;
 }
 
-#start-button {
+#start-button,
+.start-countdown {
     height: 8rem;
     padding: 1rem;
     background-color: white;
@@ -74,6 +76,13 @@ h1 {
     border: 2px solid rgb(0, 0, 52);
     border-radius: 50%;
     font-size: 2rem;
+}
+
+.start-countdown {
+    line-height: 5rem;
+    width: 8rem;
+    text-align: center;
+    vertical-align: middle;
 }
 
 #start-button:hover {
@@ -90,6 +99,14 @@ h1 {
     border: 2px solid white;
     box-shadow: 2px 2px 3px pink;
     border-radius: 1rem;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: 0.5s;
+}
+
+.card:active {
+    transform: scale(0.98);
+    transition: 0.5s;
 }
 
 .card-front,
@@ -101,11 +118,16 @@ h1 {
     object-position: center;
     background: aliceblue;
     border-radius: 1rem;
+    backface-visibility: hidden;
 }
 
 .card-back {
     object-fit: cover;
-    visibility: hidden;
+}
+
+.card-front,
+.card.flip {
+    transform: rotateY(180deg);
 }
 
 /* Media Queries */
@@ -153,9 +175,9 @@ h1 {
 
 @media only screen and (max-width: 767px) {
 
-    /* .cards-grid {
+    .cards-grid {
         margin: 3rem auto;
-    } */
+    }
 
     .card {
         height: 150px;
@@ -187,7 +209,7 @@ h1 {
     }
 }
 
-/* @media only screen and (max-width: 458px) {
+@media only screen and (max-width: 480px) {
 
     header {
         height: 6rem;
@@ -202,24 +224,16 @@ h1 {
         height: 110px;
         width: 60px;
     }
-} */
+}
 
-@media only screen and (max-width: 458px) {
-
-    header {
-        height: 6rem;
-    }
-
-    .header {
-        flex-direction: column;
-        line-height: 2.5rem;
-    }
+@media only screen and (max-width: 391px) {
 
     .cards-grid {
         margin: 0 auto;
     }
 
     .card {
-        height: 80px;
+        height: 110px;
+        width: 60px;
     }
 }
