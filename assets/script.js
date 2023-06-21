@@ -2,9 +2,6 @@
 let startButton = document.getElementById('start-button');
 startButton.addEventListener('click', startGame);
 
-let restartButton = document.getElementsByClassName('restart');
-restartButton[0].addEventListener('click', restartGame);
-
 /**Removes the Start button when it's clicked on and counts down "3, 2, 1, GO!" with one second between each of them */
 function startGame() {
     // remove the start button after one second and display "3" in its place.
@@ -53,7 +50,15 @@ function startGame() {
 
 function startTimer() {
     console.log('start timer now!');
+    let score = document.getElementsByClassName('score-label');
+    let maxTime = 60;
+    setInterval(() => {
+            score[0].innerHTML = `${maxTime --}`;
+        }, 1000);
 }
+
+let restartButton = document.getElementsByClassName('restart');
+restartButton[0].addEventListener('click', restartGame);
 
 function restartGame() {
     console.log('restart game now');
