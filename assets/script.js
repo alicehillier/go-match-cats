@@ -48,13 +48,25 @@ function startGame() {
     }, 1000);
 }
 
+/**Starts the countdown from 60seconds. If 0 is reached, the gameOver function is triggered. */
 function startTimer() {
     console.log('start timer now!');
     let score = document.getElementsByClassName('score-label');
     let maxTime = 60;
-    setInterval(() => {
-            score[0].innerHTML = `${maxTime --}`;
-        }, 1000);
+    let timer = setInterval(() => {
+        if (maxTime > 0) { 
+            score[0].innerHTML = `${maxTime}`;
+            maxTime--;
+        } else {
+            score[0].innerHTML = "OH NO!";
+            clearInterval(timer);
+            gameOver();
+        }
+    }, 1000);
+}
+
+function gameOver() {
+    console.log('gameOver triggered')
 }
 
 let restartButton = document.getElementsByClassName('restart');
