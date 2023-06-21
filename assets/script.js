@@ -52,7 +52,7 @@ function startGame() {
 function startTimer() {
     console.log('start timer now!');
     let score = document.getElementsByClassName('score-label');
-    let maxTime = 60;
+    let maxTime = 5;
     let timer = setInterval(() => {
         /* If the timer has more than 0 seconds remaining, show how many seconds are left
          in the score element. Then, deduct 1 second from the timer.*/
@@ -70,7 +70,13 @@ function startTimer() {
 }
 
 function gameOver() {
-    console.log('gameOver triggered')
+    console.log('gameOver triggered');
+    // get all elements with the class 'card' and iterate through them, adding the event listener for all.
+    let cards = document.getElementsByClassName('card');
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].removeEventListener('click', flipCard);
+    }
+    // Adds a 'flip' class to the card element, or removes it if the card already has the class. This allows the card to be flipped multiple times.
 }
 
 let restartButton = document.getElementsByClassName('restart');
