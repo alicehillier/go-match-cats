@@ -1,5 +1,12 @@
 // retrieves the start button and adds event listener to trigger the startGame function below.
-let startButton = document.getElementById('start-button');
+// let startButton = document.getElementById('start-button');
+// startButton.addEventListener('click', startGame);
+
+let startButton = document.createElement('button');
+startButton.setAttribute('id', 'start-button');
+startButton.innerHTML = "START";
+let cardsGrid = document.getElementsByClassName('cards-grid');
+cardsGrid[0].prepend(startButton);
 startButton.addEventListener('click', startGame);
 
 /**Removes the Start button when it's clicked on and counts down "3, 2, 1, GO!" with one second between each of them */
@@ -76,7 +83,12 @@ function gameOver() {
     for (let i = 0; i < cards.length; i++) {
         cards[i].removeEventListener('click', flipCard);
     }
-    // Adds a 'flip' class to the card element, or removes it if the card already has the class. This allows the card to be flipped multiple times.
+    let losingMessage = document.createElement('p');
+    losingMessage.classList.add('losing-message');
+    losingMessage.innerHTML = "YOU LOST!";
+    let cardsGrid = document.getElementsByClassName('cards-grid');
+    cardsGrid[0].append(losingMessage);
+
 }
 
 let restartButton = document.getElementsByClassName('restart');

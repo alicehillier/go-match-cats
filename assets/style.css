@@ -65,7 +65,8 @@ h1 {
 }
 
 #start-button,
-.start-countdown {
+.start-countdown,
+.losing-message {
     height: 8rem;
     padding: 1rem;
     background-color: white;
@@ -76,6 +77,14 @@ h1 {
     border: 2px solid rgb(0, 0, 52);
     border-radius: 50%;
     font-size: 2rem;
+}
+
+.losing-message {
+    line-height: 5rem;
+    width: 90%;
+    border-radius: 1rem;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .start-countdown {
