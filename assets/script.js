@@ -57,17 +57,17 @@ function startGame() {
 function startTimer() {
     console.log('start timer now!');
     let score = document.getElementsByClassName('score-label');
-    let maxTime = 5;
+    let maxTime = 11;
     let timer = setInterval(() => {
         /* If the timer has more than 0 seconds remaining, show how many seconds are left
          in the score element. Then, deduct 1 second from the timer.*/
         if (maxTime > 0) {
-            score[0].innerHTML = `${maxTime}`;
+            score[0].innerHTML = `00:${maxTime < 10 ? '0' + maxTime : maxTime}`;
             maxTime--;
             /* If the timer reaches 0, show "OH NO!" in the score area, stop the timer
             and trigger the gameOver function.*/
         } else {
-            score[0].innerHTML = "OH NO!";
+            score[0].innerHTML = "00:00";
             clearInterval(timer);
             gameOver();
         }
