@@ -1,13 +1,11 @@
-// retrieves the start button and adds event listener to trigger the startGame function below.
-// let startButton = document.getElementById('start-button');
-// startButton.addEventListener('click', startGame);
-
+// Creates start button and adds event listener to trigger startGame function.
 let startButton = document.createElement('button');
 startButton.setAttribute('id', 'start-button');
 startButton.innerHTML = "START";
 let cardsGrid = document.getElementsByClassName('cards-grid');
 cardsGrid[0].prepend(startButton);
 startButton.addEventListener('click', startGame);
+
 
 /**Removes the Start button when it's clicked on and counts down "3, 2, 1, GO!" with one second between each of them */
 function startGame() {
@@ -83,6 +81,7 @@ function gameOver() {
     for (let i = 0; i < cards.length; i++) {
         cards[i].removeEventListener('click', flipCard);
     }
+    // show "YOU LOST!" to the player.
     let losingMessage = document.createElement('p');
     losingMessage.classList.add('losing-message');
     losingMessage.innerHTML = "YOU LOST!";
