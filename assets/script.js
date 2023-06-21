@@ -62,6 +62,7 @@ function startTimer() {
         /* If the timer has more than 0 seconds remaining, show how many seconds are left
          in the score element. Then, deduct 1 second from the timer.*/
         if (maxTime > 0) {
+            // If there is less than 10 seconds on the timer, add a '0' before the number of seconds.
             score[0].innerHTML = `00:${maxTime < 10 ? '0' + maxTime : maxTime}`;
             maxTime--;
             /* If the timer reaches 0, show "OH NO!" in the score area, stop the timer
@@ -87,7 +88,16 @@ function gameOver() {
     losingMessage.innerHTML = "YOU LOST!";
     let cardsGrid = document.getElementsByClassName('cards-grid');
     cardsGrid[0].append(losingMessage);
-
+    setTimeout(() => {
+        // remove the losingMessage after one second and display retryButton in its place.
+        losingMessage.remove();
+        console.log('losingMessage removed');
+        let retryButton = document.createElement('button');
+        retryButton.classList.add('losing-message');
+        retryButton.innerHTML = "Try again?";
+        cardsGrid[0].append(retryButton);
+        retryButton.addEventListener('click', startGame);
+    }, 2000);
 }
 
 let restartButton = document.getElementsByClassName('restart');
