@@ -236,8 +236,15 @@ h1 {
     }
 
     .header {
-        flex-direction: column;
-        line-height: 2.5rem;
+        width: 90%;
+    }
+
+    .header h1 {
+        display: none;
+    }
+
+    .header i {
+        font-size: 2rem;
     }
 
     .card {
