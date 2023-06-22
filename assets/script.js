@@ -107,6 +107,14 @@ function restartGame() {
     console.log('restart game now');
     let retryButton = document.getElementById('retry-button');
     retryButton.remove();
+    let cards = document.getElementsByClassName('card');
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].removeEventListener('click', flipCard);
+        cards[i].style.visibility = "visible";
+        cards[i].classList.remove('flip');
+    }
+    cardsGrid[0].prepend(startButton);
+    startButton.addEventListener('click', startGame);
 }
 
 let flippedCard = false;
