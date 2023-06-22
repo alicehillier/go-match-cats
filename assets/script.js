@@ -126,7 +126,7 @@ function restartGame() {
     setTimeout(() => {
         cardsGrid[0].prepend(startButton);
         startButton.addEventListener('click', startGame);
-    }, 1000);
+    }, 500);
 }
 
 let flippedCard = false;
