@@ -93,10 +93,10 @@ function gameOver() {
         losingMessage.remove();
         console.log('losingMessage removed');
         let retryButton = document.createElement('button');
-        retryButton.classList.add('losing-message');
+        retryButton.setAttribute('id', 'retry-button');
         retryButton.innerHTML = "Try again?";
         cardsGrid[0].append(retryButton);
-        retryButton.addEventListener('click', startGame);
+        retryButton.addEventListener('click', restartGame);
     }, 2000);
 }
 
@@ -105,6 +105,8 @@ restartButton[0].addEventListener('click', restartGame);
 
 function restartGame() {
     console.log('restart game now');
+    let retryButton = document.getElementById('retry-button');
+    retryButton.remove();
 }
 
 let flippedCard = false;

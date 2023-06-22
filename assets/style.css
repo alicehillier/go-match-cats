@@ -66,7 +66,8 @@ h1 {
 
 #start-button,
 .start-countdown,
-.losing-message {
+.losing-message,
+#retry-button {
     height: 8rem;
     padding: 1rem;
     background-color: white;
@@ -94,7 +95,8 @@ h1 {
     vertical-align: middle;
 }
 
-#start-button:hover {
+#start-button:hover,
+#retry-button:hover {
     transform: scale(1.1);
     box-shadow: 2px 2px 3px 3px rgb(0, 0, 52);
 }
