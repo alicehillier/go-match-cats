@@ -114,16 +114,18 @@ function restartGame() {
     let cards = document.getElementsByClassName('card');
     for (let i = 0; i < cards.length; i++) {
         // cards[i].removeEventListener('click', flipCard);
-        // make all cards visible again.  
-        cards[i].style.visibility = "visible";
         // get all the cards and remove the 'flip' class, so they are all facing the same way.
         cards[i].classList.remove('flip');
+        setTimeout(() => {
+            // make all cards visible again after 0.5 sec delay, so player cannot see the image on the cards as they turn.  
+            cards[i].style.visibility = "visible";
+        }, 500);
     }
     // re-add the startbutton and its event listener, so the startGame function can be run again.
     // set timeout so button appears after cards have been returned to original positions.
     setTimeout(() => {
         cardsGrid[0].prepend(startButton);
-    startButton.addEventListener('click', startGame);
+        startButton.addEventListener('click', startGame);
     }, 1000);
 }
 
