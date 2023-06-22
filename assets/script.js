@@ -120,8 +120,11 @@ function restartGame() {
         cards[i].classList.remove('flip');
     }
     // re-add the startbutton and its event listener, so the startGame function can be run again.
-    cardsGrid[0].prepend(startButton);
+    // set timeout so button appears after cards have been returned to original positions.
+    setTimeout(() => {
+        cardsGrid[0].prepend(startButton);
     startButton.addEventListener('click', startGame);
+    }, 1000);
 }
 
 let flippedCard = false;
