@@ -7,7 +7,7 @@ cardsGrid[0].prepend(startButton);
 startButton.addEventListener('click', startGame);
 
 
-/**Removes the Start button when it's clicked on and counts down "3, 2, 1, GO!" with one second between each of them */
+/**Removes the Start button when it's clicked on and counts down "3, 2, 1, GO!" with one second between each of them. */
 function startGame() {
     // remove the start button after one second and display "3" in its place.
     startButton.remove();
@@ -75,6 +75,7 @@ function startTimer() {
     }, 1000);
 }
 
+/**Stops the player from flipping cards and tells them the game is over. Gives the player the option to play again with a retry button. */
 function gameOver() {
     console.log('gameOver triggered');
     // get all elements with the class 'card' and iterate through them, adding the event listener for all.
@@ -103,16 +104,22 @@ function gameOver() {
 let restartButton = document.getElementsByClassName('restart');
 restartButton[0].addEventListener('click', restartGame);
 
+
+/**Removes the 'try again' button once clicked, reset the game area and re-add the start button with its event listener so the game can be run again. */
 function restartGame() {
     console.log('restart game now');
+    // Remove the retry button as it has been clicked.
     let retryButton = document.getElementById('retry-button');
     retryButton.remove();
     let cards = document.getElementsByClassName('card');
     for (let i = 0; i < cards.length; i++) {
-        cards[i].removeEventListener('click', flipCard);
+        // cards[i].removeEventListener('click', flipCard);
+        // make all cards visible again.  
         cards[i].style.visibility = "visible";
+        // get all the cards and remove the 'flip' class, so they are all facing the same way.
         cards[i].classList.remove('flip');
     }
+    // re-add the startbutton and its event listener, so the startGame function can be run again.
     cardsGrid[0].prepend(startButton);
     startButton.addEventListener('click', startGame);
 }
@@ -121,6 +128,7 @@ let flippedCard = false;
 let firstCard;
 let secondCard;
 
+/**Allows cards to be flipped, checks if cards match and hides them if they do, or returns them to their original position if they don't (with 1 sec delay for viewing) */
 function flipCard() {
     // get all elements with the class 'card' and iterate through them, adding the event listener for all.
     let cards = document.getElementsByClassName('card');
