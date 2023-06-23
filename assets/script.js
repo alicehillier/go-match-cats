@@ -6,6 +6,14 @@ let cardsGrid = document.getElementsByClassName('cards-grid');
 cardsGrid[0].prepend(startButton);
 startButton.addEventListener('click', startGame);
 
+    let deck = [];
+    let allCards = document.getElementsByClassName('card');
+    for (let i = 0; i < allCards.length; i++) {
+        deck.push(allCards[i].innerHTML);
+    }
+
+function shuffleCards() {
+}
 
 /**Removes the Start button when it's clicked on and counts down "3, 2, 1, GO!" with one second between each of them. */
 function startGame() {
