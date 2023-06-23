@@ -49,6 +49,7 @@ h1 {
 .restart:hover {
     transform: scale(1.1);
     box-shadow: 2px 2px 3px 3px aliceblue;
+    cursor: pointer;
 }
 
 /* Styles for game area */
@@ -99,6 +100,7 @@ h1 {
 #retry-button:hover {
     transform: scale(1.1);
     box-shadow: 2px 2px 3px 3px rgb(0, 0, 52);
+    cursor: pointer;
 }
 
 .card {
