@@ -6,13 +6,13 @@ let cardsGrid = document.getElementsByClassName('cards-grid');
 cardsGrid[0].prepend(startButton);
 startButton.addEventListener('click', startGame);
 
-    let deck = [];
-    let allCards = document.getElementsByClassName('card');
-    for (let i = 0; i < allCards.length; i++) {
-        deck.push(allCards[i].innerHTML);
-    }
-
-function shuffleCards() {
+// Create the empty array to hold cards.
+let deck = [];
+// Retrieve all .card elements from document.
+let allCards = document.getElementsByClassName('card');
+// Iterate through all cards and push their content to the deck array.
+for (let i = 0; i < allCards.length; i++) {
+    deck.push(allCards[i].innerHTML);
 }
 
 /**Removes the Start button when it's clicked on and counts down "3, 2, 1, GO!" with one second between each of them. */
