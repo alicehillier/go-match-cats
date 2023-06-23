@@ -6,7 +6,8 @@
 }
 
 body {
-    background: linear-gradient(rgb(0, 0, 52), rgb(85, 163, 189));
+    background: linear-gradient(rgb(0, 0, 52), rgb(85, 163, 189), rgb(0, 0, 52));
+    height: 80vh;
 }
 
 header {
@@ -148,7 +149,7 @@ h1 {
 @media only screen and (min-width: 1201px) {
 
     header {
-        height: 8rem;
+        height: 10vh;
     }
 
     .header {
