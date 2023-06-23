@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: rgb(0, 0, 52);
+    background: linear-gradient(rgb(0, 0, 52), rgb(85, 163, 189));
 }
 
 header {
