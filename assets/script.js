@@ -14,13 +14,13 @@ function showInstructions() {
     instructions.innerHTML = `
     <button class="exit-instructions">X</button>
     <h2 class="instructions-title">How to Play</h2>
-    <ol>
-    <li>First, select your background!</li>
-    <li>First, select your background!</li>
-    <li>First, select your background!</li>
-    <li>First, select your background!</li>
-    <li>First, select your background!</li>
-    </ol>
+    <ul>
+    <li>The aim of the game is to match your cards.</li>
+    <li>Click on two cards. If they match, they'll disappear. If not, they'll return to their positions.</li>
+    <li>Have another go, selecting two cards. Try to remember where each card is on the board and you'll have a better chance of winning!</li>
+    <li>Don't forget, you've got a time limit! If the timer runs out and you haven't matched all the cards, you'll lose the game.</li>
+    <li>Too easy? Try a harder level!</li>
+    </ul>
     `
     let documentBody = document.getElementsByTagName('body');
     documentBody[0].prepend(instructions);
