@@ -83,11 +83,15 @@ h1 {
 }
 
 .exit-instructions {
-    height: 2rem;
+    line-height: 2rem;
     width: 2rem;
+    vertical-align: middle;
     position: absolute;
+    padding: 0;
     top: 1rem;
     right: 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
     background-color: white;
     color: rgb(0, 0, 52);
     cursor: pointer;
