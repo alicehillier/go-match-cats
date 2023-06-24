@@ -31,7 +31,6 @@ function showInstructions() {
         instructions.removeAttribute('id', 'instructions');
         instructions.style.display = "none";
     }
-
 }
 
 // Create the empty array to hold cards.

@@ -52,6 +52,10 @@ h1 {
     color: white;
 }
 
+.help {
+    margin-right: 0.45rem;
+}
+
 .restart:hover,
 .help:hover {
     transform: scale(1.1);
@@ -306,6 +310,10 @@ h1 {
 }
 
 @media only screen and (max-width: 391px) {
+
+    .header i {
+        font-size: 1rem;
+    }
 
     .cards-grid {
         margin: 0 auto;
