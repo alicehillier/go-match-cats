@@ -78,11 +78,11 @@ function startGame() {
                 setTimeout(() => {
                     go.remove();
                     console.log('go removed');
-                    // immediately after "GO!" is removed, start the timer by triggering the startTimer function.
-                    startTimer();
-                    // the flipCard function is also triggered here so players cannot flip cards before clicking on the start button and waiting for the countdown to end.
-                    flipCard();
                 }, 1000);
+                // immediately after "GO!" is removed, start the timer by triggering the startTimer function.
+                startTimer();
+                // the flipCard function is also triggered here so players cannot flip cards before clicking on the start button and waiting for the countdown to end.
+                flipCard();
             }, 1000);
         }, 1000);
     }, 1000);

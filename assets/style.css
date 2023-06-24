@@ -53,7 +53,7 @@ h1 {
 }
 
 .help {
-    margin-right: 0.45rem;
+    margin-right: 0.35rem;
 }
 
 .restart:hover,
@@ -287,10 +287,6 @@ h1 {
 
 @media only screen and (max-width: 480px) {
 
-    header {
-        height: 6rem;
-    }
-
     /* .header {
         width: 90%;
     } */
@@ -310,10 +306,6 @@ h1 {
 }
 
 @media only screen and (max-width: 391px) {
-
-    .header i {
-        font-size: 1rem;
-    }
 
     .cards-grid {
         margin: 0 auto;
