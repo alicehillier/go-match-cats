@@ -20,7 +20,7 @@ header {
 
 /* Styles for <ul> containing score, heading and restart button  */
 .header {
-    width: 80%;
+    width: 95%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -31,6 +31,10 @@ header {
     display: inline-flex;
 }
 
+.header-buttons {
+    text-align: right;
+}
+
 h1 {
     color: rgb(0, 0, 52);
     text-shadow: 2px 2px 3px rgb(235, 235, 255);
@@ -38,7 +42,8 @@ h1 {
 
 /* Styles for score and restart button */
 .score-label,
-.restart {
+.restart,
+.help {
     line-height: 1rem;
     padding: 1rem;
     border-radius: 1rem;
@@ -47,7 +52,8 @@ h1 {
     color: white;
 }
 
-.restart:hover {
+.restart:hover,
+.help:hover {
     transform: scale(1.1);
     box-shadow: 2px 2px 3px 3px aliceblue;
     cursor: pointer;
@@ -152,9 +158,9 @@ h1 {
         height: 10vh;
     }
 
-    .header {
+    /* .header {
         width: 70%;
-    }
+    } */
 
     .cards-grid {
         margin: 2rem auto;
@@ -182,9 +188,9 @@ h1 {
 
 @media only screen and (max-width: 1020px) {
 
-    .header {
+    /* .header {
         width: 99%;
-    }
+    } */
 
     .cards-grid {
         margin: 1rem auto;
@@ -216,7 +222,9 @@ h1 {
 
     /* Styles for score and restart button */
     .score-label,
-    .restart {
+    .restart,
+    .help {
+        font-size: 1rem;
         line-height: 0.5rem;
         padding: 0.5rem;
     }
@@ -238,9 +246,9 @@ h1 {
         height: 6rem;
     }
 
-    .header {
+    /* .header {
         width: 90%;
-    }
+    } */
 
     .header h1 {
         display: none;
