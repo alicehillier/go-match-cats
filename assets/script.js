@@ -5,6 +5,16 @@ startButton.innerHTML = "START";
 let cardsGrid = document.getElementsByClassName('cards-grid');
 cardsGrid[0].prepend(startButton);
 startButton.addEventListener('click', startGame);
+let helpButton = document.getElementsByClassName('help');
+helpButton[0].addEventListener('click', showInstructions);
+
+function showInstructions() {
+    let instructions = document.createElement('div');
+    instructions.setAttribute('id', 'instructions');
+    instructions.innerHTML = '<h2 class="instructions-title">How to Play</h2>'
+    cardsGrid[0].append(instructions);
+    console.log("instructions here");
+}
 
 // Create the empty array to hold cards.
 let deck = [];
