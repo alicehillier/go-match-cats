@@ -11,9 +11,27 @@ helpButton[0].addEventListener('click', showInstructions);
 function showInstructions() {
     let instructions = document.createElement('div');
     instructions.setAttribute('id', 'instructions');
-    instructions.innerHTML = '<h2 class="instructions-title">How to Play</h2>'
-    cardsGrid[0].append(instructions);
+    instructions.innerHTML = `
+    <button class="exit-instructions">X</button>
+    <h2 class="instructions-title">How to Play</h2>
+    <ol>
+    <li>First, select your background!</li>
+    <li>First, select your background!</li>
+    <li>First, select your background!</li>
+    <li>First, select your background!</li>
+    <li>First, select your background!</li>
+    </ol>
+    `
+    let documentBody = document.getElementsByTagName('body');
+    documentBody[0].prepend(instructions);
     console.log("instructions here");
+    let exit = document.getElementsByClassName('exit-instructions');
+    exit[0].addEventListener('click', closeInstructions);
+    function closeInstructions() {
+        instructions.removeAttribute('id', 'instructions');
+        instructions.style.display = "none";
+    }
+
 }
 
 // Create the empty array to hold cards.
