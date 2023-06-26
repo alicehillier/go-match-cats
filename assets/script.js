@@ -8,6 +8,7 @@ startButton.addEventListener('click', startGame);
 let helpButton = document.getElementsByClassName('help');
 helpButton[0].addEventListener('click', showInstructions);
 
+/**Creates instructions and shows them to the player. Also removes them when the 'X' in the top right corner is clicked on. */
 function showInstructions() {
     let instructions = document.createElement('div');
     instructions.setAttribute('id', 'instructions');

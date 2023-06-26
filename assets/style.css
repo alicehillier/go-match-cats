@@ -10,36 +10,23 @@ body {
 }
 
 header {
-    height: 100%;
-    background-color: white;
-}
-
-.header-top {
-    width: 100%;
-    display: block;
-    text-align: center;
-    padding-top: 0.5rem;
-}
-
-.header-bottom {
-    height: min-content;
+    height: 4rem;
     width: 100%;
     display: flex;
     align-items: center;
     background-color: white;
-    padding-bottom: 0.5rem;
 }
 
 /* Styles for <ul> containing score, heading and restart button  */
 .header {
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.header-bottom li {
+.header li {
     display: inline-flex;
 }
 
@@ -50,7 +37,6 @@ header {
 h1 {
     color: rgb(0, 0, 52);
     text-shadow: 2px 2px 3px rgb(235, 235, 255);
-    padding-bottom: 1rem;
 }
 
 /* Styles for score and restart button */
@@ -212,18 +198,18 @@ h1 {
 
 @media only screen and (min-width: 1201px) {
 
-    /* header {
+    header {
         height: 10vh;
-    } */
+    }
 
     /* .header {
         width: 70%;
     } */
 
-    /* .cards-grid {
+    .cards-grid {
         margin: 2rem auto;
         width: 70%;
-    } */
+    }
 
     .card {
         height: 170px;
@@ -233,9 +219,9 @@ h1 {
 }
 
 @media only screen and (max-width: 1200px) {
-    /* .cards-grid {
+    .cards-grid {
         margin: 2rem auto;
-    } */
+    }
 
     .card {
         height: 200px;
@@ -250,9 +236,9 @@ h1 {
         width: 99%;
     } */
 
-    /* .cards-grid {
+    .cards-grid {
         margin: 1rem auto;
-    } */
+    }
 
     .card {
         height: 170px;
@@ -262,9 +248,9 @@ h1 {
 
 @media only screen and (max-width: 767px) {
 
-    /* .cards-grid {
+    .cards-grid {
         margin: 3rem auto;
-    } */
+    }
 
     .card {
         height: 150px;
@@ -287,9 +273,9 @@ h1 {
         padding: 0.5rem;
     }
 
-    /* .cards-grid {
+    .cards-grid {
         width: 100%;
-    } */
+    }
 
     .card {
         height: 160px;
@@ -304,13 +290,13 @@ h1 {
         width: 90%;
     } */
 
-    /* .header h1 {
+    .header h1 {
         display: none;
     }
 
     .header i {
         font-size: 2rem;
-    } */
+    }
 
     .instructions-title {
         font-size: 1.2rem;
@@ -328,9 +314,9 @@ h1 {
 
 @media only screen and (max-width: 391px) {
 
-    /* .cards-grid {
+    .cards-grid {
         margin: 0 auto;
-    } */
+    }
 
     .card {
         height: 110px;
