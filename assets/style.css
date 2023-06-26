@@ -17,7 +17,7 @@ header {
     background-color: white;
 }
 
-/* Styles for <ul> containing score, heading and restart button  */
+/* Styles for <ul> containing timer, heading, help and restart button  */
 .header {
     width: 95%;
     margin: 0 auto;
@@ -39,8 +39,8 @@ h1 {
     text-shadow: 2px 2px 3px rgb(235, 235, 255);
 }
 
-/* Styles for score and restart button */
-.score-label,
+/* Styles for timer, help and restart button */
+.timer,
 .restart,
 .help {
     line-height: 1rem;
@@ -264,8 +264,8 @@ h1 {
         font-size: 1rem;
     }
 
-    /* Styles for score and restart button */
-    .score-label,
+    /* Styles for timer, help and restart button */
+    .timer,
     .restart,
     .help {
         font-size: 0.8rem;
