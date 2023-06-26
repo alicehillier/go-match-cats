@@ -23,8 +23,8 @@ function showInstructions() {
     <li>Too easy? Try a harder level!</li>
     </ul>
     `
-    let documentBody = document.getElementsByTagName('body');
-    documentBody[0].prepend(instructions);
+    let body = document.getElementsByTagName('body');
+    body[0].prepend(instructions);
     console.log("instructions here");
     let exit = document.getElementsByClassName('exit-instructions');
     exit[0].addEventListener('click', closeInstructions);
@@ -47,42 +47,27 @@ for (let i = 0; i < allCards.length; i++) {
 function startGame() {
     // remove the start button after one second and display "3" in its place.
     startButton.remove();
-    let three = document.createElement('p');
-    three.classList.add('start-countdown');
-    three.innerHTML = "3";
+    let countdown = document.createElement('p');
+    countdown.classList.add('start-countdown');
+    countdown.innerHTML = "3";
     let cardsGrid = document.getElementsByClassName('cards-grid');
-    cardsGrid[0].append(three);
+    cardsGrid[0].append(countdown);
     setTimeout(() => {
         // remove the "3" after one second and display "2" in its place.
-        three.remove();
-        console.log('three removed');
-        let two = document.createElement('p');
-        two.classList.add('start-countdown');
-        two.innerHTML = "2";
-        cardsGrid[0].append(two);
+        countdown.innerHTML = "2";
         setTimeout(() => {
             // remove the "2" after one second and display "1" in its place.
-            two.remove();
-            console.log('two removed');
-            let one = document.createElement('p');
-            one.classList.add('start-countdown');
-            one.innerHTML = "1";
-            cardsGrid[0].append(one);
+            countdown.innerHTML = "1";
             setTimeout(() => {
                 // remove the "1" after one second and display "GO!" in its place.
-                one.remove();
-                console.log('one removed');
-                let go = document.createElement('p');
-                go.classList.add('start-countdown');
-                go.innerHTML = "GO!";
-                cardsGrid[0].append(go);
+                countdown.innerHTML = "GO!";
                 setTimeout(() => {
-                    go.remove();
-                    console.log('go removed');
+                    // remove the countdown.
+                    countdown.remove();
                 }, 1000);
-                // immediately after "GO!" is removed, start the timer by triggering the startTimer function.
+                // immediately after "GO!" is removed, start the timer by triggering the startTimer 
+                // function and let the user play by triggering the flipCard function.
                 startTimer();
-                // the flipCard function is also triggered here so players cannot flip cards before clicking on the start button and waiting for the countdown to end.
                 flipCard();
             }, 1000);
         }, 1000);
@@ -203,4 +188,3 @@ function flipCard() {
         }
     }
 };
-
