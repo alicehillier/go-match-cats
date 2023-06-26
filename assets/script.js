@@ -120,13 +120,10 @@ function gameOver() {
     }, 2000);
 }
 
-let restartButton = document.getElementsByClassName('restart');
-restartButton[0].addEventListener('click', restartGame);
-
-
 /**Removes the 'try again' button once clicked, reset the game area and re-add the start button with its event listener so the game can be run again. */
 function restartGame() {
     console.log('restart game now');
+    clearInterval(timer);
     // Remove the retry button as it has been clicked.
     let retryButton = document.getElementById('retry-button');
     retryButton.remove();
@@ -186,3 +183,12 @@ function flipCard() {
         }
     }
 };
+
+
+
+let restartButton = document.createElement('button');
+restartButton.setAttribute('class', 'restart');
+restartButton.innerHTML = "RESTART";
+let headerButtons = document.getElementsByClassName('header-buttons');
+headerButtons[0].append(restartButton);
+restartButton.addEventListener('click', restartGame);
