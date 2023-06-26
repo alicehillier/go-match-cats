@@ -6,7 +6,7 @@
 }
 
 body {
-    background: linear-gradient(rgb(0, 0, 52), rgb(85, 163, 189), rgb(0, 0, 52));
+    background: linear-gradient(rgb(0, 0, 52), rgb(85, 163, 189), lightpink, rgb(0, 0, 52));
 }
 
 header {
@@ -160,8 +160,8 @@ h1 {
     position: relative;
     object-fit: cover;
     margin: 0.25rem;
-    border: 2px solid white;
-    box-shadow: 2px 2px 3px pink;
+    border: 1px solid rgb(0, 0, 52);
+    box-shadow: 2px 2px 3px rgb(0, 0, 52);
     border-radius: 1rem;
     transform: scale(1);
     transform-style: preserve-3d;
