@@ -34,11 +34,9 @@ function showInstructions() {
     }
 }
 
-// Create the empty array to hold cards.
+// Create the empty array and insert all cards.
 let deck = [];
-// Retrieve all .card elements from document.
 let allCards = document.getElementsByClassName('card');
-// Iterate through all cards and push their content to the deck array.
 for (let i = 0; i < allCards.length; i++) {
     deck.push(allCards[i].innerHTML);
 }
