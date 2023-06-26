@@ -74,6 +74,7 @@ function startGame() {
 
 /**Starts the countdown from 60 seconds. If 0 is reached, the gameOver function is triggered. */
 function startTimer() {
+    createRestart();
     console.log('start timer now!');
     let gameTimer = document.getElementsByClassName('timer');
     let maxTime = 11;
@@ -118,6 +119,15 @@ function gameOver() {
         cardsGrid[0].append(retryButton);
         retryButton.addEventListener('click', restartGame);
     }, 2000);
+}
+
+function createRestart() {
+    let restartButton = document.createElement('button');
+    restartButton.setAttribute('class', 'restart');
+    restartButton.innerHTML = "RESTART";
+    let headerButtons = document.getElementsByClassName('header-buttons');
+    headerButtons[0].append(restartButton);
+    restartButton.addEventListener('click', restartGame);
 }
 
 /**Removes the 'try again' button once clicked, reset the game area and re-add the start button with its event listener so the game can be run again. */
@@ -183,12 +193,3 @@ function flipCard() {
         }
     }
 };
-
-
-
-let restartButton = document.createElement('button');
-restartButton.setAttribute('class', 'restart');
-restartButton.innerHTML = "RESTART";
-let headerButtons = document.getElementsByClassName('header-buttons');
-headerButtons[0].append(restartButton);
-restartButton.addEventListener('click', restartGame);
