@@ -175,19 +175,25 @@ function flipCard() {
         // When second card is selected. flippedCard is set back to false, ready for the next attempt.
         flippedCard = false;
         secondCard = this;
-
-        // If the cards match, hide the cards and remove the event listener so they cannot be activated again.
-        if (firstCard.dataset.name === secondCard.dataset.name) {
-            firstCard.style.visibility = "hidden";
-            firstCard.removeEventListener('click', flipCard);
-            secondCard.style.visibility = "hidden";
-            secondCard.removeEventListener('click', flipCard);
-        } else {
-            // If the cards don't match, flip them back over to their original positions, with a 1 second delay so the user can view the selected cards.
-            setTimeout(() => {
-                firstCard.classList.remove('flip');
-                secondCard.classList.remove('flip');
-            }, 1000)
-        }
     }
+
+    checkCards();
 };
+
+/** Checks if cards match. If so, they disappear and cannot be clicked again. If not, 
+ *  they are flipped back to their original positions.*/
+function checkCards() {
+    // If the cards match, hide the cards and remove the event listener so they cannot be activated again.
+    if (firstCard.dataset.name === secondCard.dataset.name) {
+        firstCard.style.visibility = "hidden";
+        firstCard.removeEventListener('click', flipCard);
+        secondCard.style.visibility = "hidden";
+        secondCard.removeEventListener('click', flipCard);
+    } else {
+        // If the cards don't match, flip them back over to their original positions, with a 1 second delay so the user can view the selected cards.
+        setTimeout(() => {
+            firstCard.classList.remove('flip');
+            secondCard.classList.remove('flip');
+        }, 1000)
+    }
+}
