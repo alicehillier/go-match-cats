@@ -8,6 +8,20 @@ startButton.addEventListener('click', startGame);
 let helpButton = document.getElementsByClassName('help');
 helpButton[0].addEventListener('click', showInstructions);
 
+// Create the empty array and insert all cards.
+let deck = [];
+let allCards = document.getElementsByClassName('card');
+for (let i = 0; i < allCards.length; i++) {
+    deck.push(allCards[i].innerHTML);
+}
+
+let flippedCard = false;
+let firstCard;
+let secondCard;
+
+// Cards can be flipped.
+let boardLocked = false;
+
 /**Creates instructions and shows them to the player. Also removes them when the 'X' in the top right corner is clicked on. */
 function showInstructions() {
     let instructions = document.createElement('div');
@@ -32,13 +46,6 @@ function showInstructions() {
         instructions.removeAttribute('id', 'instructions');
         instructions.style.display = "none";
     }
-}
-
-// Create the empty array and insert all cards.
-let deck = [];
-let allCards = document.getElementsByClassName('card');
-for (let i = 0; i < allCards.length; i++) {
-    deck.push(allCards[i].innerHTML);
 }
 
 /**Removes the Start button when it's clicked on and counts down "3, 2, 1, GO!" with one second between each of them. */
@@ -74,7 +81,6 @@ function startGame() {
 
 /**Starts the countdown from 60 seconds. If 0 is reached, the gameOver function is triggered. */
 function startTimer() {
-
     let restartButton = document.createElement('button');
     restartButton.setAttribute('class', 'restart');
     restartButton.innerHTML = "RESTART";
@@ -153,17 +159,12 @@ function restartGame() {
     }, 500);
 }
 
-let flippedCard = false;
-let firstCard;
-let secondCard;
-
-// Cards can be flipped.
-let boardLocked = false;
-
 /**Allows cards to be flipped, checks if cards match and hides them if they do, or returns them to their original position if they don't (with 1 sec delay for viewing) */
 function flipCard() {
     // If the cards cannot be flipped, stop the function.
     if (boardLocked) return;
+    // If the same card is clicked on twice, stop the function so it doesn't match with itself.
+    if (this === firstCard) return;
 
     // get all elements with the class 'card' and iterate through them, adding the event listener for all.
     let cards = document.getElementsByClassName('card');
@@ -194,6 +195,7 @@ function checkCards() {
         firstCard.removeEventListener('click', flipCard);
         secondCard.style.visibility = "hidden";
         secondCard.removeEventListener('click', flipCard);
+        resetBoard();
     } else {
         // Stop the player from flipping cards.
         boardLocked = true;
@@ -202,7 +204,15 @@ function checkCards() {
             firstCard.classList.remove('flip');
             secondCard.classList.remove('flip');
             // Allow the player to flip cards again.
-            boardLocked = false;
+            resetBoard();
         }, 1000)
     }
+}
+
+/**The matching process starts again, allowing the player to flip 2 cards. */
+function resetBoard() {
+    flippedCard = false;
+    boardLocked = false
+    firstCard = null;
+    secondCard = null;
 }
