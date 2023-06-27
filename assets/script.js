@@ -165,7 +165,7 @@ function flipCard() {
         cards[i].addEventListener('click', flipCard);
     }
     // Adds a 'flip' class to the card element, or removes it if the card already has the class. This allows the card to be flipped multiple times.
-    this.classList.toggle('flip');
+    this.classList.add('flip');
 
     if (!flippedCard) {
         // When first card is selected. flippedCard is now true. It has been flipped once.
@@ -185,8 +185,8 @@ function flipCard() {
         } else {
             // If the cards don't match, flip them back over to their original positions, with a 1 second delay so the user can view the selected cards.
             setTimeout(() => {
-                firstCard.classList.toggle('flip');
-                secondCard.classList.toggle('flip');
+                firstCard.classList.remove('flip');
+                secondCard.classList.remove('flip');
             }, 1000)
         }
     }
