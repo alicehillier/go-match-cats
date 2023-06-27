@@ -203,7 +203,9 @@ function checkCards() {
         // If all 24 cards have the card-flipped class, trigger the youWin function.
         let cardFlipped = document.getElementsByClassName('card-flipped');
         if (cardFlipped.length === 24) {
-            youWin();
+            setTimeout(() => {
+                youWin();
+            }, 1000);
         }
     } else {
         // Stop the player from flipping cards.
