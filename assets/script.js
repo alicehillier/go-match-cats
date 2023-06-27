@@ -157,8 +157,14 @@ let flippedCard = false;
 let firstCard;
 let secondCard;
 
+// Cards can be flipped.
+let boardLocked = false;
+
 /**Allows cards to be flipped, checks if cards match and hides them if they do, or returns them to their original position if they don't (with 1 sec delay for viewing) */
 function flipCard() {
+    // If the cards cannot be flipped, stop the function.
+    if (boardLocked) return;
+
     // get all elements with the class 'card' and iterate through them, adding the event listener for all.
     let cards = document.getElementsByClassName('card');
     for (let i = 0; i < cards.length; i++) {
@@ -176,7 +182,6 @@ function flipCard() {
         flippedCard = false;
         secondCard = this;
     }
-
     checkCards();
 };
 
@@ -190,10 +195,14 @@ function checkCards() {
         secondCard.style.visibility = "hidden";
         secondCard.removeEventListener('click', flipCard);
     } else {
+        // Stop the player from flipping cards.
+        boardLocked = true;
         // If the cards don't match, flip them back over to their original positions, with a 1 second delay so the user can view the selected cards.
         setTimeout(() => {
             firstCard.classList.remove('flip');
             secondCard.classList.remove('flip');
+            // Allow the player to flip cards again.
+            boardLocked = false;
         }, 1000)
     }
 }
