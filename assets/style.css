@@ -119,6 +119,7 @@ h1 {
 #start-button,
 .start-countdown,
 .losing-message,
+.winning-message,
 #retry-button {
     height: 8rem;
     padding: 1rem;
@@ -132,7 +133,8 @@ h1 {
     font-size: 2rem;
 }
 
-.losing-message {
+.losing-message,
+.winning-message {
     line-height: 5rem;
     border-radius: 50%;
     text-align: center;

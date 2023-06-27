@@ -226,6 +226,7 @@ function resetBoard() {
     secondCard = null;
 }
 
+/** Shows the player a 'you won!' message and lets them restart the game by clicking the 'play again' button. */
 function youWin() {
     console.log('gameOver triggered');
     // get all elements with the class 'card' and iterate through them, adding the event listener for all.
@@ -233,16 +234,16 @@ function youWin() {
     for (let i = 0; i < cards.length; i++) {
         cards[i].removeEventListener('click', flipCard);
     }
-    // show "YOU LOST!" to the player.
-    let losingMessage = document.createElement('p');
-    losingMessage.classList.add('losing-message');
-    losingMessage.innerHTML = "YOU WON!";
+    // show "YOU WIN!" to the player.
+    let winningMessage = document.createElement('p');
+    winningMessage.classList.add('winning-message');
+    winningMessage.innerHTML = "YOU WON!";
     let cardsGrid = document.getElementsByClassName('cards-grid');
-    cardsGrid[0].append(losingMessage);
+    cardsGrid[0].append(winningMessage);
     setTimeout(() => {
-        // remove the losingMessage after one second and display retryButton in its place.
-        losingMessage.remove();
-        console.log('losingMessage removed');
+        // remove the winningMessage after one second and display retryButton in its place.
+        winningMessage.remove();
+        console.log('winningMessage removed');
         let retryButton = document.createElement('button');
         retryButton.setAttribute('id', 'retry-button');
         retryButton.innerHTML = "PLAY AGAIN?";
