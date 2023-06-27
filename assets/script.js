@@ -90,7 +90,7 @@ function startTimer() {
 
     console.log('start timer now!');
     let gameTimer = document.getElementsByClassName('timer');
-    let maxTime = 11;
+    let maxTime = 30;
     let timer = setInterval(() => {
         /* If the timer has more than 0 seconds remaining, show how many seconds are left
          in the gameTimer element. Then, deduct 1 second from the timer.*/
@@ -171,7 +171,7 @@ function flipCard() {
     for (let i = 0; i < cards.length; i++) {
         cards[i].addEventListener('click', flipCard);
     }
-    // Adds a 'flip' class to the card element, or removes it if the card already has the class. This allows the card to be flipped multiple times.
+    // Adds a 'flip' class to the card element. This allows the card to be flipped.
     this.classList.add('flip');
 
     if (!flippedCard) {
@@ -192,10 +192,19 @@ function checkCards() {
     // If the cards match, hide the cards and remove the event listener so they cannot be activated again.
     if (firstCard.dataset.name === secondCard.dataset.name) {
         firstCard.style.visibility = "hidden";
+        // If a card is matched, add a new class.
+        firstCard.classList.add('card-flipped');
         firstCard.removeEventListener('click', flipCard);
         secondCard.style.visibility = "hidden";
+        // If a card is matched, add a new class.
+        secondCard.classList.add('card-flipped');
         secondCard.removeEventListener('click', flipCard);
         resetBoard();
+        // If all 24 cards have the card-flipped class, trigger the youWin function.
+        let cardFlipped = document.getElementsByClassName('card-flipped');
+        if (cardFlipped.length === 24) {
+            youWin();
+        }
     } else {
         // Stop the player from flipping cards.
         boardLocked = true;
@@ -215,4 +224,29 @@ function resetBoard() {
     boardLocked = false
     firstCard = null;
     secondCard = null;
+}
+
+function youWin() {
+    console.log('gameOver triggered');
+    // get all elements with the class 'card' and iterate through them, adding the event listener for all.
+    let cards = document.getElementsByClassName('card');
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].removeEventListener('click', flipCard);
+    }
+    // show "YOU LOST!" to the player.
+    let losingMessage = document.createElement('p');
+    losingMessage.classList.add('losing-message');
+    losingMessage.innerHTML = "YOU WON!";
+    let cardsGrid = document.getElementsByClassName('cards-grid');
+    cardsGrid[0].append(losingMessage);
+    setTimeout(() => {
+        // remove the losingMessage after one second and display retryButton in its place.
+        losingMessage.remove();
+        console.log('losingMessage removed');
+        let retryButton = document.createElement('button');
+        retryButton.setAttribute('id', 'retry-button');
+        retryButton.innerHTML = "PLAY AGAIN?";
+        cardsGrid[0].append(retryButton);
+        retryButton.addEventListener('click', restartGame);
+    }, 2000);
 }
