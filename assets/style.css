@@ -73,6 +73,8 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    /* THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek */
+    /*creates 3D effect with code indicated in '.card' style */
     perspective: 1000px;
 }
 
@@ -164,16 +166,20 @@ h1 {
     border: 1px solid rgb(0, 0, 52);
     box-shadow: 2px 2px 3px rgb(0, 0, 52);
     border-radius: 1rem;
+    /* THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL AND CUSTOMISED: https://www.youtube.com/watch?v=ZniVgo8U7ek */
+    /*creates 3D effect with code indicated in '.cards-grid' style */
     transform: scale(1);
     transform-style: preserve-3d;
     transition: 0.5s;
 }
 
+/* THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL AND CUSTOMISED: https://www.youtube.com/watch?v=ZniVgo8U7ek */
 .card:active {
     transform: scale(0.98);
     transition: 0.5s;
 }
 
+/* THE POSITION AND BACKFACE-VISIBILITY CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL AND CUSTOMISED: https://www.youtube.com/watch?v=ZniVgo8U7ek */
 .card-front,
 .card-back {
     position: absolute;
@@ -190,6 +196,7 @@ h1 {
     object-fit: cover;
 }
 
+/* THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek */
 .card-front,
 .card.flip {
     transform: rotateY(180deg);
