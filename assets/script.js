@@ -15,12 +15,17 @@ for (let i = 0; i < allCards.length; i++) {
     deck.push(allCards[i].innerHTML);
 }
 
+//THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek
+// ---------------------------------
+
 let flippedCard = false;
 let firstCard;
 let secondCard;
 
 // Cards can be flipped.
 let boardLocked = false;
+
+// ---------------------------------
 
 /**Creates instructions and shows them to the player. Also removes them when the 'X' in the top right corner is clicked on. */
 function showInstructions() {
@@ -159,6 +164,9 @@ function restartGame() {
     }, 500);
 }
 
+//THE CODE IN THE flipCard FUNCTION WAS SOURCED FROM A FREECODECAMP TUTORIAL AND CUSTOMISED: https://www.youtube.com/watch?v=ZniVgo8U7ek
+//---------------------------------------------------------------------------------------------------------
+
 /**Allows cards to be flipped, checks if cards match and hides them if they do, or returns them to their original position if they don't (with 1 sec delay for viewing) */
 function flipCard() {
     // If the cards cannot be flipped, stop the function.
@@ -186,10 +194,16 @@ function flipCard() {
     checkCards();
 };
 
+//---------------------------------------------------------------------------------------------------------
+
+//THE CODE IN THE checkCards FUNCTION WAS SOURCED FROM A FREECODECAMP TUTORIAL AND CUSTOMISED: https://www.youtube.com/watch?v=ZniVgo8U7ek
+//---------------------------------------------------------------------------------------------------------
+
 /** Checks if cards match. If so, they disappear and cannot be clicked again. If not, 
  *  they are flipped back to their original positions.*/
 function checkCards() {
     // If the cards match, hide the cards and remove the event listener so they cannot be activated again.
+    //DATASET NAMES, CARD STYLES, CLASS NAMES AND CONDITIONAL STATEMENT TRIGGERING youWin ARE MY OWN.
     if (firstCard.dataset.name === secondCard.dataset.name) {
         firstCard.style.visibility = "hidden";
         // If a card is matched, add a new class.
@@ -220,6 +234,11 @@ function checkCards() {
     }
 }
 
+//---------------------------------------------------------------------------------------------------------
+
+//THE CODE IN THE resetBoard FUNCTION WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek
+//---------------------------------------------------------------------------------------------------------
+
 /**The matching process starts again, allowing the player to flip 2 cards. */
 function resetBoard() {
     flippedCard = false;
@@ -227,6 +246,8 @@ function resetBoard() {
     firstCard = null;
     secondCard = null;
 }
+
+//---------------------------------------------------------------------------------------------------------
 
 /** Shows the player a 'you won!' message and lets them restart the game by clicking the 'play again' button. */
 function youWin() {
