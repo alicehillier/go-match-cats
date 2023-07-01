@@ -256,6 +256,8 @@ function youWin() {
     let cards = document.getElementsByClassName('card');
     for (let i = 0; i < cards.length; i++) {
         cards[i].removeEventListener('click', flipCard);
+        // remove this class so the game isn't stuck in an endless loop saying "YOU WON!" - linked to timer.
+        cards[i].classList.remove('card-flipped');
     }
     // show "YOU WIN!" to the player.
     let winningMessage = document.createElement('p');
