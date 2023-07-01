@@ -103,6 +103,13 @@ function startTimer() {
             // If there is less than 10 seconds on the timer, add a '0' before the number of seconds.
             gameTimer[0].innerHTML = `00:${maxTime < 10 ? '0' + maxTime : maxTime}`;
             maxTime--;
+            // If all 24 cards have the card-flipped class, trigger the youWin function.
+            let cardFlipped = document.getElementsByClassName('card-flipped');
+            if (maxTime > 0 && cardFlipped.length === 24) {
+                clearInterval(timer);
+                youWin();
+                restartButton.remove();
+            }
             /* If the timer reaches 0, show "00:00!" in the timer area, stop the timer
             and trigger the gameOver function.*/
         } else {
@@ -214,13 +221,6 @@ function checkCards() {
         secondCard.classList.add('card-flipped');
         secondCard.removeEventListener('click', flipCard);
         resetBoard();
-        // If all 24 cards have the card-flipped class, trigger the youWin function.
-        let cardFlipped = document.getElementsByClassName('card-flipped');
-        if (cardFlipped.length === 24) {
-            setTimeout(() => {
-                youWin();
-            }, 1000);
-        }
     } else {
         // Stop the player from flipping cards.
         boardLocked = true;
