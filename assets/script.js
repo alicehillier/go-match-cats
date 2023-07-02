@@ -91,7 +91,7 @@ function startTimer() {
     restartButton.innerHTML = "RESTART";
     let headerButtons = document.getElementsByClassName('header-buttons');
     headerButtons[0].append(restartButton);
-    restartButton.addEventListener('click', restartGame);
+    restartButton.addEventListener('click', restartMidGame);
 
     console.log('start timer now!');
     let gameTimer = document.getElementsByClassName('timer');
@@ -109,6 +109,10 @@ function startTimer() {
                 clearInterval(timer);
                 youWin();
                 restartButton.remove();
+            }
+            if (maxTime > 0 && startAgain === true) {
+                clearInterval(timer);
+                startAgain = false;
             }
             /* If the timer reaches 0, show "00:00!" in the timer area, stop the timer
             and trigger the gameOver function.*/
@@ -153,6 +157,33 @@ function restartGame() {
     // Remove the retry button as it has been clicked.
     let retryButton = document.getElementById('retry-button');
     retryButton.remove();
+    let cards = document.getElementsByClassName('card');
+    for (let i = 0; i < cards.length; i++) {
+        // cards[i].removeEventListener('click', flipCard);
+        // get all the cards and remove the 'flip' class, so they are all facing the same way.
+        cards[i].classList.remove('flip');
+        setTimeout(() => {
+            // make all cards visible again after 0.5 sec delay, so player cannot see the image on the cards as they turn.  
+            cards[i].style.visibility = "visible";
+        }, 500);
+    }
+    // re-add the startbutton and its event listener, so the startGame function can be run again.
+    // set timeout so button appears after cards have been returned to original positions.
+    setTimeout(() => {
+        cardsGrid[0].prepend(startButton);
+        startGame();
+    }, 500);
+}
+
+let startAgain = false;
+
+/**Restarts the game and the timer when the player is in the middle of the current game. */
+function restartMidGame() {
+    console.log('restart mid-game now');
+    // Remove the retry button as it has been clicked.
+    let restartButton = document.getElementsByClassName('restart');
+    restartButton[0].remove();
+    startAgain = true;
     let cards = document.getElementsByClassName('card');
     for (let i = 0; i < cards.length; i++) {
         // cards[i].removeEventListener('click', flipCard);
