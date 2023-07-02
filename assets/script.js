@@ -107,11 +107,13 @@ function startTimer() {
             let cardFlipped = document.getElementsByClassName('card-flipped');
             if (maxTime > 0 && cardFlipped.length === 24) {
                 clearInterval(timer);
+                gameTimer[0].innerHTML = "00:00";
                 youWin();
                 restartButton.remove();
             }
             if (maxTime > 0 && startAgain === true) {
                 clearInterval(timer);
+                gameTimer[0].innerHTML = "00:00";
                 startAgain = false;
             }
             /* If the timer reaches 0, show "00:00!" in the timer area, stop the timer
