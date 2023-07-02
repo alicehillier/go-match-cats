@@ -200,7 +200,6 @@ function restartMidGame() {
     // set timeout so button appears after cards have been returned to original positions.
     setTimeout(() => {
         cardsGrid[0].prepend(startButton);
-        startGame();
     }, 500);
 }
 
