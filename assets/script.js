@@ -4,7 +4,7 @@ startButton.setAttribute('id', 'start-button');
 startButton.innerHTML = "START";
 let cardsGrid = document.getElementsByClassName('cards-grid');
 cardsGrid[0].prepend(startButton);
-startButton.addEventListener('click', startGame);
+startButton.addEventListener('click', shuffleCards);
 let helpButton = document.getElementsByClassName('help');
 helpButton[0].addEventListener('click', showInstructions);
 
@@ -130,6 +130,15 @@ function resetBoard() {
 }
 
 //---------------------------------------------------------------------------------------------------------
+
+function shuffleCards() {
+    let cards = document.getElementsByClassName('card');
+    for (let i = 0; i < cards.length; i++) {
+        let randomNumber = Math.floor(Math.random() * 24);
+        cards[i].style.order = randomNumber;
+    }
+    startGame();
+}
 
 /**Removes the Start button when it's clicked on and counts down "3, 2, 1, GO!" with one second between each of them. */
 function startGame() {
@@ -307,6 +316,6 @@ function restartGame() {
     // set timeout so button appears after cards have been returned to original positions.
     setTimeout(() => {
         cardsGrid[0].prepend(startButton);
-        startGame();
+        // startGame();
     }, 500);
 }
