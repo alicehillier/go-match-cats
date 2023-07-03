@@ -7,6 +7,7 @@
 
 body {
     background: linear-gradient(rgb(0, 0, 52), rgb(85, 163, 189), lightpink, rgb(0, 0, 52));
+    overflow: hidden;
 }
 
 header {
@@ -78,6 +79,33 @@ h1 {
     /* THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek */
     /*creates 3D effect with code indicated in '.card' style */
     perspective: 1000px;
+}
+
+#cat-animation {
+    height: 4.5rem;
+    width: 6.5rem;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    z-index: -2;
+    transform: rotateY(180deg);
+}
+
+.moving-cat {
+    animation-name: moving-cat;
+    animation-timing-function: cubic-bezier(0.25, 0.25, 0.25, 0.25);
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes moving-cat {
+    0% {
+        margin-left: -10%;
+    }
+
+    100% {
+        margin-left: 100%;
+    }
 }
 
 #instructions {
@@ -251,8 +279,8 @@ h1 {
     }
 
     .card {
-        height: 170px;
-        width: 120px;
+        height: 160px;
+        width: 110px;
     }
 }
 
@@ -288,8 +316,8 @@ h1 {
     }
 
     .card {
-        height: 145px;
-        width: 95px;
+        height: 140px;
+        width: 90px;
         margin: 0.15rem;
     }
 }
@@ -324,12 +352,17 @@ h1 {
 
 @media only screen and (max-width: 391px) {
 
+    header {
+        padding-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
     .cards-grid {
         margin: 0 auto;
     }
 
     .card {
-        height: 110px;
+        height: 100px;
         width: 60px;
     }
 }
