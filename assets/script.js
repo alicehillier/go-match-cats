@@ -8,13 +8,6 @@ startButton.addEventListener('click', shuffleCards);
 let helpButton = document.getElementsByClassName('help');
 helpButton[0].addEventListener('click', showInstructions);
 
-// Create the empty array and insert all cards.
-let deck = [];
-let allCards = document.getElementsByClassName('card');
-for (let i = 0; i < allCards.length; i++) {
-    deck.push(allCards[i].innerHTML);
-}
-
 //THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek
 // ---------------------------------
 
@@ -131,6 +124,9 @@ function resetBoard() {
 
 //---------------------------------------------------------------------------------------------------------
 
+//THE CODE IN THE shuffleCards FUNCTION WAS MADE USING LOGIC FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek AND CUSTOMISED SIGNIFICANTLY
+
+/**Shuffles the cards, putting them in a random order. Trigger the startGame function afterwards. */
 function shuffleCards() {
     let cards = document.getElementsByClassName('card');
     for (let i = 0; i < cards.length; i++) {
