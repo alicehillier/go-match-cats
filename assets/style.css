@@ -44,6 +44,7 @@ h1 {
 
 /* Styles for timer, help and restart button */
 .timer,
+.score,
 .restart,
 .help {
     line-height: 1rem;
@@ -304,6 +305,7 @@ h1 {
 
     /* Styles for timer, help and restart button */
     .timer,
+    .score,
     .restart,
     .help {
         font-size: 0.8rem;
