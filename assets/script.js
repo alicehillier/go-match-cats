@@ -200,7 +200,7 @@ function startTimer() {
                 gameTimer[0].innerHTML = "00:00";
                 youWin();
                 restartButton.remove();
-                score[0].remove();
+                score.remove();
             }
             if (maxTime > 0 && startAgain === true) {
                 clearInterval(timer);
@@ -214,7 +214,7 @@ function startTimer() {
             clearInterval(timer);
             gameOver();
             restartButton.remove();
-            score[0].remove();
+            score.remove();
         }
     }, 1000);
 }

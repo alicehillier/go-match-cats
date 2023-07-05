@@ -30,7 +30,7 @@ header {
 }
 
 .header li {
-    display: inline-flex;
+    display: flex;
 }
 
 .header-buttons {
@@ -56,6 +56,10 @@ h1 {
 }
 
 .help {
+    margin-left: 0.35rem;
+}
+
+.timer {
     margin-right: 0.35rem;
 }
 
@@ -357,6 +361,32 @@ h1 {
     header {
         padding-top: 1rem;
         margin-bottom: 1rem;
+    }
+
+    .score-and-timer,
+    .header-buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .score-and-timer,
+    .header-buttons {
+        margin: 0;
+        padding: 0;
+    }
+
+    .timer,
+    .score,
+    .restart,
+    .help {
+        line-height: 1rem;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 0.1rem 0;
     }
 
     .cards-grid {
