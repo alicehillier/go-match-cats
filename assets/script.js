@@ -172,9 +172,8 @@ function startGame() {
 
 /**Starts the countdown from 60 seconds. If 0 is reached, the gameOver function is triggered. */
 function startTimer() {
-    let restartButton = document.createElement('button');
-    restartButton.setAttribute('class', 'restart');
-    restartButton.innerHTML = "RESTART";
+    let restartButton = document.createElement('li');
+    restartButton.innerHTML = `<button class="restart">RESTART</button>`;
     let headerButtons = document.getElementsByClassName('header-buttons');
     headerButtons[0].append(restartButton);
     restartButton.addEventListener('click', restartMidGame);
