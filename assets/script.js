@@ -175,8 +175,13 @@ function startTimer() {
     let restartButton = document.createElement('li');
     restartButton.innerHTML = `<button class="restart">RESTART</button>`;
     let headerButtons = document.getElementsByClassName('header-buttons');
-    headerButtons[0].append(restartButton);
+    headerButtons[0].prepend(restartButton);
     restartButton.addEventListener('click', restartMidGame);
+
+    let score = document.createElement('li');
+    score.innerHTML = `<p class="score">SCORE: <span class="score-counter">0</span></p>`;
+    let scoreAndTimer = document.getElementsByClassName('score-and-timer');
+    scoreAndTimer[0].append(score);
 
     console.log('start timer now!');
     let gameTimer = document.getElementsByClassName('timer');
@@ -195,6 +200,7 @@ function startTimer() {
                 gameTimer[0].innerHTML = "00:00";
                 youWin();
                 restartButton.remove();
+                score[0].remove();
             }
             if (maxTime > 0 && startAgain === true) {
                 clearInterval(timer);
@@ -208,6 +214,7 @@ function startTimer() {
             clearInterval(timer);
             gameOver();
             restartButton.remove();
+            score[0].remove();
         }
     }, 1000);
 }
@@ -221,6 +228,8 @@ function restartMidGame() {
     // Remove the retry button as it has been clicked.
     let restartButton = document.getElementsByClassName('restart');
     restartButton[0].remove();
+    let score = document.getElementsByClassName('score');
+    score[0].remove();
     startAgain = true;
     let cards = document.getElementsByClassName('card');
     for (let i = 0; i < cards.length; i++) {
