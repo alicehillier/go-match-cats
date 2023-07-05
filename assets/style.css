@@ -33,6 +33,12 @@ header {
     display: flex;
 }
 
+.score-and-timer,
+.header-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
 .header-buttons {
     text-align: right;
 }
