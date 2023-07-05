@@ -297,6 +297,31 @@ h1 {
 
 @media only screen and (max-width: 767px) {
 
+    header {
+        height: 100%;
+        padding-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .score-and-timer,
+    .header-buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .timer,
+    .score,
+    .restart,
+    .help {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 0.5rem;
+    }
+
     .cards-grid {
         margin: 3rem auto;
     }
@@ -305,6 +330,10 @@ h1 {
         height: 150px;
         width: 100px;
         margin: 0.25rem;
+    }
+
+    #cat-animation {
+        display: none;
     }
 }
 
@@ -363,37 +392,6 @@ h1 {
 }
 
 @media only screen and (max-width: 391px) {
-
-    header {
-        padding-top: 1rem;
-        margin-bottom: 1rem;
-    }
-
-    .score-and-timer,
-    .header-buttons {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .score-and-timer,
-    .header-buttons {
-        margin: 0;
-        padding: 0;
-    }
-
-    .timer,
-    .score,
-    .restart,
-    .help {
-        line-height: 1rem;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        margin: 0.1rem 0;
-    }
 
     .cards-grid {
         margin: 0 auto;

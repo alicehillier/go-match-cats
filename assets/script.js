@@ -96,6 +96,7 @@ function checkCards() {
         secondCard.classList.add('card-flipped');
         secondCard.removeEventListener('click', flipCard);
         resetBoard();
+        
     } else {
         // Stop the player from flipping cards.
         boardLocked = true;
@@ -172,16 +173,23 @@ function startGame() {
 
 /**Starts the countdown from 60 seconds. If 0 is reached, the gameOver function is triggered. */
 function startTimer() {
-    let restartButton = document.createElement('li');
-    restartButton.innerHTML = `<button class="restart">RESTART</button>`;
-    let headerButtons = document.getElementsByClassName('header-buttons');
-    headerButtons[0].prepend(restartButton);
-    restartButton.addEventListener('click', restartMidGame);
+    // let restartButton = document.createElement('li');
+    // restartButton.innerHTML = `<button class="restart">RESTART</button>`;
+    // let headerButtons = document.getElementsByClassName('header-buttons');
+    // headerButtons[0].prepend(restartButton);
+    // restartButton.addEventListener('click', restartMidGame);
 
-    let score = document.createElement('li');
-    score.innerHTML = `<p class="score">SCORE: <span class="score-counter">0</span></p>`;
-    let scoreAndTimer = document.getElementsByClassName('score-and-timer');
-    scoreAndTimer[0].append(score);
+    // let score = document.createElement('li');
+    // score.innerHTML = `<p class="score">SCORE: </p>`;
+    // let scoreAndTimer = document.getElementsByClassName('score-and-timer');
+    // scoreAndTimer[0].append(score);
+
+    // let scoreCounter = document.createElement('span');
+    // scoreCounter.setAttribute('class', 'score-counter');
+    // let newScore = 0;
+    // scoreCounter.innerHTML = newScore;
+    // let scoreLabel = document.getElementsByClassName('score');
+    // scoreLabel[0].append(scoreCounter);
 
     console.log('start timer now!');
     let gameTimer = document.getElementsByClassName('timer');
@@ -199,8 +207,8 @@ function startTimer() {
                 clearInterval(timer);
                 gameTimer[0].innerHTML = "00:00";
                 youWin();
-                restartButton.remove();
-                score.remove();
+                // restartButton.remove();
+                // score.remove();
             }
             if (maxTime > 0 && startAgain === true) {
                 clearInterval(timer);
@@ -213,8 +221,8 @@ function startTimer() {
             gameTimer[0].innerHTML = "00:00";
             clearInterval(timer);
             gameOver();
-            restartButton.remove();
-            score.remove();
+            // restartButton.remove();
+            // score.remove();
         }
     }, 1000);
 }
@@ -226,10 +234,10 @@ function restartMidGame() {
     console.log('restart mid-game now');
     boardLocked = true;
     // Remove the retry button as it has been clicked.
-    let restartButton = document.getElementsByClassName('restart');
-    restartButton[0].remove();
-    let score = document.getElementsByClassName('score');
-    score[0].remove();
+    // let restartButton = document.getElementsByClassName('restart');
+    // restartButton[0].remove();
+    // let score = document.getElementsByClassName('score');
+    // score[0].remove();
     startAgain = true;
     let cards = document.getElementsByClassName('card');
     for (let i = 0; i < cards.length; i++) {
