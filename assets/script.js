@@ -84,6 +84,7 @@ function flipCard() {
 /** Checks if cards match. If so, they disappear and cannot be clicked again. If not, 
  *  they are flipped back to their original positions.*/
 function checkCards() {
+    let score = 0;
     // If the cards match, hide the cards and remove the event listener so they cannot be activated again.
     //DATASET NAMES, CARD STYLES, CLASS NAMES AND CONDITIONAL STATEMENT TRIGGERING youWin ARE MY OWN.
     if (firstCard.dataset.name === secondCard.dataset.name) {
@@ -96,7 +97,13 @@ function checkCards() {
         secondCard.classList.add('card-flipped');
         secondCard.removeEventListener('click', flipCard);
         resetBoard();
-        
+        let scoreCounter = document.getElementsByClassName('score-counter');
+        let cardFlipped = document.getElementsByClassName('card-flipped');
+        score = (cardFlipped.length);
+        scoreCounter[0].innerHTML = score;
+        console.log(score);
+        return score;
+
     } else {
         // Stop the player from flipping cards.
         boardLocked = true;
