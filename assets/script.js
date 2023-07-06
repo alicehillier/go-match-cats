@@ -34,6 +34,7 @@ function showInstructions() {
     <li>Don't forget, you've got a time limit! If the timer runs out and you haven't matched all the cards, you'll lose the game.</li>
     <li>Too easy? Try a harder level!</li>
     </ul>
+    <img src="assets/images/cartoon-cat-vector.png" alt="cartoon cat" class="cat-instructions">
     `
     let body = document.getElementsByTagName('body');
     body[0].prepend(instructions);

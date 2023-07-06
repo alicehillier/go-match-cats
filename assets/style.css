@@ -123,6 +123,14 @@ h1 {
     }
 }
 
+.cat-instructions {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 15rem;
+    width: 22.5rem;
+}
+
 #instructions {
     position: absolute;
     height: 100%;
@@ -289,6 +297,14 @@ h1 {
         width: 99%;
     } */
 
+    .cat-instructions {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 9rem;
+        width: 13rem;
+    }
+
     .cards-grid {
         margin: 1rem auto;
     }
@@ -356,6 +372,14 @@ h1 {
         padding: 0.5rem;
     }
 
+    .cat-instructions {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 6rem;
+        width: 9rem;
+    }
+
     .cards-grid {
         width: 100%;
     }
@@ -396,6 +420,10 @@ h1 {
 }
 
 @media only screen and (max-width: 391px) {
+
+    .cat-instructions {
+        display: none;
+    }
 
     .cards-grid {
         margin: 0 auto;
