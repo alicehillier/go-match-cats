@@ -99,7 +99,7 @@ function checkCards() {
         resetBoard();
         let scoreCounter = document.getElementsByClassName('score-counter');
         let cardFlipped = document.getElementsByClassName('card-flipped');
-        score = (cardFlipped.length);
+        score = (cardFlipped.length * 2.5);
         scoreCounter[0].innerHTML = score;
         console.log(score);
         return score;
