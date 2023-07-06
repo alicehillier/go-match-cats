@@ -173,11 +173,9 @@ function startGame() {
 
 /**Starts the countdown from 60 seconds. If 0 is reached, the gameOver function is triggered. */
 function startTimer() {
-    // let restartButton = document.createElement('li');
-    // restartButton.innerHTML = `<button class="restart">RESTART</button>`;
-    // let headerButtons = document.getElementsByClassName('header-buttons');
-    // headerButtons[0].prepend(restartButton);
-    // restartButton.addEventListener('click', restartMidGame);
+    let restartButton = document.getElementsByClassName('restart');
+    restartButton[0].style.visibility = "visible";
+    restartButton[0].addEventListener('click', restartMidGame);
 
     // let score = document.createElement('li');
     // score.innerHTML = `<p class="score">SCORE: </p>`;
@@ -207,7 +205,7 @@ function startTimer() {
                 clearInterval(timer);
                 gameTimer[0].innerHTML = "00:00";
                 youWin();
-                // restartButton.remove();
+                restartButton[0].style.visibility = "hidden";
                 // score.remove();
             }
             if (maxTime > 0 && startAgain === true) {
@@ -221,7 +219,7 @@ function startTimer() {
             gameTimer[0].innerHTML = "00:00";
             clearInterval(timer);
             gameOver();
-            // restartButton.remove();
+            restartButton[0].style.visibility = "hidden";
             // score.remove();
         }
     }, 1000);
@@ -234,8 +232,8 @@ function restartMidGame() {
     console.log('restart mid-game now');
     boardLocked = true;
     // Remove the retry button as it has been clicked.
-    // let restartButton = document.getElementsByClassName('restart');
-    // restartButton[0].remove();
+    let restartButton = document.getElementsByClassName('restart');
+    restartButton[0].style.visibility = "hidden";
     // let score = document.getElementsByClassName('score');
     // score[0].remove();
     startAgain = true;

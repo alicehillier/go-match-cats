@@ -61,6 +61,10 @@ h1 {
     color: rgb(0, 0, 52);
 }
 
+.restart {
+    visibility: hidden;
+}
+
 .help {
     margin-left: 0.35rem;
 }
