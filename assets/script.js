@@ -141,6 +141,7 @@ function shuffleCards() {
 
 /**Removes the Start button when it's clicked on and counts down "3, 2, 1, GO!" with one second between each of them. */
 function startGame() {
+    resetScore();
     let catAnimation = document.getElementById('cat-animation');
     catAnimation.classList.remove('moving-cat');
     // remove the start button after one second and display "3" in its place.
@@ -337,8 +338,22 @@ function restartGame() {
 function incrementScore() {
     let scoreCounter = document.getElementsByClassName('score-counter');
     let cardFlipped = document.getElementsByClassName('card-flipped');
-    score = (cardFlipped.length * 2.5);
+    score = (cardFlipped.length) * 2.5;
     scoreCounter[0].innerHTML = score;
     console.log(score);
     return score;
+}
+
+function resetScore() {
+    let scoreCounter = document.getElementsByClassName('score-counter');
+    let cardFlipped = document.getElementsByClassName('card-flipped');
+    let score = cardFlipped.length;
+    if (cardFlipped.length > 0) {
+        let cards = document.getElementsByClassName('card');
+        for (let i = 0; i < cards.length; i++) {
+            cards[i].classList.remove('card-flipped');
+            scoreCounter[0].innerHTML = 0;
+        }
+    }
+    return;
 }
