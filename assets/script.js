@@ -267,10 +267,13 @@ function youWin() {
         // remove this class so the game isn't stuck in an endless loop saying "YOU WON!" - linked to timer.
         cards[i].classList.remove('card-flipped');
     }
+    let scoreCounter = document.getElementsByClassName('score-counter');
     // show "YOU WIN!" to the player.
     let winningMessage = document.createElement('p');
     winningMessage.classList.add('winning-message');
-    winningMessage.innerHTML = "YOU WON!";
+    winningMessage.innerHTML = `YOU WON! 
+    <br>
+    Your score was ${scoreCounter[0].innerHTML}`;
     let cardsGrid = document.getElementsByClassName('cards-grid');
     cardsGrid[0].append(winningMessage);
     setTimeout(() => {
@@ -292,11 +295,13 @@ function gameOver() {
     let cards = document.getElementsByClassName('card');
     for (let i = 0; i < cards.length; i++) {
         cards[i].removeEventListener('click', flipCard);
-    }
+    } let scoreCounter = document.getElementsByClassName('score-counter');
     // show "YOU LOST!" to the player.
     let losingMessage = document.createElement('p');
     losingMessage.classList.add('losing-message');
-    losingMessage.innerHTML = "YOU LOST!";
+    losingMessage.innerHTML = `YOU LOST! 
+    <br>
+    Your score was ${scoreCounter[0].innerHTML}`;
     let cardsGrid = document.getElementsByClassName('cards-grid');
     cardsGrid[0].append(losingMessage);
     setTimeout(() => {
