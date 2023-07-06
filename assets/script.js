@@ -98,13 +98,7 @@ function checkCards() {
         secondCard.classList.add('card-flipped');
         secondCard.removeEventListener('click', flipCard);
         resetBoard();
-        let scoreCounter = document.getElementsByClassName('score-counter');
-        let cardFlipped = document.getElementsByClassName('card-flipped');
-        score = (cardFlipped.length * 2.5);
-        scoreCounter[0].innerHTML = score;
-        console.log(score);
-        return score;
-
+        incrementScore();
     } else {
         // Stop the player from flipping cards.
         boardLocked = true;
@@ -338,4 +332,13 @@ function restartGame() {
         cardsGrid[0].prepend(startButton);
         // startGame();
     }, 500);
+}
+
+function incrementScore() {
+    let scoreCounter = document.getElementsByClassName('score-counter');
+    let cardFlipped = document.getElementsByClassName('card-flipped');
+    score = (cardFlipped.length * 2.5);
+    scoreCounter[0].innerHTML = score;
+    console.log(score);
+    return score;
 }
