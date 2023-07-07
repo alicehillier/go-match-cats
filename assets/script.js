@@ -271,21 +271,21 @@ function youWin() {
     // show "YOU WIN!" to the player.
     let winningMessage = document.createElement('p');
     winningMessage.classList.add('winning-message');
-    winningMessage.innerHTML = `YOU WON! 
+    winningMessage.innerHTML = `<p>YOU WON! 
     <br>
-    Your score was ${scoreCounter[0].innerHTML}`;
+    Your score was ${scoreCounter[0].innerHTML}</p>`;
     let cardsGrid = document.getElementsByClassName('cards-grid');
     cardsGrid[0].append(winningMessage);
-    setTimeout(() => {
-        // remove the winningMessage after one second and display retryButton in its place.
-        winningMessage.remove();
-        console.log('winningMessage removed');
-        let retryButton = document.createElement('button');
-        retryButton.setAttribute('id', 'retry-button');
-        retryButton.innerHTML = "PLAY AGAIN?";
-        cardsGrid[0].append(retryButton);
-        retryButton.addEventListener('click', restartGame);
-    }, 2000);
+    // setTimeout(() => {
+    // remove the winningMessage after one second and display retryButton in its place.
+    // winningMessage.remove();
+    // console.log('winningMessage removed');
+    let retryButton = document.createElement('button');
+    retryButton.setAttribute('id', 'retry-button');
+    retryButton.innerHTML = "PLAY AGAIN?";
+    winningMessage.append(retryButton);
+    retryButton.addEventListener('click', restartGame);
+    // }, 2000);
 }
 
 /**Stops the player from flipping cards and tells them the game is over. Gives the player the option to play again with a retry button. */
@@ -305,14 +305,14 @@ function gameOver() {
     let cardsGrid = document.getElementsByClassName('cards-grid');
     cardsGrid[0].append(losingMessage);
     // setTimeout(() => {
-        // remove the losingMessage after one second and display retryButton in its place.
-        // losingMessage.remove();
-        // console.log('losingMessage removed');
-        let retryButton = document.createElement('button');
-        retryButton.setAttribute('id', 'retry-button');
-        retryButton.innerHTML = "TRY AGAIN?";
-        losingMessage.append(retryButton);
-        retryButton.addEventListener('click', restartGame);
+    // remove the losingMessage after one second and display retryButton in its place.
+    // losingMessage.remove();
+    // console.log('losingMessage removed');
+    let retryButton = document.createElement('button');
+    retryButton.setAttribute('id', 'retry-button');
+    retryButton.innerHTML = "TRY AGAIN?";
+    losingMessage.append(retryButton);
+    retryButton.addEventListener('click', restartGame);
     // }, 3000);
 }
 
@@ -320,8 +320,13 @@ function gameOver() {
 function restartGame() {
     console.log('restart game now');
     // Remove the retry button as it has been clicked.
-    let retryButton = document.getElementById('retry-button');
-    retryButton.remove();
+    let winningMessage = document.getElementsByClassName('winning-message');
+    let losingMessage = document.getElementsByClassName('losing-message');
+    if (winningMessage[0]) {
+        winningMessage[0].remove();
+    } else {
+        losingMessage[0].remove();
+    }
     let cards = document.getElementsByClassName('card');
     for (let i = 0; i < cards.length; i++) {
         // cards[i].removeEventListener('click', flipCard);
