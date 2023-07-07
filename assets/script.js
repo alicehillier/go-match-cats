@@ -308,6 +308,11 @@ function gameOver() {
     // remove the losingMessage after one second and display retryButton in its place.
     // losingMessage.remove();
     // console.log('losingMessage removed');
+    let scoreboardButton = document.createElement('button');
+    scoreboardButton.setAttribute('id', 'scoreboard-button');
+    scoreboardButton.innerHTML = "LEADERBOARD";
+    losingMessage.append(scoreboardButton);
+    scoreboardButton.addEventListener('click', showScoreboard);
     let retryButton = document.createElement('button');
     retryButton.setAttribute('id', 'retry-button');
     retryButton.innerHTML = "TRY AGAIN?";
@@ -369,13 +374,38 @@ function resetScore() {
     return;
 }
 
+let scoreboard = [];
+
 function saveScore() {
     let scoreCounter = document.getElementsByClassName('score-counter');
     let cardFlipped = document.getElementsByClassName('card-flipped');
-    let scoreboard = [];
     score = (cardFlipped.length) * 2.5;
     scoreCounter[0].innerHTML = score;
     scoreboard.push(score);
     console.log(`${score} added to scoreboard`);
     return;
+}
+
+function showScoreboard() {
+    scoreboardDisplay = document.createElement('div');
+    scoreboardDisplay.setAttribute('class', 'scoreboard-display');
+    scoreboardDisplay.innerHTML = `
+    <button class="exit-scoreboard">X</button>
+    <h2>LEADERBOARD</h2>
+    <ul>
+    <li>lorem</li>
+    <li>lorem</li>
+    <li>lorem</li>
+    <li>lorem</li>
+    </ul>
+    `;
+    let body = document.getElementsByTagName('body');
+    body[0].prepend(scoreboardDisplay);
+    console.log("scoreboard here");
+    let exit = document.getElementsByClassName('exit-scoreboard');
+    exit[0].addEventListener('click', closeScoreboard);
+    function closeScoreboard() {
+        scoreboardDisplay.removeAttribute('id', 'scoreboard-display');
+        scoreboardDisplay.style.display = "none";
+    }
 }

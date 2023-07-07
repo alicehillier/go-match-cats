@@ -131,7 +131,8 @@ h1 {
     width: 22.5rem;
 }
 
-#instructions {
+#instructions,
+.scoreboard-display {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -140,7 +141,8 @@ h1 {
     z-index: 2;
 }
 
-.exit-instructions {
+.exit-instructions,
+.exit-scoreboard {
     line-height: 2rem;
     width: 2rem;
     vertical-align: middle;
@@ -155,18 +157,21 @@ h1 {
     cursor: pointer;
 }
 
-.instructions-title {
+.instructions-title,
+.scoreboard-display h2 {
     padding: 2rem;
     text-align: center;
 }
 
-#instructions ul {
+#instructions ul,
+.scoreboard-display ul {
     position: relative;
     width: 80%;
     list-style-type: none;
 }
 
-#instructions ul li {
+#instructions ul li,
+.scoreboard-display ul li {
     width: 80%;
     margin: 2rem auto;
 }
