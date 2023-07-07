@@ -194,7 +194,7 @@ function startTimer() {
 
     console.log('start timer now!');
     let gameTimer = document.getElementsByClassName('timer');
-    let maxTime = 90;
+    let maxTime = 30;
     let timer = setInterval(() => {
         /* If the timer has more than 0 seconds remaining, show how many seconds are left
          in the gameTimer element. Then, deduct 1 second from the timer.*/
@@ -348,13 +348,14 @@ function restartGame() {
 function incrementScore() {
     let scoreCounter = document.getElementsByClassName('score-counter');
     let cardFlipped = document.getElementsByClassName('card-flipped');
-    score = (cardFlipped.length) * 2.5;
+    let score = (cardFlipped.length) * 2.5;
     scoreCounter[0].innerHTML = score;
     console.log(score);
     return score;
 }
 
 function resetScore() {
+    saveScore();
     let scoreCounter = document.getElementsByClassName('score-counter');
     let cardFlipped = document.getElementsByClassName('card-flipped');
     let score = cardFlipped.length;
@@ -365,5 +366,16 @@ function resetScore() {
             scoreCounter[0].innerHTML = 0;
         }
     }
+    return;
+}
+
+function saveScore() {
+    let scoreCounter = document.getElementsByClassName('score-counter');
+    let cardFlipped = document.getElementsByClassName('card-flipped');
+    let scoreboard = [];
+    score = (cardFlipped.length) * 2.5;
+    scoreCounter[0].innerHTML = score;
+    scoreboard.push(score);
+    console.log(`${score} added to scoreboard`);
     return;
 }
