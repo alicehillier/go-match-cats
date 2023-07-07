@@ -194,7 +194,7 @@ function startTimer() {
 
     console.log('start timer now!');
     let gameTimer = document.getElementsByClassName('timer');
-    let maxTime = 30;
+    let maxTime = 90;
     let timer = setInterval(() => {
         /* If the timer has more than 0 seconds remaining, show how many seconds are left
          in the gameTimer element. Then, deduct 1 second from the timer.*/
@@ -358,7 +358,7 @@ function resetScore() {
     let scoreCounter = document.getElementsByClassName('score-counter');
     let cardFlipped = document.getElementsByClassName('card-flipped');
     let score = cardFlipped.length;
-    if (cardFlipped.length > 0) {
+    if (cardFlipped.length >= 0) {
         let cards = document.getElementsByClassName('card');
         for (let i = 0; i < cards.length; i++) {
             cards[i].classList.remove('card-flipped');
