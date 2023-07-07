@@ -299,21 +299,21 @@ function gameOver() {
     // show "YOU LOST!" to the player.
     let losingMessage = document.createElement('p');
     losingMessage.classList.add('losing-message');
-    losingMessage.innerHTML = `YOU LOST! 
+    losingMessage.innerHTML = `<p>YOU LOST! 
     <br>
-    Your score was ${scoreCounter[0].innerHTML}`;
+    Your score was ${scoreCounter[0].innerHTML}</p>`;
     let cardsGrid = document.getElementsByClassName('cards-grid');
     cardsGrid[0].append(losingMessage);
-    setTimeout(() => {
+    // setTimeout(() => {
         // remove the losingMessage after one second and display retryButton in its place.
-        losingMessage.remove();
-        console.log('losingMessage removed');
+        // losingMessage.remove();
+        // console.log('losingMessage removed');
         let retryButton = document.createElement('button');
         retryButton.setAttribute('id', 'retry-button');
         retryButton.innerHTML = "TRY AGAIN?";
-        cardsGrid[0].append(retryButton);
+        losingMessage.append(retryButton);
         retryButton.addEventListener('click', restartGame);
-    }, 2000);
+    // }, 3000);
 }
 
 /**Removes the 'try again' button once clicked, reset the game area and re-add the start button with its event listener so the game can be run again. */
