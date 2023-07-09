@@ -12,6 +12,10 @@ cardsGrid[0].prepend(startButton);
 let helpButton = document.getElementsByClassName('help');
 helpButton[0].addEventListener('click', showInstructions);
 
+let easyMode = false;
+let normalMode = false;
+let hardMode = false;
+
 /**Adds click event listeners to the difficulty level buttons. */
 (function selectDifficulty() {
     let easy = document.getElementsByClassName('easy');
