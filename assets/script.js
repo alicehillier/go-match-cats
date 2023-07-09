@@ -23,12 +23,42 @@ helpButton[0].addEventListener('click', showInstructions);
     hard[0].addEventListener('click', hardMode);
 }());
 
+/**Removes cards, leaving a total of 12 playable cards. */
 function easyMode() {
+    let difficultyContainer = document.getElementsByClassName('difficulty-container');
+    difficultyContainer[0].remove();
     console.log('easy mode triggered');
+    let cards = document.getElementsByClassName('card');
+    cards[0].style.display = "none";
+    cards[1].style.display = "none";
+    cards[2].style.display = "none";
+    cards[3].style.display = "none";
+    cards[4].style.display = "none";
+    cards[5].style.display = "none";
+    cards[13].style.display = "none";
+    cards[14].style.display = "none";
+    cards[15].style.display = "none";
+    cards[16].style.display = "none";
+    cards[17].style.display = "none";
+    cards[18].style.display = "none";
+    return;
 }
 
+/**Removes cards, leaving a total of 16 playable cards. */
 function normalMode() {
+    let difficultyContainer = document.getElementsByClassName('difficulty-container');
+    difficultyContainer[0].remove();
     console.log('normal mode triggered');
+    let cards = document.getElementsByClassName('card');
+    cards[0].style.display = "none";
+    cards[1].style.display = "none";
+    cards[2].style.display = "none";
+    cards[3].style.display = "none";
+    cards[13].style.display = "none";
+    cards[14].style.display = "none";
+    cards[15].style.display = "none";
+    cards[16].style.display = "none";
+    return;
 }
 
 function hardMode() {
