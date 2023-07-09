@@ -259,6 +259,7 @@ function restartMidGame() {
 
 /** Shows the player a 'you won!' message and lets them restart the game by clicking the 'play again' button. */
 function youWin() {
+    saveScore();
     console.log('gameOver triggered');
     // get all elements with the class 'card' and iterate through them, adding the event listener for all.
     let cards = document.getElementsByClassName('card');
@@ -290,6 +291,7 @@ function youWin() {
 
 /**Stops the player from flipping cards and tells them the game is over. Gives the player the option to play again with a retry button. */
 function gameOver() {
+    saveScore();
     console.log('gameOver triggered');
     // get all elements with the class 'card' and iterate through them, adding the event listener for all.
     let cards = document.getElementsByClassName('card');
@@ -360,7 +362,6 @@ function incrementScore() {
 }
 
 function resetScore() {
-    saveScore();
     let scoreCounter = document.getElementsByClassName('score-counter');
     let cardFlipped = document.getElementsByClassName('card-flipped');
     let score = cardFlipped.length;
@@ -393,10 +394,17 @@ function showScoreboard() {
     <button class="exit-scoreboard">X</button>
     <h2>LEADERBOARD</h2>
     <ul>
-    <li>lorem</li>
-    <li>lorem</li>
-    <li>lorem</li>
-    <li>lorem</li>
+    <li>${scoreboard[0]}</li>
+    <li>${scoreboard[1]}</li>
+    <li>${scoreboard[2]}</li>
+    <li>${scoreboard[3]}</li>
+    <li>${scoreboard[4]}</li>
+    <li>${scoreboard[5]}</li>
+    <li>${scoreboard[6]}</li>
+    <li>${scoreboard[7]}</li>
+    <li>${scoreboard[8]}</li>
+    <li>${scoreboard[9]}</li>
+    <li>${scoreboard[10]}</li>
     </ul>
     `;
     let body = document.getElementsByTagName('body');
