@@ -12,9 +12,9 @@ cardsGrid[0].prepend(startButton);
 let helpButton = document.getElementsByClassName('help');
 helpButton[0].addEventListener('click', showInstructions);
 
-let easyMode = false;
-let normalMode = false;
-let hardMode = false;
+let easyDifficulty = false;
+let normalDifficulty = false;
+let hardDifficulty = false;
 
 /**Adds click event listeners to the difficulty level buttons. */
 (function selectDifficulty() {
@@ -29,6 +29,7 @@ let hardMode = false;
 
 /**Removes cards, leaving a total of 12 playable cards. */
 function easyMode() {
+    easyDifficulty = true;
     let difficultyContainer = document.getElementsByClassName('difficulty-container');
     difficultyContainer[0].remove();
     console.log('easy mode triggered');
@@ -39,12 +40,12 @@ function easyMode() {
     cards[3].style.display = "none";
     cards[4].style.display = "none";
     cards[5].style.display = "none";
+    cards[12].style.display = "none";
     cards[13].style.display = "none";
     cards[14].style.display = "none";
     cards[15].style.display = "none";
     cards[16].style.display = "none";
     cards[17].style.display = "none";
-    cards[18].style.display = "none";
     return;
 }
 
@@ -58,10 +59,10 @@ function normalMode() {
     cards[1].style.display = "none";
     cards[2].style.display = "none";
     cards[3].style.display = "none";
+    cards[12].style.display = "none";
     cards[13].style.display = "none";
     cards[14].style.display = "none";
     cards[15].style.display = "none";
-    cards[16].style.display = "none";
     return;
 }
 
@@ -257,6 +258,13 @@ function startTimer() {
             // If all 24 cards have the card-flipped class, remove the restart button and trigger the youWin function.
             let cardFlipped = document.getElementsByClassName('card-flipped');
             if (maxTime > 0 && cardFlipped.length === 24) {
+                clearInterval(timer);
+                gameTimer[0].innerHTML = "00:00";
+                youWin();
+                restartButton[0].style.visibility = "hidden";
+            }
+            // If the game was played on easy mode and all 12 cards are matched, trigger the youWin function.
+            else if (easyDifficulty === true && cardFlipped.length === 12) {
                 clearInterval(timer);
                 gameTimer[0].innerHTML = "00:00";
                 youWin();
