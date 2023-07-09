@@ -12,9 +12,30 @@ cardsGrid[0].prepend(startButton);
 let helpButton = document.getElementsByClassName('help');
 helpButton[0].addEventListener('click', showInstructions);
 
-    // easy.addEventListener('click', easyMode);
-    // normal.addEventListener('click', normalMode);
-    // hard.addEventListener('click', hardMode);
+/**Adds click event listeners to the difficulty level buttons. */
+(function selectDifficulty() {
+    let easy = document.getElementsByClassName('easy');
+    let normal = document.getElementsByClassName('normal');
+    let hard = document.getElementsByClassName('hard');
+
+    easy[0].addEventListener('click', easyMode);
+    normal[0].addEventListener('click', normalMode);
+    hard[0].addEventListener('click', hardMode);
+}());
+
+function easyMode() {
+    console.log('easy mode triggered');
+}
+
+function normalMode() {
+    console.log('normal mode triggered');
+}
+
+function hardMode() {
+    console.log('hard mode triggered');
+}
+
+
 
 //THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek
 // ---------------------------------
