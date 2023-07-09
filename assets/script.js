@@ -12,6 +12,10 @@ cardsGrid[0].prepend(startButton);
 let helpButton = document.getElementsByClassName('help');
 helpButton[0].addEventListener('click', showInstructions);
 
+    // easy.addEventListener('click', easyMode);
+    // normal.addEventListener('click', normalMode);
+    // hard.addEventListener('click', hardMode);
+
 //THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek
 // ---------------------------------
 
