@@ -444,7 +444,8 @@ function restartGame() {
     // re-add the startbutton and its event listener, so the startGame function can be run again.
     // set timeout so button appears after cards have been returned to original positions.
     setTimeout(() => {
-        cardsGrid[0].prepend(startButton);
+        let difficultyContainer = document.getElementsByClassName('difficulty-container');
+        difficultyContainer[0].style.visibility = "visible";
         // startGame();
     }, 500);
 }
