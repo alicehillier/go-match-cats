@@ -295,6 +295,12 @@ function startTimer() {
                 gameTimer[0].innerHTML = "00:00";
                 youWin();
                 restartButton[0].style.visibility = "hidden";
+                // If the game was played on normal mode and all 16 cards are matched, trigger the youWin function.
+            } else if (normalDifficulty === true && cardFlipped.length === 16) {
+                clearInterval(timer);
+                gameTimer[0].innerHTML = "00:00";
+                youWin();
+                restartButton[0].style.visibility = "hidden";
             }
             // If the game was played on easy mode and all 12 cards are matched, trigger the youWin function.
             else if (easyDifficulty === true && cardFlipped.length === 12) {
