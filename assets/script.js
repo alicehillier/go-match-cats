@@ -69,10 +69,10 @@ function normalMode() {
     cards[14].classList.add('no-display');
     cards[15].classList.add('no-display');
     if (easyDifficulty === true) {
-        cards[4].classList.toggle('no-display');
-        cards[5].classList.toggle('no-display');
-        cards[16].classList.toggle('no-display');
-        cards[17].classList.toggle('no-display');
+        cards[4].classList.remove('no-display');
+        cards[5].classList.remove('no-display');
+        cards[16].classList.remove('no-display');
+        cards[17].classList.remove('no-display');
         easyDifficulty = false;
     }
     return;
@@ -81,7 +81,27 @@ function normalMode() {
 function hardMode() {
     hardDifficulty = true;
     createStartButton();
+    let difficultyContainer = document.getElementsByClassName('difficulty-container');
+    difficultyContainer[0].style.visibility = "hidden";
     console.log('hard mode triggered');
+    if (easyDifficulty === true || normalDifficulty === true) {
+        let cards = document.getElementsByClassName('card');
+        cards[0].classList.remove('no-display');
+        cards[1].classList.remove('no-display');
+        cards[2].classList.remove('no-display');
+        cards[3].classList.remove('no-display');
+        cards[4].classList.remove('no-display');
+        cards[5].classList.remove('no-display');
+        cards[12].classList.remove('no-display');
+        cards[13].classList.remove('no-display');
+        cards[14].classList.remove('no-display');
+        cards[15].classList.remove('no-display');
+        cards[16].classList.remove('no-display');
+        cards[17].classList.remove('no-display');
+        easyDifficulty = false;
+        normalDifficulty = false;
+    }
+    return;
 }
 
 //THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek
