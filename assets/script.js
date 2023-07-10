@@ -259,7 +259,6 @@ function shuffleCards() {
 
 /**Resets the score by calling resetScore function, stops the cat animation and removes the Start button when it's clicked on, counting down "3, 2, 1, GO!" with one second between each of them. */
 function startGame() {
-    resetScore();
     let catAnimation = document.getElementById('cat-animation');
     catAnimation.classList.remove('moving-cat');
     // remove the start button after one second and display "3" in its place.
@@ -301,7 +300,7 @@ function startTimer() {
 
     console.log('start timer now!');
     let gameTimer = document.getElementsByClassName('timer');
-    let maxTime = 5;
+    let maxTime = 30;
     let timer = setInterval(() => {
         /* If the timer has more than 0 seconds remaining, show how many seconds are left
          in the gameTimer element. Then, deduct 1 second from the timer.*/
@@ -378,6 +377,7 @@ function restartMidGame() {
 /** Shows the player a 'you won!' message with their total score, and lets them restart the game by clicking the 'play again' button. */
 function youWin() {
     saveScore();
+    resetScore();
     console.log('gameOver triggered');
     // get all elements with the class 'card' and iterate through them, adding the event listener for all.
     let cards = document.getElementsByClassName('card');
@@ -410,6 +410,7 @@ function youWin() {
 /**Stops the player flipping cards and tells them the game is over, showing them their total score. Gives the player the option to play again with a retry button. */
 function gameOver() {
     saveScore();
+    resetScore();
     console.log('gameOver triggered');
     // get all elements with the class 'card' and iterate through them, adding the event listener for all.
     let cards = document.getElementsByClassName('card');
