@@ -51,6 +51,7 @@ h1 {
 /* Styles for timer, help and restart button */
 .timer,
 .score,
+.difficulty-label,
 .restart,
 .help,
 .scoreboard,
@@ -59,6 +60,7 @@ h1 {
 .hard {
     line-height: 1rem;
     padding: 1rem;
+    margin: 0 1rem;
     border-radius: 1rem;
     font-size: 1rem;
     background-color: white;
@@ -400,6 +402,7 @@ h1 {
 
     .timer,
     .score,
+    .difficulty-label,
     .restart,
     .help,
     .scoreboard,
@@ -437,6 +440,7 @@ h1 {
     /* Styles for timer, help and restart button */
     .timer,
     .score,
+    .difficulty-label,
     .restart,
     .help,
     .scoreboard,

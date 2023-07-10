@@ -33,6 +33,13 @@ let hardDifficulty = false;
 function easyMode() {
     easyDifficulty = true;
     createStartButton();
+
+    let difficultyLabel = document.createElement('li');
+    difficultyLabel.innerHTML = '<p>EASY</p>';
+    difficultyLabel.setAttribute('class', 'difficulty-label');
+    let scoreAndTimer = document.getElementsByClassName('score-and-timer');
+    scoreAndTimer[0].append(difficultyLabel);
+
     let difficultyContainer = document.getElementsByClassName('difficulty-container');
     difficultyContainer[0].style.visibility = "hidden";
     console.log('easy mode triggered');
