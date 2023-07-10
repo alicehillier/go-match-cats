@@ -1,12 +1,14 @@
-// Creates start button and adds event listener to trigger startGame function.
-let startButton = document.createElement('button');
-startButton.setAttribute('id', 'start-button');
-startButton.innerHTML = "START";
-startButton.addEventListener('click', shuffleCards);
+function createStartButton() {
+    // Creates start button and adds event listener to trigger startGame function.
+    let startButton = document.createElement('button');
+    startButton.setAttribute('id', 'start-button');
+    startButton.innerHTML = "START";
+    startButton.addEventListener('click', shuffleCards);
 
-// Creates game area and adds the start button to it.
-let cardsGrid = document.getElementsByClassName('cards-grid');
-cardsGrid[0].prepend(startButton);
+    // Adds the start button to the game area.
+    let cardsGrid = document.getElementsByClassName('cards-grid');
+    cardsGrid[0].prepend(startButton);
+}
 
 // Creates the help button in the header and adds event listener to trigger showInstructions function.
 let helpButton = document.getElementsByClassName('help');
@@ -30,6 +32,7 @@ let hardDifficulty = false;
 /**Removes cards, leaving a total of 12 playable cards. */
 function easyMode() {
     easyDifficulty = true;
+    createStartButton();
     let difficultyContainer = document.getElementsByClassName('difficulty-container');
     difficultyContainer[0].remove();
     console.log('easy mode triggered');
@@ -51,6 +54,8 @@ function easyMode() {
 
 /**Removes cards, leaving a total of 16 playable cards. */
 function normalMode() {
+    normalDifficulty = true;
+    createStartButton();
     let difficultyContainer = document.getElementsByClassName('difficulty-container');
     difficultyContainer[0].remove();
     console.log('normal mode triggered');
@@ -67,10 +72,10 @@ function normalMode() {
 }
 
 function hardMode() {
+    hardDifficulty = true;
+    createStartButton();
     console.log('hard mode triggered');
 }
-
-
 
 //THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek
 // ---------------------------------
