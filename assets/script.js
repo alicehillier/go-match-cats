@@ -280,7 +280,7 @@ function startTimer() {
 
     console.log('start timer now!');
     let gameTimer = document.getElementsByClassName('timer');
-    let maxTime = 30;
+    let maxTime = 5;
     let timer = setInterval(() => {
         /* If the timer has more than 0 seconds remaining, show how many seconds are left
          in the gameTimer element. Then, deduct 1 second from the timer.*/
@@ -477,6 +477,11 @@ function resetScore() {
 
 let scoreboard = [];
 
+let localStorageScore = JSON.parse(localStorage.getItem('score'));
+if (localStorageScore != null) {
+    scoreboard = localStorageScore;
+}
+
 /**Takes the current score and pushes it into the scoreboard array, creating a collection of scores. */
 function saveScore() {
     let scoreCounter = document.getElementsByClassName('score-counter');
@@ -484,7 +489,9 @@ function saveScore() {
     score = (cardFlipped.length) * 2.5;
     scoreCounter[0].innerHTML = score;
     scoreboard.push(score);
+    localStorage.setItem('score', JSON.stringify(scoreboard));
     console.log(`${score} added to scoreboard`);
+    console.log(scoreboard);
     return;
 }
 
@@ -496,19 +503,13 @@ function showScoreboard() {
     <button class="exit-scoreboard">X</button>
     <h2>LEADERBOARD</h2>
     <ul>
-    <li>${scoreboard[0]}</li>
-    <li>${scoreboard[1]}</li>
-    <li>${scoreboard[2]}</li>
-    <li>${scoreboard[3]}</li>
-    <li>${scoreboard[4]}</li>
-    <li>${scoreboard[5]}</li>
-    <li>${scoreboard[6]}</li>
-    <li>${scoreboard[7]}</li>
-    <li>${scoreboard[8]}</li>
-    <li>${scoreboard[9]}</li>
-    <li>${scoreboard[10]}</li>
-    </ul>
     `;
+    console.log(scoreboard, 'before display');
+    scoreboard.forEach((value)=> {
+        scoreboardDisplay.innerHTML += `<li>${value}</li>`; 
+    })
+    scoreboardDisplay.innerHTML += "</ul>"; 
+
     let body = document.getElementsByTagName('body');
     body[0].prepend(scoreboardDisplay);
     console.log("scoreboard here");
