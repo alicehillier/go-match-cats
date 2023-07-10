@@ -34,7 +34,7 @@ function easyMode() {
     easyDifficulty = true;
     createStartButton();
     let difficultyContainer = document.getElementsByClassName('difficulty-container');
-    difficultyContainer[0].remove();
+    difficultyContainer[0].style.visibility = "hidden";
     console.log('easy mode triggered');
     let cards = document.getElementsByClassName('card');
     cards[0].style.display = "none";
@@ -57,7 +57,7 @@ function normalMode() {
     normalDifficulty = true;
     createStartButton();
     let difficultyContainer = document.getElementsByClassName('difficulty-container');
-    difficultyContainer[0].remove();
+    difficultyContainer[0].style.visibility = "hidden";
     console.log('normal mode triggered');
     let cards = document.getElementsByClassName('card');
     cards[0].style.display = "none";
@@ -215,6 +215,7 @@ function startGame() {
     let catAnimation = document.getElementById('cat-animation');
     catAnimation.classList.remove('moving-cat');
     // remove the start button after one second and display "3" in its place.
+    let startButton = document.getElementById('start-button');
     startButton.remove();
     let countdown = document.createElement('p');
     countdown.classList.add('start-countdown');
@@ -315,7 +316,8 @@ function restartMidGame() {
     // re-add the startbutton and its event listener, so the startGame function can be run again.
     // set timeout so button appears after cards have been returned to original positions.
     setTimeout(() => {
-        cardsGrid[0].prepend(startButton);
+        let difficultyContainer = document.getElementsByClassName('difficulty-container');
+        difficultyContainer[0].style.visibility = "visible";
     }, 500);
 }
 
