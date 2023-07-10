@@ -407,11 +407,6 @@ function gameOver() {
     // remove the losingMessage after one second and display retryButton in its place.
     // losingMessage.remove();
     // console.log('losingMessage removed');
-    let scoreboardButton = document.createElement('button');
-    scoreboardButton.setAttribute('id', 'scoreboard-button');
-    scoreboardButton.innerHTML = "LEADERBOARD";
-    losingMessage.append(scoreboardButton);
-    scoreboardButton.addEventListener('click', showScoreboard);
     let retryButton = document.createElement('button');
     retryButton.setAttribute('id', 'retry-button');
     retryButton.innerHTML = "TRY AGAIN?";
@@ -475,6 +470,9 @@ function resetScore() {
     return;
 }
 
+let leaderboardButton = document.getElementsByClassName('scoreboard');
+leaderboardButton[0].addEventListener('click', showScoreboard);
+
 let scoreboard = [];
 
 let localStorageScore = JSON.parse(localStorage.getItem('score'));
@@ -505,10 +503,10 @@ function showScoreboard() {
     <ul>
     `;
     console.log(scoreboard, 'before display');
-    scoreboard.forEach((value)=> {
-        scoreboardDisplay.innerHTML += `<li>${value}</li>`; 
+    scoreboard.forEach((value) => {
+        scoreboardDisplay.innerHTML += `<li>${value}</li>`;
     })
-    scoreboardDisplay.innerHTML += "</ul>"; 
+    scoreboardDisplay.innerHTML += "</ul>";
 
     let body = document.getElementsByTagName('body');
     body[0].prepend(scoreboardDisplay);

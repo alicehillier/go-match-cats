@@ -53,6 +53,7 @@ h1 {
 .score,
 .restart,
 .help,
+.scoreboard,
 .easy,
 .normal,
 .hard {
@@ -401,6 +402,7 @@ h1 {
     .score,
     .restart,
     .help,
+    .scoreboard,
     .easy,
     .normal,
     .hard {
@@ -437,6 +439,7 @@ h1 {
     .score,
     .restart,
     .help,
+    .scoreboard,
     .easy,
     .normal,
     .hard {
