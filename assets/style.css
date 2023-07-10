@@ -86,6 +86,10 @@ h1 {
     visibility: hidden;
 }
 
+.no-display {
+    display: none;
+}
+
 .help {
     margin-left: 0.35rem;
 }

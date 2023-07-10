@@ -37,18 +37,18 @@ function easyMode() {
     difficultyContainer[0].style.visibility = "hidden";
     console.log('easy mode triggered');
     let cards = document.getElementsByClassName('card');
-    cards[0].style.display = "none";
-    cards[1].style.display = "none";
-    cards[2].style.display = "none";
-    cards[3].style.display = "none";
-    cards[4].style.display = "none";
-    cards[5].style.display = "none";
-    cards[12].style.display = "none";
-    cards[13].style.display = "none";
-    cards[14].style.display = "none";
-    cards[15].style.display = "none";
-    cards[16].style.display = "none";
-    cards[17].style.display = "none";
+    cards[0].classList.add('no-display');
+    cards[1].classList.add('no-display');
+    cards[2].classList.add('no-display');
+    cards[3].classList.add('no-display');
+    cards[4].classList.add('no-display');
+    cards[5].classList.add('no-display');
+    cards[12].classList.add('no-display');
+    cards[13].classList.add('no-display');
+    cards[14].classList.add('no-display');
+    cards[15].classList.add('no-display');
+    cards[16].classList.add('no-display');
+    cards[17].classList.add('no-display');
     return;
 }
 
@@ -60,14 +60,21 @@ function normalMode() {
     difficultyContainer[0].style.visibility = "hidden";
     console.log('normal mode triggered');
     let cards = document.getElementsByClassName('card');
-    cards[0].style.display = "none";
-    cards[1].style.display = "none";
-    cards[2].style.display = "none";
-    cards[3].style.display = "none";
-    cards[12].style.display = "none";
-    cards[13].style.display = "none";
-    cards[14].style.display = "none";
-    cards[15].style.display = "none";
+    cards[0].classList.add('no-display');
+    cards[1].classList.add('no-display');
+    cards[2].classList.add('no-display');
+    cards[3].classList.add('no-display');
+    cards[12].classList.add('no-display');
+    cards[13].classList.add('no-display');
+    cards[14].classList.add('no-display');
+    cards[15].classList.add('no-display');
+    if (easyDifficulty === true) {
+        cards[4].classList.toggle('no-display');
+        cards[5].classList.toggle('no-display');
+        cards[16].classList.toggle('no-display');
+        cards[17].classList.toggle('no-display');
+        easyDifficulty = false;
+    }
     return;
 }
 
