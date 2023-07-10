@@ -77,6 +77,7 @@ h1 {
     position: relative;
     height: min-content;
     width: min-content;
+    align-items: center;
     margin: 0 1rem;
     border: 4px solid rgb(0, 0, 52);
 }
@@ -221,6 +222,7 @@ h1 {
     display: flex;
     background-color: transparent;
     border: none;
+    align-items: center;
 }
 
 #retry-button {
@@ -365,7 +367,7 @@ h1 {
     }
 
     .cards-grid {
-        margin: 1rem auto;
+        margin: 3rem auto;
     }
 
     .card {
@@ -379,7 +381,7 @@ h1 {
     header {
         height: 100%;
         padding-top: 1rem;
-        margin-bottom: 0;
+        margin-bottom: 1rem;
     }
 
     .score-and-timer,
