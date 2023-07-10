@@ -63,6 +63,13 @@ function easyMode() {
 function normalMode() {
     normalDifficulty = true;
     createStartButton();
+
+    let difficultyLabel = document.createElement('li');
+    difficultyLabel.innerHTML = '<p>NORMAL</p>';
+    difficultyLabel.setAttribute('class', 'difficulty-label');
+    let scoreAndTimer = document.getElementsByClassName('score-and-timer');
+    scoreAndTimer[0].append(difficultyLabel);
+
     let difficultyContainer = document.getElementsByClassName('difficulty-container');
     difficultyContainer[0].style.visibility = "hidden";
     console.log('normal mode triggered');
@@ -88,6 +95,13 @@ function normalMode() {
 function hardMode() {
     hardDifficulty = true;
     createStartButton();
+
+    let difficultyLabel = document.createElement('li');
+    difficultyLabel.innerHTML = '<p>HARD</p>';
+    difficultyLabel.setAttribute('class', 'difficulty-label');
+    let scoreAndTimer = document.getElementsByClassName('score-and-timer');
+    scoreAndTimer[0].append(difficultyLabel);
+
     let difficultyContainer = document.getElementsByClassName('difficulty-container');
     difficultyContainer[0].style.visibility = "hidden";
     console.log('hard mode triggered');
