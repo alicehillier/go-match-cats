@@ -117,7 +117,7 @@ h1 {
     height: min-content;
     width: min-content;
     margin: auto;
-    /* margin-bottom: 0; */
+    margin-bottom: 1rem;
     position: relative;
     display: grid;
     column-count: 8;
@@ -217,12 +217,14 @@ h1 {
 .winning-message,
 #retry-button,
 .difficulty-container {
-    height: 8rem;
+    height: min-content;
+    width: min-content;
     padding: 1rem;
     background-color: white;
     color: rgb(0, 0, 52);
-    margin: auto 0;
+    margin: auto;
     position: absolute;
+    text-align: center;
     top: 0;
     bottom: 0;
     left: 0;
@@ -397,8 +399,7 @@ h1 {
 @media only screen and (max-width: 767px) {
 
     header {
-        height: 100%;
-        padding-top: 1rem;
+        padding-top: 0.6rem;
         margin-bottom: 1rem;
     }
 
@@ -518,5 +519,11 @@ h1 {
 
     .cat-instructions {
         display: none;
+    }
+
+    .card {
+        height: 80px;
+        width: 70px;
+        /* width: 60px; */
     }
 }
