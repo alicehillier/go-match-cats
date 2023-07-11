@@ -34,11 +34,8 @@ function easyMode() {
     easyDifficulty = true;
     createStartButton();
 
-    let difficultyLabel = document.createElement('li');
-    difficultyLabel.innerHTML = '<p>EASY</p>';
-    difficultyLabel.setAttribute('class', 'difficulty-label');
-    let scoreAndTimer = document.getElementsByClassName('score-and-timer');
-    scoreAndTimer[0].append(difficultyLabel);
+    let difficultyLabel = document.getElementsByClassName('difficulty-label');
+    difficultyLabel[0].innerHTML = '<p>EASY</p>';
 
     let difficultyContainer = document.getElementsByClassName('difficulty-container');
     difficultyContainer[0].style.visibility = "hidden";
@@ -64,11 +61,8 @@ function normalMode() {
     normalDifficulty = true;
     createStartButton();
 
-    let difficultyLabel = document.createElement('li');
-    difficultyLabel.innerHTML = '<p>NORMAL</p>';
-    difficultyLabel.setAttribute('class', 'difficulty-label');
-    let scoreAndTimer = document.getElementsByClassName('score-and-timer');
-    scoreAndTimer[0].append(difficultyLabel);
+    let difficultyLabel = document.getElementsByClassName('difficulty-label');
+    difficultyLabel[0].innerHTML = '<p>NORMAL</p>';
 
     let difficultyContainer = document.getElementsByClassName('difficulty-container');
     difficultyContainer[0].style.visibility = "hidden";
@@ -96,11 +90,8 @@ function hardMode() {
     hardDifficulty = true;
     createStartButton();
 
-    let difficultyLabel = document.createElement('li');
-    difficultyLabel.innerHTML = '<p>HARD</p>';
-    difficultyLabel.setAttribute('class', 'difficulty-label');
-    let scoreAndTimer = document.getElementsByClassName('score-and-timer');
-    scoreAndTimer[0].append(difficultyLabel);
+    let difficultyLabel = document.getElementsByClassName('difficulty-label');
+    difficultyLabel[0].innerHTML = '<p>HARD</p>';
 
     let difficultyContainer = document.getElementsByClassName('difficulty-container');
     difficultyContainer[0].style.visibility = "hidden";
