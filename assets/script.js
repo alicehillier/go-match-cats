@@ -368,7 +368,6 @@ function restartMidGame() {
 /** Shows the player a 'you won!' message with their total score, and lets them restart the game by clicking the 'play again' button. */
 function youWin() {
     saveScore();
-    resetScore();
     console.log('gameOver triggered');
     // get all elements with the class 'card' and iterate through them, adding the event listener for all.
     let cards = document.getElementsByClassName('card');
@@ -395,13 +394,13 @@ function youWin() {
     retryButton.innerHTML = "PLAY AGAIN?";
     winningMessage.append(retryButton);
     retryButton.addEventListener('click', restartGame);
+    resetScore();
     // }, 2000);
 }
 
 /**Stops the player flipping cards and tells them the game is over, showing them their total score. Gives the player the option to play again with a retry button. */
 function gameOver() {
     saveScore();
-    resetScore();
     console.log('gameOver triggered');
     // get all elements with the class 'card' and iterate through them, adding the event listener for all.
     let cards = document.getElementsByClassName('card');
@@ -425,6 +424,7 @@ function gameOver() {
     retryButton.innerHTML = "TRY AGAIN?";
     losingMessage.append(retryButton);
     retryButton.addEventListener('click', restartGame);
+    resetScore();
     // }, 3000);
 }
 
