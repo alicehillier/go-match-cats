@@ -34,6 +34,9 @@ function easyMode() {
     easyDifficulty = true;
     createStartButton();
 
+    let cardsGrid = document.getElementsByClassName('cards-grid');
+    cardsGrid[0].classList.add('easy-cards-grid');
+
     let difficultyLabel = document.getElementsByClassName('difficulty-label');
     difficultyLabel[0].innerHTML = '<p>EASY</p>';
 

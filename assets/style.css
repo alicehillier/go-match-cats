@@ -8,6 +8,7 @@
 body {
     background: linear-gradient(rgb(0, 0, 52), rgb(85, 163, 189), lightpink, rgb(0, 0, 52));
     overflow: hidden;
+    min-height: 100vh;
 }
 
 header {
@@ -22,6 +23,7 @@ header {
 
 /* Styles for <ul> containing timer, heading, help and restart button  */
 .header {
+    height: min-content;
     width: 100%;
     margin: 0 auto;
     text-align: center;
@@ -145,6 +147,24 @@ h1 {
     perspective: 1000px;
 }
 
+.easy-cards-grid {
+        height: min-content;
+        width: min-content;
+        margin: auto;
+        margin-bottom: 1rem;
+        position: relative;
+        display: grid;
+        column-count: 4;
+        column-gap: 0;
+        grid-template-columns: 1fr 1fr 1fr 1fr ;
+        /* flex-wrap: wrap;
+        justify-content: center;
+        align-items: center; */
+        /* THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek */
+        /*creates 3D effect with code indicated in '.card' style */
+        perspective: 1000px;
+}
+
 #cat-animation {
     height: 4.5rem;
     width: 6.5rem;
@@ -224,6 +244,7 @@ h1 {
 .scoreboard-display ul li {
     width: 80%;
     margin: 2rem auto;
+    font-size: 1.5rem;
 }
 
 #start-button,
@@ -430,6 +451,11 @@ h1 {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     }
 
+    .easy-cards-grid {
+        column-count: 4;
+        grid-template-columns: 1fr 1fr 1fr 1fr ;
+}
+
     .card {
         height: 150px;
         width: 100px;
@@ -462,6 +488,12 @@ h1 {
         column-count: 4;
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
+
+    .easy-cards-grid {
+        column-count: 4;
+        grid-template-columns: 1fr 1fr 1fr 1fr ;
+}
+
 
     .card {
         height: 130px;
@@ -506,6 +538,11 @@ h1 {
         column-count: 6;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     }
+
+    .easy-cards-grid {
+        column-count: 4;
+        grid-template-columns: 1fr 1fr 1fr 1fr ;
+}
 
     .card {
         height: 120px;
