@@ -37,6 +37,7 @@ header {
 .header-buttons {
     display: flex;
     flex-direction: row;
+    height: min-content;
 }
 
 .header-buttons {
@@ -97,9 +98,9 @@ h1 {
     margin-left: 0.35rem;
 } */
 
-.timer {
+/* .timer {
     margin-right: 0.35rem;
-}
+} */
 
 .restart:hover,
 .help:hover,
@@ -504,6 +505,12 @@ h1 {
         height: 110px;
         width: 80px;
         /* width: 60px; */
+    }
+
+    .timer,
+    .score,
+    .difficulty-label {
+        margin: 0.6rem;
     }
 }
 
