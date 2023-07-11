@@ -391,7 +391,7 @@ function youWin() {
     // console.log('winningMessage removed');
     let retryButton = document.createElement('button');
     retryButton.setAttribute('id', 'retry-button');
-    retryButton.innerHTML = "PLAY AGAIN?";
+    retryButton.innerHTML = "EXIT";
     winningMessage.append(retryButton);
     retryButton.addEventListener('click', restartGame);
     resetScore();
@@ -421,7 +421,7 @@ function gameOver() {
     // console.log('losingMessage removed');
     let retryButton = document.createElement('button');
     retryButton.setAttribute('id', 'retry-button');
-    retryButton.innerHTML = "TRY AGAIN?";
+    retryButton.innerHTML = "EXIT";
     losingMessage.append(retryButton);
     retryButton.addEventListener('click', restartGame);
     resetScore();
