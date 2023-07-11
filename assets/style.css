@@ -148,21 +148,39 @@ h1 {
 }
 
 .easy-cards-grid {
-        height: min-content;
-        width: min-content;
-        margin: auto;
-        margin-bottom: 1rem;
-        position: relative;
-        display: grid;
-        column-count: 4;
-        column-gap: 0;
-        grid-template-columns: 1fr 1fr 1fr 1fr ;
-        /* flex-wrap: wrap;
+    height: min-content;
+    width: min-content;
+    margin: auto;
+    margin-bottom: 1rem;
+    position: relative;
+    display: grid;
+    column-count: 4;
+    column-gap: 0;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* flex-wrap: wrap;
         justify-content: center;
         align-items: center; */
-        /* THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek */
-        /*creates 3D effect with code indicated in '.card' style */
-        perspective: 1000px;
+    /* THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek */
+    /*creates 3D effect with code indicated in '.card' style */
+    perspective: 1000px;
+}
+
+.normal-cards-grid {
+    height: min-content;
+    width: min-content;
+    margin: auto;
+    margin-bottom: 1rem;
+    position: relative;
+    display: grid;
+    column-count: 4;
+    column-gap: 0;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; */
+    /* THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek */
+    /*creates 3D effect with code indicated in '.card' style */
+    perspective: 1000px;
 }
 
 #cat-animation {
@@ -407,6 +425,11 @@ h1 {
         width: 70%;
     } */
 
+    .normal-cards-grid {
+        column-count: 8;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
     .card {
         height: 160px;
         width: 110px;
@@ -425,9 +448,9 @@ h1 {
 
 @media only screen and (max-width: 1020px) {
 
-    /* .header {
-        width: 99%;
-    } */
+    header {
+        padding-top: 0;
+    }
 
     .score-and-timer,
     .header-buttons {
@@ -453,8 +476,13 @@ h1 {
 
     .easy-cards-grid {
         column-count: 4;
-        grid-template-columns: 1fr 1fr 1fr 1fr ;
-}
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .normal-cards-grid {
+        column-count: 4;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 
     .card {
         height: 150px;
@@ -491,9 +519,13 @@ h1 {
 
     .easy-cards-grid {
         column-count: 4;
-        grid-template-columns: 1fr 1fr 1fr 1fr ;
-}
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 
+    .normal-cards-grid {
+        column-count: 4;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 
     .card {
         height: 130px;
@@ -541,8 +573,13 @@ h1 {
 
     .easy-cards-grid {
         column-count: 4;
-        grid-template-columns: 1fr 1fr 1fr 1fr ;
-}
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .normal-cards-grid {
+        column-count: 4;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 
     .card {
         height: 120px;
