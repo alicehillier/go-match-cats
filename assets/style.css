@@ -22,8 +22,9 @@ header {
 
 /* Styles for <ul> containing timer, heading, help and restart button  */
 .header {
-    width: 95%;
+    width: 100%;
     margin: 0 auto;
+    text-align: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -61,7 +62,7 @@ h1 {
 .hard {
     line-height: 1rem;
     padding: 1rem;
-    margin: 0 1rem;
+    margin: 0.5rem;
     border-radius: 1rem;
     font-size: 1rem;
     background-color: white;
@@ -73,6 +74,7 @@ h1 {
     margin: 0 auto;
     display: flex;
     justify-content: center;
+    border: 2px solid red;
 } */
 
 .easy,
@@ -237,10 +239,17 @@ h1 {
 
 .difficulty-container {
     display: flex;
+    flex-direction: column;
     background-color: transparent;
-    border: none;
     justify-content: center;
     align-items: center;
+    padding: 0;
+    margin: auto;
+    border: none;
+}
+
+.difficulty-container button {
+    margin: 0.6rem 0;
 }
 
 #retry-button {
@@ -374,6 +383,7 @@ h1 {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         text-align: center;
     }
 
@@ -400,7 +410,7 @@ h1 {
 
     header {
         padding-top: 0.6rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0.6rem;
     }
 
     .timer,
@@ -416,7 +426,6 @@ h1 {
         justify-content: center;
         align-items: center;
         text-align: center;
-        margin: 0.5rem;
     }
 
     .cards-grid {
@@ -464,13 +473,13 @@ h1 {
     }
 
     .cards-grid {
-        column-count: 4;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        column-count: 6;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     }
 
     .card {
-        height: 140px;
-        width: 90px;
+        height: 120px;
+        width: 70px;
         /* margin: 0.15rem; */
     }
 }
@@ -516,6 +525,15 @@ h1 {
 }
 
 @media only screen and (max-width: 391px) {
+
+    .timer,
+    .score,
+    .difficulty-label,
+    .restart,
+    .help,
+    .scoreboard {
+        font-size: 0.5rem;
+    }
 
     .cat-instructions {
         display: none;
