@@ -237,6 +237,10 @@ h1 {
     font-size: 2rem;
 }
 
+#retry-button {
+    width: max-content;
+}
+
 .difficulty-container {
     display: flex;
     flex-direction: column;
@@ -256,6 +260,7 @@ h1 {
     z-index: 2;
     position: relative;
     margin: auto;
+    padding: 1rem;
     border: none;
     justify-content: center;
     align-items: flex-end;
@@ -263,8 +268,8 @@ h1 {
 
 .losing-message,
 .winning-message {
-    height: max-content;
-    width: max-content;
+    /* height: max-content;
+    width: max-content; */
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -301,7 +306,7 @@ h1 {
 .card {
     height: 170px;
     width: 120px;
-    margin: auto;
+    margin: 0.1rem;
     position: relative;
     object-fit: cover;
     /* margin: 0.25rem; */
@@ -357,8 +362,8 @@ h1 {
     } */
 
     .card {
-        height: 165px;
-        width: 115px;
+        height: 160px;
+        width: 110px;
         /* margin: 0.25rem; */
     }
 }
