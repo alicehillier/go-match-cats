@@ -83,8 +83,8 @@ h1 {
 .normal,
 .hard {
     position: relative;
-    height: min-content;
-    width: min-content;
+    height: 5rem;
+    width: 10rem;
     align-items: center;
     margin: 0 1rem;
     background-color: rgb(0, 0, 52);
@@ -502,10 +502,7 @@ h1 {
     .difficulty-label,
     .restart,
     .help,
-    .scoreboard,
-    .easy,
-    .normal,
-    .hard {
+    .scoreboard {
         width: 100%;
         justify-content: center;
         align-items: center;
@@ -549,10 +546,7 @@ h1 {
     .difficulty-label,
     .restart,
     .help,
-    .scoreboard,
-    .easy,
-    .normal,
-    .hard {
+    .scoreboard {
         font-size: 0.8rem;
         line-height: 0.5rem;
         padding: 0.5rem;
