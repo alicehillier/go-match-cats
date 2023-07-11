@@ -455,13 +455,13 @@ h1 {
     }
 
     .cards-grid {
-        column-count: 6;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        column-count: 4;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
     .card {
-        height: 150px;
-        width: 100px;
+        height: 130px;
+        width: 90px;
         /* margin: 0.25rem; */
     }
 
