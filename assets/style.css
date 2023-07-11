@@ -11,7 +11,7 @@ body {
 }
 
 header {
-    height: 4rem;
+    height: min-content;
     width: 100%;
     display: flex;
     align-items: center;
@@ -93,9 +93,9 @@ h1 {
     display: none;
 }
 
-.help {
+/* .help {
     margin-left: 0.35rem;
-}
+} */
 
 .timer {
     margin-right: 0.35rem;
@@ -114,14 +114,17 @@ h1 {
 /* Styles for game area */
 .cards-grid {
     height: min-content;
-    width: 90%;
+    width: min-content;
     margin: auto;
     /* margin-bottom: 0; */
     position: relative;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    column-count: 8;
+    column-gap: 0;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    /* flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     /* THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek */
     /*creates 3D effect with code indicated in '.card' style */
     perspective: 1000px;
@@ -281,9 +284,10 @@ h1 {
 .card {
     height: 170px;
     width: 120px;
+    margin: auto;
     position: relative;
     object-fit: cover;
-    margin: 0.25rem;
+    /* margin: 0.25rem; */
     border: 1px solid rgb(0, 0, 52);
     box-shadow: 2px 2px 3px rgb(0, 0, 52);
     border-radius: 1rem;
@@ -327,36 +331,27 @@ h1 {
 
 @media only screen and (min-width: 1201px) {
 
-    header {
+    /* header {
         height: 10vh;
-    }
+    } */
 
     /* .header {
         width: 70%;
     } */
 
-    .cards-grid {
-        margin: 2rem auto;
-        width: 70%;
-    }
-
     .card {
         height: 165px;
         width: 115px;
-        margin: 0.25rem;
+        /* margin: 0.25rem; */
     }
 }
 
 @media only screen and (max-width: 1200px) {
-    .cards-grid {
-        width: 90%;
-        margin: 2rem auto;
-    }
 
     .card {
         height: 160px;
         width: 110px;
-        margin: 0.25rem;
+        /* margin: 0.25rem; */
     }
 }
 
@@ -365,6 +360,14 @@ h1 {
     /* .header {
         width: 99%;
     } */
+
+    .score-and-timer,
+    .header-buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
 
     .cat-instructions {
         position: absolute;
@@ -375,7 +378,8 @@ h1 {
     }
 
     .cards-grid {
-        margin: 3rem auto;
+        column-count: 6;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     }
 
     .card {
@@ -390,14 +394,6 @@ h1 {
         height: 100%;
         padding-top: 1rem;
         margin-bottom: 1rem;
-    }
-
-    .score-and-timer,
-    .header-buttons {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
     }
 
     .timer,
@@ -417,14 +413,14 @@ h1 {
     }
 
     .cards-grid {
-        width: 100%;
-        margin: 1rem auto;
+        column-count: 6;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     }
 
     .card {
         height: 150px;
         width: 100px;
-        margin: 0.25rem;
+        /* margin: 0.25rem; */
     }
 
     #cat-animation {
@@ -461,13 +457,14 @@ h1 {
     }
 
     .cards-grid {
-        width: 100%;
+        column-count: 4;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
     .card {
         height: 140px;
         width: 90px;
-        margin: 0.15rem;
+        /* margin: 0.15rem; */
     }
 }
 
@@ -493,9 +490,15 @@ h1 {
         font-size: 0.8rem;
     }
 
+    .cards-grid {
+        column-count: 4;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
     .card {
-        height: 120px;
-        width: 70px;
+        height: 110px;
+        width: 80px;
+        /* width: 60px; */
     }
 }
 
@@ -503,14 +506,5 @@ h1 {
 
     .cat-instructions {
         display: none;
-    }
-
-    .cards-grid {
-        margin: 0 auto;
-    }
-
-    .card {
-        height: 100px;
-        width: 60px;
     }
 }
