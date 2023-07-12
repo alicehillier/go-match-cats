@@ -151,8 +151,11 @@ h1 {
     height: min-content;
     width: min-content;
     margin: auto;
-    margin-bottom: 1rem;
-    position: relative;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     display: grid;
     column-count: 4;
     column-gap: 0;
@@ -578,6 +581,12 @@ li::marker {
     .normal-cards-grid {
         column-count: 4;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
     }
 
     .card {
