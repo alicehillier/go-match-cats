@@ -386,6 +386,7 @@ li::marker {
     transform: scale(1);
     transform-style: preserve-3d;
     transition: 0.5s;
+    cursor: pointer;r
 }
 
 /* THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL AND CUSTOMISED: https://www.youtube.com/watch?v=ZniVgo8U7ek */
