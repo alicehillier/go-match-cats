@@ -258,6 +258,10 @@ h1 {
     list-style-type: none;
 }
 
+li::marker {
+    content: none;
+}
+
 #instructions ul li,
 .scoreboard-display ul li {
     width: 80%;

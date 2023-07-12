@@ -302,9 +302,14 @@ function startTimer() {
     restartButton[0].style.visibility = "visible";
     restartButton[0].addEventListener('click', restartMidGame);
 
+    let maxTime;
     console.log('start timer now!');
     let gameTimer = document.getElementsByClassName('timer');
-    let maxTime = 30;
+    if (hardDifficulty === true) {
+        maxTime = 59;
+    } else {
+        maxTime = 29;
+    }
     let timer = setInterval(() => {
         /* If the timer has more than 0 seconds remaining, show how many seconds are left
          in the gameTimer element. Then, deduct 1 second from the timer.*/
