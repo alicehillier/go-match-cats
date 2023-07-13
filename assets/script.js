@@ -323,12 +323,16 @@ function startTimer() {
                 clearInterval(timer);
                 gameTimer[0].innerHTML = "00:00";
                 youWin();
+                let catAnimation = document.getElementById('cat-animation');
+                catAnimation.classList.add('moving-cat');
                 restartButton[0].style.visibility = "hidden";
                 // If the game was played on normal mode and all 16 cards are matched, trigger the youWin function.
             } else if (normalDifficulty === true && cardFlipped.length === 16) {
                 clearInterval(timer);
                 gameTimer[0].innerHTML = "00:00";
                 youWin();
+                catAnimation = document.getElementById('cat-animation');
+                catAnimation.classList.add('moving-cat');
                 restartButton[0].style.visibility = "hidden";
             }
             // If the game was played on easy mode and all 12 cards are matched, trigger the youWin function.
@@ -336,6 +340,8 @@ function startTimer() {
                 clearInterval(timer);
                 gameTimer[0].innerHTML = "00:00";
                 youWin();
+                catAnimation = document.getElementById('cat-animation');
+                catAnimation.classList.add('moving-cat');
                 restartButton[0].style.visibility = "hidden";
             }
             // If the restart button has been clicked on, stop the timer.
