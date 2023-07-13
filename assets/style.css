@@ -150,6 +150,11 @@ audio {
     cursor: pointer;
 }
 
+.audio-icon:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
 .easy:hover,
 .normal:hover,
 .hard:hover {
