@@ -1,3 +1,22 @@
+let audioIcon = document.getElementsByClassName('audio-icon');
+audioIcon[0].addEventListener('click', playAudio);
+
+function stopAudio() {
+    let audio = document.getElementById('music');
+    audio.pause();
+    playMusic = false;
+    audioIcon[0].removeEventListener('click', stopAudio);
+    audioIcon[0].addEventListener('click', playAudio);
+}
+
+function playAudio() {
+    playMusic = true;
+    let audio = document.getElementById('music');
+    audio.play();
+    audioIcon[0].removeEventListener('click', playAudio);
+    audioIcon[0].addEventListener('click', stopAudio);
+};
+
 function createStartButton() {
     // Creates start button and adds event listener to trigger startGame function.
     let startButton = document.createElement('button');
