@@ -52,10 +52,15 @@ h1 {
     text-shadow: 2px 2px 3px rgb(0, 0, 52);
 }
 
+.header-image {
+    display: none;
+}
+
 /* Styles for timer, help and restart button */
 .timer,
 .score,
 .difficulty-label,
+.audio-icon,
 .restart,
 .help,
 .scoreboard,
@@ -71,11 +76,17 @@ h1 {
     color: rgb(0, 0, 52);
 }
 
+.audio-icon {
+    padding: 0;
+}
+
 .timer,
 .score,
-.difficulty-label {
-background-color: transparent;
-color: white;
+.difficulty-label,
+.audio-icon {
+    margin: 0.6rem;
+    background-color: transparent;
+    color: white;
 }
 
 /* .difficulty-container {
@@ -88,6 +99,12 @@ color: white;
 
 audio {
     display: none;
+}
+
+.audio-icon {
+    font-size: 1rem;
+    line-height: 1rem;
+    margin: auto;
 }
 
 .easy,
@@ -455,15 +472,6 @@ li::marker {
 
 @media only screen and (max-width: 1200px) {
 
-    .card {
-        height: 160px;
-        width: 110px;
-        /* margin: 0.25rem; */
-    }
-}
-
-@media only screen and (max-width: 1020px) {
-
     header {
         padding-top: 0;
     }
@@ -475,6 +483,22 @@ li::marker {
         justify-content: center;
         align-items: center;
         text-align: center;
+    }
+
+    .restart,
+    .help,
+    .scoreboard,
+    .easy,
+    .normal,
+    .hard {
+        margin: 0.5rem;
+    }
+
+    .timer,
+    .score,
+    .difficulty-label,
+    .audio-icon {
+        margin: 0.3rem;
     }
 
     .cat-instructions {
@@ -501,6 +525,15 @@ li::marker {
     }
 
     .card {
+        height: 160px;
+        width: 110px;
+        /* margin: 0.25rem; */
+    }
+}
+
+@media only screen and (max-width: 1020px) {
+
+    .card {
         height: 150px;
         width: 100px;
     }
@@ -509,8 +542,8 @@ li::marker {
 @media only screen and (max-width: 767px) {
 
     header {
-        padding-top: 0.6rem;
-        margin-bottom: 0.6rem;
+        padding-top: 1rem;
+        margin-bottom: 1rem;
     }
 
     .timer,
@@ -604,12 +637,18 @@ li::marker {
         width: 90%;
     } */
 
+    header {
+        padding-top: 0.6rem;
+        margin-bottom: 0.6rem;
+    }
+
     .header h1 {
         display: none;
     }
 
-    .header i {
-        font-size: 2rem;
+    .header-image {
+        display: block;
+        height: 2rem;
     }
 
     .instructions-title {
@@ -629,12 +668,6 @@ li::marker {
         height: 110px;
         width: 80px;
         /* width: 60px; */
-    }
-
-    .timer,
-    .score,
-    .difficulty-label {
-        margin: 0.6rem;
     }
 }
 
