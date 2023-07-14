@@ -553,7 +553,7 @@ function saveScore() {
 
 /**Creates the scoreboard, which is visible when the user clicks on the 'leaderboard' button. Displays the collection of scores from this session. */
 function showScoreboard() {
-    scoreboardDisplay = document.createElement('div');
+    let scoreboardDisplay = document.createElement('div');
     scoreboardDisplay.setAttribute('class', 'scoreboard-display');
     scoreboardDisplay.innerHTML = `
     <button class="exit-scoreboard">X</button>
@@ -561,7 +561,10 @@ function showScoreboard() {
     <ul>
     `;
     console.log(scoreboard, 'before display');
-    scoreboard.forEach((value) => {
+     // Sorts the numbers from highest to lowest, then takes values from index 0 - 4.
+     let top5 = scoreboard.sort((a,b) => b-a).slice(0,5);
+     console.log(top5);
+    top5.forEach((value) => {
         scoreboardDisplay.innerHTML += `<li>${value}</li>`;
     })
     scoreboardDisplay.innerHTML += "</ul>";
@@ -578,9 +581,3 @@ function showScoreboard() {
         scoreboardDisplay.style.display = "none";
     }
 }
-
-(function top5Scores() {
-    // Sorts the numbers from highest to lowest, then takes values from index 0 - 4.
-    let top5 = scoreboard.sort((a,b) => b-a).slice(0,5);
-    console.log(top5);
-}());
