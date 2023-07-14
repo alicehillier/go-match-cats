@@ -578,3 +578,9 @@ function showScoreboard() {
         scoreboardDisplay.style.display = "none";
     }
 }
+
+(function top5Scores() {
+    // Sorts the numbers from highest to lowest, then takes values from index 0 - 4.
+    let top5 = scoreboard.sort((a,b) => b-a).slice(0,5);
+    console.log(top5);
+}());
