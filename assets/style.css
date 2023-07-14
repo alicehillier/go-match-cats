@@ -89,14 +89,6 @@ h1 {
     color: white;
 }
 
-/* .difficulty-container {
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    border: 2px solid red;
-} */
-
 audio {
     display: none;
 }
@@ -128,14 +120,6 @@ audio {
 .no-display {
     display: none;
 }
-
-/* .help {
-    margin-left: 0.35rem;
-} */
-
-/* .timer {
-    margin-right: 0.35rem;
-} */
 
 #start-button:hover,
 #retry-button:hover,
@@ -172,9 +156,6 @@ audio {
     column-count: 8;
     column-gap: 0;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    /* flex-wrap: wrap;
-    justify-content: center;
-    align-items: center; */
     /* THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek */
     /*creates 3D effect with code indicated in '.card' style */
     perspective: 1000px;
@@ -190,9 +171,6 @@ audio {
     column-count: 4;
     column-gap: 0;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    /* flex-wrap: wrap;
-        justify-content: center;
-        align-items: center; */
     /* THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek */
     /*creates 3D effect with code indicated in '.card' style */
     perspective: 1000px;
@@ -208,9 +186,6 @@ audio {
     column-count: 4;
     column-gap: 0;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    /* flex-wrap: wrap;
-    justify-content: center;
-    align-items: center; */
     /* THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek */
     /*creates 3D effect with code indicated in '.card' style */
     perspective: 1000px;
@@ -379,11 +354,8 @@ li::marker {
 
 .losing-message,
 .winning-message {
-    /* height: max-content;
-    width: max-content; */
     display: flex;
     flex-direction: column;
-    /* padding: 2rem; */
     border-radius: 1rem;
     text-align: center;
     vertical-align: middle;
@@ -410,7 +382,6 @@ li::marker {
     margin: 0.1rem;
     position: relative;
     object-fit: cover;
-    /* margin: 0.25rem; */
     border: 1px solid rgb(0, 0, 52);
     box-shadow: 2px 2px 3px rgb(0, 0, 52);
     border-radius: 1rem;
@@ -455,14 +426,6 @@ li::marker {
 
 @media only screen and (min-width: 1201px) {
 
-    /* header {
-        height: 10vh;
-    } */
-
-    /* .header {
-        width: 70%;
-    } */
-
     .normal-cards-grid {
         column-count: 8;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -471,7 +434,6 @@ li::marker {
     .card {
         height: 160px;
         width: 110px;
-        /* margin: 0.25rem; */
     }
 }
 
@@ -532,7 +494,6 @@ li::marker {
     .card {
         height: 160px;
         width: 110px;
-        /* margin: 0.25rem; */
     }
 }
 
@@ -581,7 +542,6 @@ li::marker {
     .card {
         height: 130px;
         width: 90px;
-        /* margin: 0.25rem; */
     }
 
     #cat-animation {
@@ -632,15 +592,10 @@ li::marker {
     .card {
         height: 120px;
         width: 70px;
-        /* margin: 0.15rem; */
     }
 }
 
 @media only screen and (max-width: 480px) {
-
-    /* .header {
-        width: 90%;
-    } */
 
     header {
         padding-top: 0.6rem;
@@ -672,7 +627,6 @@ li::marker {
     .card {
         height: 110px;
         width: 80px;
-        /* width: 60px; */
     }
 }
 
@@ -694,6 +648,5 @@ li::marker {
     .card {
         height: 80px;
         width: 70px;
-        /* width: 60px; */
     }
 }
