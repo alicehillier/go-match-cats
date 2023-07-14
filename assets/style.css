@@ -237,6 +237,10 @@ audio {
     z-index: 2;
 }
 
+.scoreboard-display {
+    text-align: center;
+}
+
 .exit-instructions,
 .exit-scoreboard {
     line-height: 2rem;
@@ -270,8 +274,8 @@ li::marker {
     content: none;
 }
 
-#instructions ul li,
-.scoreboard-display ul li {
+#instructions li,
+.top10 li {
     width: 80%;
     margin: 2rem auto;
     font-size: 1.5rem;

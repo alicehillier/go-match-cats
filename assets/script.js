@@ -558,14 +558,15 @@ function showScoreboard() {
     scoreboardDisplay.innerHTML = `
     <button class="exit-scoreboard">X</button>
     <h2>LEADERBOARD</h2>
-    <ul>
+    <ul class="top-10">
     `;
     console.log(scoreboard, 'before display');
-     // Sorts the numbers from highest to lowest, then takes values from index 0 - 4.
-     let top5 = scoreboard.sort((a,b) => b-a).slice(0,5);
-     console.log(top5);
-    top5.forEach((value) => {
-        scoreboardDisplay.innerHTML += `<li>${value}</li>`;
+    // Sorts the numbers from highest to lowest, then takes values from index 0 - 4.
+    let top10 = scoreboard.sort((a, b) => b - a).slice(0, 10);
+    let listTop10 = scoreboardDisplay.getElementsByClassName('top-10');
+    console.log(top10);
+    top10.forEach((value) => {
+        listTop10[0].innerHTML += `<li>${value}</li>`;
     })
     scoreboardDisplay.innerHTML += "</ul>";
 
