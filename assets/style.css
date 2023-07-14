@@ -266,8 +266,9 @@ audio {
 #instructions ul,
 .scoreboard-display ul {
     position: relative;
-    width: 80%;
+    width: 100%;
     list-style-type: none;
+    padding: 2rem;
 }
 
 li::marker {
@@ -275,9 +276,9 @@ li::marker {
 }
 
 #instructions li,
-.top10 li {
-    width: 80%;
-    margin: 2rem auto;
+.top-10 li {
+    width: 100%;
+    margin: 1rem auto;
     font-size: 1.5rem;
 }
 
@@ -430,6 +431,11 @@ li::marker {
 
 @media only screen and (min-width: 1201px) {
 
+    #instructions ul li {
+        width: 50%;
+        text-align: center;
+    }
+
     .normal-cards-grid {
         column-count: 8;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -570,6 +576,10 @@ li::marker {
         padding: 0.5rem;
     }
 
+    #instructions ul li {
+        font-size: 1rem;
+    }
+
     .cat-instructions {
         position: absolute;
         bottom: 0;
@@ -617,10 +627,6 @@ li::marker {
 
     .instructions-title {
         font-size: 1.2rem;
-    }
-
-    #instructions ul li {
-        font-size: 0.8rem;
     }
 
     .cards-grid {
