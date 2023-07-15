@@ -323,6 +323,13 @@ li::marker {
     font-size: 2rem;
 }
 
+#name {
+    text-align: center;
+    padding: 1rem;
+    margin: 1rem auto;
+    width: 50%;
+}
+
 #retry-button {
     width: min-content;
     border-radius: 1rem;
@@ -504,6 +511,12 @@ li::marker {
     .card {
         height: 160px;
         width: 110px;
+    }
+
+    .winning-message,
+    .losing-message,
+    #retry-button {
+        font-size: 1rem;
     }
 }
 

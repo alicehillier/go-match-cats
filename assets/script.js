@@ -425,9 +425,13 @@ function youWin() {
     // show "YOU WIN!" to the player.
     let winningMessage = document.createElement('p');
     winningMessage.classList.add('winning-message');
-    winningMessage.innerHTML = `<p>YOU WON! 
-    <br>
-    Your score was ${scoreCounter[0].innerHTML}</p>`;
+    winningMessage.innerHTML = `
+    <p>YOU WON!</p> 
+    <p>Your score was ${scoreCounter[0].innerHTML}</p>
+    <p>Enter your name to save your score!</p>
+    <input type="text" id="name">
+    <button type="submit" id="submit"
+    `;
     let cardsGrid = document.getElementsByClassName('cards-grid');
     cardsGrid[0].append(winningMessage);
     // setTimeout(() => {
@@ -455,9 +459,13 @@ function gameOver() {
     // show "YOU LOST!" to the player.
     let losingMessage = document.createElement('p');
     losingMessage.classList.add('losing-message');
-    losingMessage.innerHTML = `<p>YOU LOST! 
-    <br>
-    Your score was ${scoreCounter[0].innerHTML}</p>`;
+    losingMessage.innerHTML = `
+    <p>YOU LOST!</p> 
+    <p>Your score was ${scoreCounter[0].innerHTML}</p>
+    <p>Enter your name to save your score!</p>
+    <input type="text" id="name">
+    <button type="submit" id="submit"
+    `;
     let cardsGrid = document.getElementsByClassName('cards-grid');
     cardsGrid[0].append(losingMessage);
     // setTimeout(() => {
