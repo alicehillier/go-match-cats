@@ -557,9 +557,17 @@ function saveScore() {
     let cardFlipped = document.getElementsByClassName('card-flipped');
     score = (cardFlipped.length) * 2.5;
     scoreCounter[0].innerHTML = score;
-    scoreboard.push(score);
+
+    let username = document.getElementById('name');
+    let name = username.value;
+
+    // Group the player name and score into an object, so they are stored together.
+    let nameAndScore = {name, score};
+
+    // Push the grouped information to the scoreboard.
+    scoreboard.push(nameAndScore);
     localStorage.setItem('score', JSON.stringify(scoreboard));
-    console.log(`${score} added to scoreboard`);
+    console.log(`${nameAndScore.name} and ${nameAndScore.score} added to scoreboard`);
     console.log(scoreboard);
     return;
 }
@@ -574,12 +582,14 @@ function showScoreboard() {
     <ul class="top-10">
     `;
     console.log(scoreboard, 'before display');
-    // Sorts the numbers from highest to lowest, then takes values from index 0 - 4.
-    let top10 = scoreboard.sort((a, b) => b - a).slice(0, 10);
+    // Copies the scoreboard content, sorts the numbers from highest to lowest, then takes values from index 0 - 9. Specify that I want score so the array isn't sorted by player name.
+    let top10 = scoreboard.sort((a, b) => b.score - a.score).slice(0, 10);
     let listTop10 = scoreboardDisplay.getElementsByClassName('top-10');
     console.log(top10);
+
+    // Loops through the objects and displays the values for name and score.
     top10.forEach((value) => {
-        listTop10[0].innerHTML += `<li>${value}</li>`;
+        listTop10[0].innerHTML += `<li>${value.name}: ${value.score}</li>`;
     })
     scoreboardDisplay.innerHTML += "</ul>";
 

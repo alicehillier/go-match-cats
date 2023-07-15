@@ -120,6 +120,7 @@ audio {
     margin: 1rem;
     display: block;
     border-radius: 1rem;
+    text-transform: uppercase;
 }
 
 #submit {
