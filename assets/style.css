@@ -100,7 +100,8 @@ audio {
     margin: auto;
 }
 
-.get-username {
+.get-username,
+.scoreboard-display {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -115,7 +116,7 @@ audio {
     align-items: center;
     background: linear-gradient(rgb(0, 0, 52), rgb(85, 163, 189), rgb(0, 0, 52));
     border: 5px solid white;
-    box-shadow: 2px 2px 3px 3px lightpink;
+    border-radius: 1rem;
     color: white;
     padding: 2rem;
     text-align: center;
@@ -132,7 +133,6 @@ audio {
     margin: 1rem;
     display: block;
     border-radius: 1rem;
-    text-transform: uppercase;
     color: rgb(0, 0, 52);
 }
 
@@ -272,8 +272,7 @@ audio {
     width: 22.5rem;
 }
 
-#instructions,
-.scoreboard-display {
+#instructions {
     position: absolute;
     height: 100%;
     width: 100%;

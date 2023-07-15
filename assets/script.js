@@ -593,8 +593,8 @@ function showScoreboard() {
     })
     scoreboardDisplay.innerHTML += "</ul>";
 
-    let body = document.getElementsByTagName('body');
-    body[0].prepend(scoreboardDisplay);
+    let cardsGrid = document.getElementsByClassName('cards-grid');
+    cardsGrid[0].prepend(scoreboardDisplay);
     console.log("scoreboard here");
     let exit = document.getElementsByClassName('exit-scoreboard');
     exit[0].addEventListener('click', closeScoreboard);
