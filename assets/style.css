@@ -274,6 +274,15 @@ audio {
     width: 22.5rem;
 }
 
+.cat-leaderboard {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 15rem;
+    width: 22.5rem;
+    transform: rotateY(180deg);
+}
+
 #instructions {
     position: absolute;
     height: 100%;
@@ -282,6 +291,8 @@ audio {
     color: white;
     text-shadow: 2px 2px 3px rgb(0, 0, 52);
     z-index: 2;
+    border: 5px solid white;
+    border-radius: 1rem;
 }
 
 .scoreboard-display {
@@ -327,6 +338,24 @@ li::marker {
     width: 100%;
     margin: 1rem auto;
     font-size: 1.5rem;
+}
+
+.top-10 li {
+    display: flex;
+    text-align: center;
+    font-size: 1.5rem;
+    border-bottom: 1px solid white;
+    padding-bottom: 5px;
+}
+
+.player-name {
+    width: 100%;
+    text-align: center;
+}
+
+.player-score {
+    width: 100%;
+    text-align: center;
 }
 
 #start-button,
@@ -485,6 +514,10 @@ li::marker {
 
 @media only screen and (min-width: 1201px) {
 
+    .top-10 li {
+        width: 50%;
+    }
+
     #instructions ul li {
         width: 50%;
         text-align: center;
@@ -532,10 +565,13 @@ li::marker {
         margin: 0.3rem;
     }
 
-    .cat-instructions {
-        position: absolute;
-        bottom: 0;
-        right: 0;
+    .top-10 li {
+        width: 50%;
+        font-size: 0.8rem;
+    }
+
+    .cat-instructions,
+    .cat-leaderboard {
         height: 9rem;
         width: 13rem;
     }
@@ -640,12 +676,14 @@ li::marker {
         font-size: 1rem;
     }
 
-    .cat-instructions {
-        position: absolute;
-        bottom: 0;
-        right: 0;
+    .cat-instructions,
+    .cat-leaderboard {
         height: 6rem;
         width: 9rem;
+    }
+
+    .top-10 li {
+        width: 100%;
     }
 
     .cards-grid {
@@ -711,7 +749,8 @@ li::marker {
         font-size: 0.5rem;
     }
 
-    .cat-instructions {
+    .cat-instructions,
+    .cat-leaderboard {
         display: none;
     }
 

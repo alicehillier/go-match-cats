@@ -562,7 +562,7 @@ function saveScore() {
     let name = username.value;
 
     // Group the player name and score into an object, so they are stored together.
-    let nameAndScore = {name, score};
+    let nameAndScore = { name, score };
 
     // Push the grouped information to the scoreboard.
     scoreboard.push(nameAndScore);
@@ -589,12 +589,15 @@ function showScoreboard() {
 
     // Loops through the objects and displays the values for name and score.
     top10.forEach((value) => {
-        listTop10[0].innerHTML += `<li>${value.name}: ${value.score}</li>`;
+        listTop10[0].innerHTML += `<li><span class="player-name">${value.name}</span> : <span class="player-score">${value.score}</span></li>`;
     })
-    scoreboardDisplay.innerHTML += "</ul>";
+    scoreboardDisplay.innerHTML += `
+    </ul>
+    <img src="assets/images/cartoon-cat-vector.png" alt="cartoon cat" class="cat-leaderboard">
+    `;
 
-    let cardsGrid = document.getElementsByClassName('cards-grid');
-    cardsGrid[0].prepend(scoreboardDisplay);
+    let body = document.getElementsByTagName('body');
+    body[0].prepend(scoreboardDisplay);
     console.log("scoreboard here");
     let exit = document.getElementsByClassName('exit-scoreboard');
     exit[0].addEventListener('click', closeScoreboard);
