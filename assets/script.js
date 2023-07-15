@@ -1,3 +1,10 @@
+(function getUsername() {
+    let message = document.getElementsByClassName('get-username');
+    let submit = document.getElementById('submit');
+    submit.addEventListener('click', selectDifficulty);
+}());
+
+
 let audioIcon = document.getElementsByClassName('audio-icon');
 audioIcon[0].addEventListener('click', playAudio);
 
@@ -40,7 +47,11 @@ let normalDifficulty = false;
 let hardDifficulty = false;
 
 /**Adds click event listeners to the difficulty level buttons. */
-(function selectDifficulty() {
+function selectDifficulty() {
+
+    let message = document.getElementsByClassName('get-username');
+    message[0].style.display = "none";
+
     let easy = document.getElementsByClassName('easy');
     let normal = document.getElementsByClassName('normal');
     let hard = document.getElementsByClassName('hard');
@@ -48,7 +59,7 @@ let hardDifficulty = false;
     easy[0].addEventListener('click', easyMode);
     normal[0].addEventListener('click', normalMode);
     hard[0].addEventListener('click', hardMode);
-}());
+};
 
 /**Removes cards, leaving a total of 12 playable cards. */
 function easyMode() {
@@ -428,9 +439,6 @@ function youWin() {
     winningMessage.innerHTML = `
     <p>YOU WON!</p> 
     <p>Your score was ${scoreCounter[0].innerHTML}</p>
-    <p>Enter your name to save your score!</p>
-    <input type="text" id="name">
-    <button type="submit" id="submit"
     `;
     let cardsGrid = document.getElementsByClassName('cards-grid');
     cardsGrid[0].append(winningMessage);
@@ -462,9 +470,6 @@ function gameOver() {
     losingMessage.innerHTML = `
     <p>YOU LOST!</p> 
     <p>Your score was ${scoreCounter[0].innerHTML}</p>
-    <p>Enter your name to save your score!</p>
-    <input type="text" id="name">
-    <button type="submit" id="submit"
     `;
     let cardsGrid = document.getElementsByClassName('cards-grid');
     cardsGrid[0].append(losingMessage);
