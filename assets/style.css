@@ -320,8 +320,9 @@ audio {
 .instructions-title,
 .scoreboard-display h2 {
     padding: 2rem;
+    padding-bottom: 0;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 #instructions ul,
@@ -759,8 +760,14 @@ form {
         display: none;
     }
 
-    .card {
-        height: 80px;
-        width: 70px;
+    .exit-instructions,
+    .exit-scoreboard {
+        line-height: 1.5rem;
+        width: 1.5rem;
+        font-size: 1rem;
+
+        .card {
+            height: 80px;
+            width: 70px;
+        }
     }
-}
