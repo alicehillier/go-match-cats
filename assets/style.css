@@ -725,6 +725,7 @@ form {
     .header-image {
         display: block;
         height: 2rem;
+        width: 3rem;
     }
 
     .instructions-title {
