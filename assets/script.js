@@ -179,7 +179,7 @@ function showInstructions() {
     instructions.setAttribute('id', 'instructions');
     instructions.innerHTML = `
     <button class="exit-instructions">X</button>
-    <h2 class="instructions-title">How to Play</h2>
+    <h2 class="instructions-title">HOW TO PLAY</h2>
     <ul>
     <li>The aim of the game is to match your cards.</li>
     <li>Click on two cards. If they match, they'll disappear. If not, they'll return to their positions.</li>

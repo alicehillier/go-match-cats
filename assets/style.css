@@ -131,8 +131,10 @@ audio {
 }
 
 #name {
+    width: 50%;
+    text-align: center;
     padding: 1rem;
-    margin: 1rem;
+    margin: 1rem auto;
     display: block;
     border-radius: 1rem;
     color: rgb(0, 0, 52);
@@ -319,6 +321,7 @@ audio {
 .scoreboard-display h2 {
     padding: 2rem;
     text-align: center;
+    font-size: 2rem;
 }
 
 #instructions ul,
@@ -401,13 +404,6 @@ li::marker {
 
 form {
     width: 100%;
-}
-
-#name {
-    text-align: center;
-    padding: 1rem;
-    margin: 1rem auto;
-    width: 50%;
 }
 
 #retry-button {
@@ -634,6 +630,10 @@ form {
         text-align: center;
     }
 
+    #name {
+        width: 80%;
+    }
+
     .cards-grid {
         column-count: 4;
         grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -728,8 +728,8 @@ form {
         width: 3rem;
     }
 
-    .instructions-title {
-        font-size: 1.2rem;
+    #name {
+        width: 90%;
     }
 
     .cards-grid {
