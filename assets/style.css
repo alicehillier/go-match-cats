@@ -734,6 +734,19 @@ li::marker {
         width: 3rem;
     }
 
+    .restart,
+    .help,
+    .scoreboard {
+        margin: 0.25rem;
+    }
+
+    .timer,
+    .score,
+    .difficulty-label,
+    .audio-icon {
+        margin: 0.15rem;
+    }
+
     #name {
         width: 90%;
     }
