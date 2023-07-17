@@ -208,7 +208,6 @@ function showInstructions() {
 
 //THE CODE IN THE flipCard FUNCTION WAS SOURCED FROM A FREECODECAMP TUTORIAL AND CUSTOMISED: https://www.youtube.com/watch?v=ZniVgo8U7ek
 //---------------------------------------------------------------------------------------------------------
-
 /**Allows cards to be flipped, checks if cards match and hides them if they do, or returns them to their original position if they don't 
  * (with 1 sec delay for viewing) */
 function flipCard() {
@@ -222,6 +221,7 @@ function flipCard() {
     for (let i = 0; i < cards.length; i++) {
         cards[i].addEventListener('click', flipCard);
     }
+
     // Adds a 'flip' class to the card element. This allows the card to be flipped
     this.classList.add('flip');
 
@@ -236,16 +236,13 @@ function flipCard() {
     }
     checkCards();
 };
-
 //---------------------------------------------------------------------------------------------------------
 
 //SOME OF THE CODE IN THE checkCards FUNCTION WAS SOURCED FROM A FREECODECAMP TUTORIAL AND CUSTOMISED: https://www.youtube.com/watch?v=ZniVgo8U7ek
 //---------------------------------------------------------------------------------------------------------
-
 /** Checks if cards match. If so, they disappear and cannot be clicked again. If not, they are flipped back to their original positions. 
  * Triggers the incrementScore function. */
 function checkCards() {
-    let score = 0;
     // If the cards match, hide the cards and remove the event listener so they cannot be activated again
     //DATASET NAMES, CARD STYLES, ADDITION OF CLASS NAMES AND CALLING OF incrementScore FUNCTION ARE MY OWN
     if (firstCard.dataset.name === secondCard.dataset.name) {
@@ -268,23 +265,20 @@ function checkCards() {
             secondCard.classList.remove('flip');
             // Allow the player to flip cards again
             resetBoard();
-        }, 1000)
+        }, 1000);
     }
 }
-
 //---------------------------------------------------------------------------------------------------------
 
 //THE CODE IN THE resetBoard FUNCTION WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek
 //---------------------------------------------------------------------------------------------------------
-
 /**Allows the matching process to start again, letting the player flip 2 cards */
 function resetBoard() {
     flippedCard = false;
-    boardLocked = false
+    boardLocked = false;
     firstCard = null;
     secondCard = null;
 }
-
 //---------------------------------------------------------------------------------------------------------
 
 //THE CODE IN THE shuffleCards FUNCTION WAS MADE USING LOGIC FROM A FREECODECAMP TUTORIAL AND CUSTOMISED SIGNIFICANTLY: https://www.youtube.com/watch?v=ZniVgo8U7ek
@@ -449,17 +443,12 @@ function youWin() {
     `;
     let cardsGrid = document.getElementsByClassName('cards-grid');
     cardsGrid[0].append(winningMessage);
-    // setTimeout(() => {
-    // remove the winningMessage after one second and display retryButton in its place.
-    // winningMessage.remove();
-    // console.log('winningMessage removed');
     let retryButton = document.createElement('button');
     retryButton.setAttribute('id', 'retry-button');
     retryButton.innerHTML = "EXIT";
     winningMessage.append(retryButton);
     retryButton.addEventListener('click', restartGame);
     resetScore();
-    // }, 2000);
 }
 
 /**Stops the player flipping cards and displays a 'YOU LOSE!' message, showing them their total score. 
@@ -481,17 +470,12 @@ function gameOver() {
     `;
     let cardsGrid = document.getElementsByClassName('cards-grid');
     cardsGrid[0].append(losingMessage);
-    // setTimeout(() => {
-    // remove the losingMessage after one second and display retryButton in its place.
-    // losingMessage.remove();
-    // console.log('losingMessage removed');
     let retryButton = document.createElement('button');
     retryButton.setAttribute('id', 'retry-button');
     retryButton.innerHTML = "EXIT";
     losingMessage.append(retryButton);
     retryButton.addEventListener('click', restartGame);
     resetScore();
-    // }, 3000);
 }
 
 /**Removes the winning or losing message once the retry button has been clicked. Reset the game area and re-add the start button with its event listener so the game can be run again. */
@@ -598,7 +582,7 @@ function showScoreboard() {
     // Loops through the objects and displays the values for name and score.
     top10.forEach((value) => {
         listTop10[0].innerHTML += `<li><span class="player-name">${value.name}</span> : <span class="player-score">${value.score}</span></li>`;
-    })
+    });
     scoreboardDisplay.innerHTML += `
     </ul>
     <img src="assets/images/cartoon-cat-vector.png" alt="cartoon cat" class="cat-leaderboard">
