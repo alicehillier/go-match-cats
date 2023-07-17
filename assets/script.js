@@ -352,10 +352,10 @@ function startTimer() {
     let maxTime;
     console.log('start timer now!');
     let gameTimer = document.getElementsByClassName('timer');
-    if (hardDifficulty === true) {
-        maxTime = 59;
-    } else {
+    if (easyDifficulty === true || normalDifficulty === true) {
         maxTime = 29;
+    } else {
+        maxTime = 59;
     }
     let timer = setInterval(() => {
         /* If the timer has more than 0 seconds remaining, show how many seconds are left
