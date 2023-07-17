@@ -77,6 +77,7 @@ function easyMode() {
     difficultyContainer[0].style.visibility = "hidden";
     console.log('easy mode triggered');
     let cards = document.getElementsByClassName('card');
+    // Hide the cards below
     cards[0].classList.add('no-display');
     cards[1].classList.add('no-display');
     cards[2].classList.add('no-display');
@@ -89,6 +90,19 @@ function easyMode() {
     cards[15].classList.add('no-display');
     cards[16].classList.add('no-display');
     cards[17].classList.add('no-display');
+    // Do not hide the cards below, but give them a new class
+    cards[6].classList.add('easy-card');
+    cards[7].classList.add('easy-card');
+    cards[8].classList.add('easy-card');
+    cards[9].classList.add('easy-card');
+    cards[10].classList.add('easy-card');
+    cards[11].classList.add('easy-card');
+    cards[18].classList.add('easy-card');
+    cards[19].classList.add('easy-card');
+    cards[20].classList.add('easy-card');
+    cards[21].classList.add('easy-card');
+    cards[22].classList.add('easy-card');
+    cards[23].classList.add('easy-card');
     return;
 }
 
