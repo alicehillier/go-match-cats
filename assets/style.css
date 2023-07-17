@@ -21,7 +21,7 @@ header {
     margin-bottom: 3rem;
 }
 
-/* Styles for <ul> containing timer, heading, help and restart button  */
+/* Styles for the primary unordered list containing all three sections of the header */
 .header {
     height: min-content;
     width: 100%;
@@ -56,7 +56,7 @@ h1 {
     display: none;
 }
 
-/* Styles for timer, help and restart button */
+/* Styles for elements in the header and difficulty buttons */
 .timer,
 .score,
 .difficulty-label,
@@ -77,10 +77,6 @@ h1 {
     color: rgb(0, 0, 52);
 }
 
-.audio-icon {
-    padding: 0;
-}
-
 .timer,
 .score,
 .difficulty-label,
@@ -99,7 +95,10 @@ audio {
     font-size: 1rem;
     line-height: 1rem;
     margin: auto;
+    padding: 0;
 }
+
+/* Styles for welcome message with input area and the leaderboard display */
 
 .get-username,
 .scoreboard-display {
@@ -148,6 +147,8 @@ audio {
     cursor: pointer;
 }
 
+/* Styles for difficulty buttons */
+
 .easy,
 .normal,
 .hard {
@@ -155,20 +156,24 @@ audio {
     height: 5rem;
     width: 10rem;
     align-items: center;
-    margin: 0 1rem;
     background-color: rgb(0, 0, 52);
     color: white;
     text-shadow: 2px 2px 3px rgb(0, 0, 52);
     border: 1px solid white;
+    margin: 0.6rem 0;
 }
 
 .restart {
     visibility: hidden;
 }
 
+/* Styles for cards depending on the game's difficulty - class added to cards in JavaScript file */
+
 .no-display {
     display: none;
 }
+
+/* Hover effect for all buttons */
 
 #start-button:hover,
 #retry-button:hover,
@@ -211,6 +216,8 @@ audio {
     perspective: 1000px;
 }
 
+/* Styles for game area while the difficulty level is set to 'easy' */
+
 .easy-cards-grid {
     height: min-content;
     width: min-content;
@@ -225,6 +232,8 @@ audio {
     /*creates 3D effect with code indicated in '.card' style */
     perspective: 1000px;
 }
+
+/* Styles for game area while the difficulty level is set to 'normal' */
 
 .normal-cards-grid {
     height: min-content;
@@ -241,6 +250,8 @@ audio {
     perspective: 1000px;
 }
 
+/* Styles for cartoon cat at the bottom of the screen */
+
 #cat-animation {
     height: 4.5rem;
     width: 6.5rem;
@@ -250,6 +261,8 @@ audio {
     z-index: -2;
     transform: rotateY(180deg);
 }
+
+/* Animation for moving the cat along the bottom of the screen continuously */
 
 .moving-cat {
     animation-name: moving-cat;
@@ -268,6 +281,8 @@ audio {
     }
 }
 
+/* Styles for the cat image on the instructions page */
+
 .cat-instructions {
     position: absolute;
     bottom: 0;
@@ -275,6 +290,8 @@ audio {
     height: 15rem;
     width: 22.5rem;
 }
+
+/* Styles for the cat image on the leaderboard page */
 
 .cat-leaderboard {
     position: absolute;
@@ -284,6 +301,8 @@ audio {
     width: 22.5rem;
     transform: rotateY(180deg);
 }
+
+/* Styles for the instructions page */
 
 #instructions {
     position: absolute;
@@ -301,6 +320,8 @@ audio {
     text-align: center;
 }
 
+/* Styles for the 'X' button in the top right corner of the instructions and leaderboard pages */
+
 .exit-instructions,
 .exit-scoreboard {
     line-height: 2rem;
@@ -317,6 +338,8 @@ audio {
     cursor: pointer;
 }
 
+/* Styles for the headings of the instructions and leaderboard pages */
+
 .instructions-title,
 .scoreboard-display h2 {
     padding: 2rem;
@@ -324,6 +347,8 @@ audio {
     text-align: center;
     font-size: 1.5rem;
 }
+
+/* Styles for the structure of the main content of instructions and leaderboard pages */
 
 #instructions ul,
 .scoreboard-display ul {
@@ -333,9 +358,13 @@ audio {
     padding: 2rem;
 }
 
+/* Removes bulletpoints from the leaderboard page */
+
 li::marker {
     content: none;
 }
+
+/* Styles for the main content of the instructions and leaderboard pages */
 
 #instructions li,
 .top-10 li {
@@ -362,6 +391,8 @@ li::marker {
     text-align: center;
 }
 
+/* Styles for the start button, end-of-game exit button and container for difficulty buttons */
+
 #start-button,
 .start-countdown,
 #retry-button,
@@ -384,65 +415,20 @@ li::marker {
     font-size: 2rem;
 }
 
+/* Styles for the 'YOU WIN!' or 'YOU LOSE!' messages displayed at the end of each game */
+
 .winning-message,
 .losing-message {
     height: min-content;
     padding: 1rem;
-    background-color: white;
-    color: rgb(0, 0, 52);
     margin: auto;
     position: absolute;
-    text-align: center;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 1;
-    border: 2px solid rgb(0, 0, 52);
-    border-radius: 50%;
     font-size: 2rem;
-}
-
-form {
-    width: 100%;
-}
-
-#retry-button {
-    width: min-content;
-    border-radius: 1rem;
-}
-
-.difficulty-container {
-    display: flex;
-    flex-direction: column;
-    background-color: transparent;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin: auto;
-    border: none;
-}
-
-.start-countdown {
-    border-radius: 50%;
-}
-
-.difficulty-container button {
-    margin: 0.6rem 0;
-}
-
-#retry-button {
-    z-index: 2;
-    position: relative;
-    margin: auto;
-    padding: 1rem;
-    border: none;
-    justify-content: center;
-    align-items: flex-end;
-}
-
-.losing-message,
-.winning-message {
     display: flex;
     flex-direction: column;
     border-radius: 1rem;
@@ -458,12 +444,49 @@ form {
     padding-bottom: 2rem;
 }
 
+/* Styles for the exit button at the end of each game */
+
+#retry-button {
+    width: min-content;
+    border-radius: 1rem;
+}
+
+/* Styles for the container for the difficulty buttons displayed before each game */
+
+.difficulty-container {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: auto;
+    border: none;
+}
+
+/* Styles for the exit button displayed at the end of each game */
+
+#retry-button {
+    z-index: 2;
+    position: relative;
+    margin: auto;
+    padding: 1rem;
+    border: none;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* Styles for the "3,2,1" countdown when the start button has been clicked */
+
 .start-countdown {
     line-height: 5rem;
     width: 8rem;
     text-align: center;
     vertical-align: middle;
+    border-radius: 50%;
 }
+
+/* Styles for the game's memory cards */
 
 .card {
     height: 170px;
@@ -475,8 +498,8 @@ form {
     box-shadow: 2px 2px 3px rgb(0, 0, 52);
     border-radius: 1rem;
     /* THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL AND CUSTOMISED: https://www.youtube.com/watch?v=ZniVgo8U7ek */
-    /*creates 3D effect with code indicated in '.cards-grid' style */
     transform: scale(1);
+    /*creates 3D effect with code indicated in '.cards-grid' style */
     transform-style: preserve-3d;
     transition: 0.5s;
     cursor: pointer;
@@ -513,6 +536,8 @@ form {
 
 /* Media Queries */
 
+/* Media queries for screens larger than 1201px */
+
 @media only screen and (min-width: 1201px) {
 
     .top-10 li {
@@ -534,6 +559,8 @@ form {
         width: 110px;
     }
 }
+
+/* Media queries for screens up to 1200px */
 
 @media only screen and (max-width: 1200px) {
 
@@ -567,7 +594,6 @@ form {
     }
 
     .top-10 li {
-        width: 50%;
         font-size: 0.8rem;
     }
 
@@ -603,6 +629,8 @@ form {
         font-size: 1rem;
     }
 }
+
+/* Media queries for screens up to 1020px */
 
 @media only screen and (max-width: 1020px) {
 
@@ -660,6 +688,8 @@ form {
     }
 }
 
+/* Media queries for screens up to 679px */
+
 @media only screen and (max-width: 679px) {
     h1 {
         font-size: 1rem;
@@ -712,6 +742,8 @@ form {
     }
 }
 
+/* Media queries for screens up to 480px */
+
 @media only screen and (max-width: 480px) {
 
     header {
@@ -743,6 +775,8 @@ form {
         width: 80px;
     }
 }
+
+/* Media queries for screens up to 391px */
 
 @media only screen and (max-width: 391px) {
 
