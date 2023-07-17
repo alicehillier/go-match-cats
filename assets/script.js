@@ -1,13 +1,14 @@
-(function getUsername() {
-    let message = document.getElementsByClassName('get-username');
-    let submit = document.getElementById('submit');
-    submit.addEventListener('click', selectDifficulty);
-}());
 
+// Adds an event listener to the submit button in the welcome message, triggering the selectDifficulty function
+let submit = document.getElementById('submit');
+submit.addEventListener('click', selectDifficulty);
 
+// Adds an event listener to the audio icon, triggering the playAudio function
 let audioIcon = document.getElementsByClassName('audio-icon');
 audioIcon[0].addEventListener('click', playAudio);
 
+/**Triggered by the player clicking on the audio icon, the audio is paused and the icon changes to a speaker with a cross on it. 
+ * The event listener to trigger the stopAudio function is removed and the event listener to trigger the playAudio function is added */
 function stopAudio() {
     let audio = document.getElementById('music');
     audio.pause();
@@ -17,6 +18,8 @@ function stopAudio() {
     audioIcon[0].addEventListener('click', playAudio);
 }
 
+/**Triggered by the player clicking on the audio icon, the audio is played and the icon changes to a speaker with increased volume. 
+ * The event listener to trigger the playAudio function is removed and the event listener to trigger the stopAudio function is added */
 function playAudio() {
     let audio = document.getElementById('music');
     audio.play();
@@ -26,42 +29,39 @@ function playAudio() {
     audioIcon[0].addEventListener('click', stopAudio);
 };
 
+/**Creates the start button and adds a 'click' event listener to trigger the shuffleCards function. Appends the start button to the game area */
 function createStartButton() {
-    // Creates start button and adds event listener to trigger startGame function.
     let startButton = document.createElement('button');
     startButton.setAttribute('id', 'start-button');
     startButton.innerHTML = "START";
     startButton.addEventListener('click', shuffleCards);
-
-    // Adds the start button to the game area.
     let cardsGrid = document.getElementsByClassName('cards-grid');
     cardsGrid[0].prepend(startButton);
 }
 
-// Creates the help button in the header and adds event listener to trigger showInstructions function.
+//Adds an event listener to the 'help' button to trigger the showInstructions function.
 let helpButton = document.getElementsByClassName('help');
 helpButton[0].addEventListener('click', showInstructions);
 
+// All difficulty modes are set to false until one has been selected.
 let easyDifficulty = false;
 let normalDifficulty = false;
 let hardDifficulty = false;
 
-/**Adds click event listeners to the difficulty level buttons. */
+/**Removes the welcome message and adds 'click' event listeners to the difficulty level buttons. */
 function selectDifficulty() {
-
     let message = document.getElementsByClassName('get-username');
     message[0].style.display = "none";
 
     let easy = document.getElementsByClassName('easy');
     let normal = document.getElementsByClassName('normal');
     let hard = document.getElementsByClassName('hard');
-
     easy[0].addEventListener('click', easyMode);
     normal[0].addEventListener('click', normalMode);
     hard[0].addEventListener('click', hardMode);
 };
 
-/**Removes cards, leaving a total of 12 playable cards. */
+/**Sets the game to easy mode, runs the createStartButton function, and hides 12 cards, leaving a total of 12 playable cards. */
 function easyMode() {
     easyDifficulty = true;
     createStartButton();
@@ -92,7 +92,8 @@ function easyMode() {
     return;
 }
 
-/**Removes cards, leaving a total of 16 playable cards. */
+/**Sets the game to normal mode, runs the createStartButton function, and hides 8 cards if the mode was previously set to 'hard', 
+ * or removes the no-display class from 4 cards if the mode was previously set to 'easy', ensuring a total of 16 playable cards. */
 function normalMode() {
     normalDifficulty = true;
     createStartButton();
@@ -126,6 +127,8 @@ function normalMode() {
     return;
 }
 
+/**Sets the game to hard mode, runs the createStartButton function, and removes the 'no-display' class from all cards, 
+ * leaving a total of 24 playable cards */
 function hardMode() {
     hardDifficulty = true;
     createStartButton();
@@ -164,11 +167,12 @@ function hardMode() {
 //THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek
 // ---------------------------------
 
+// Sets flippedCard to false as no card has been flipped, declares firstCard and secondCard
 let flippedCard = false;
 let firstCard;
 let secondCard;
 
-// Cards can be flipped.
+// Cards can be flipped as the board is not locked.
 let boardLocked = false;
 
 // ---------------------------------
@@ -205,27 +209,28 @@ function showInstructions() {
 //THE CODE IN THE flipCard FUNCTION WAS SOURCED FROM A FREECODECAMP TUTORIAL AND CUSTOMISED: https://www.youtube.com/watch?v=ZniVgo8U7ek
 //---------------------------------------------------------------------------------------------------------
 
-/**Allows cards to be flipped, checks if cards match and hides them if they do, or returns them to their original position if they don't (with 1 sec delay for viewing) */
+/**Allows cards to be flipped, checks if cards match and hides them if they do, or returns them to their original position if they don't 
+ * (with 1 sec delay for viewing) */
 function flipCard() {
     // If the cards cannot be flipped, stop the function.
     if (boardLocked) return;
-    // If the same card is clicked on twice, stop the function so it doesn't match with itself.
+    // If the same card is clicked on twice, stop the function so it doesn't match with itself
     if (this === firstCard) return;
 
-    // get all elements with the class 'card' and iterate through them, adding the event listener for all.
+    // get all elements with the class 'card' and iterate through them, adding the event listener for all
     let cards = document.getElementsByClassName('card');
     for (let i = 0; i < cards.length; i++) {
         cards[i].addEventListener('click', flipCard);
     }
-    // Adds a 'flip' class to the card element. This allows the card to be flipped.
+    // Adds a 'flip' class to the card element. This allows the card to be flipped
     this.classList.add('flip');
 
     if (!flippedCard) {
-        // When first card is selected. flippedCard is now true. It has been flipped once.
+        // When first card is selected. flippedCard is now true. It has been flipped once
         flippedCard = true;
         firstCard = this;
     } else {
-        // When second card is selected. flippedCard is set back to false, ready for the next attempt.
+        // When second card is selected. flippedCard is set back to false, ready for the next attempt
         flippedCard = false;
         secondCard = this;
     }
@@ -237,11 +242,12 @@ function flipCard() {
 //SOME OF THE CODE IN THE checkCards FUNCTION WAS SOURCED FROM A FREECODECAMP TUTORIAL AND CUSTOMISED: https://www.youtube.com/watch?v=ZniVgo8U7ek
 //---------------------------------------------------------------------------------------------------------
 
-/** Checks if cards match. If so, they disappear and cannot be clicked again. If not, they are flipped back to their original positions. Triggers the incrementScore function. */
+/** Checks if cards match. If so, they disappear and cannot be clicked again. If not, they are flipped back to their original positions. 
+ * Triggers the incrementScore function. */
 function checkCards() {
     let score = 0;
-    // If the cards match, hide the cards and remove the event listener so they cannot be activated again.
-    //DATASET NAMES, CARD STYLES, ADDITION OF CLASS NAMES AND CALLING OF incrementScore FUNCTION ARE MY OWN.
+    // If the cards match, hide the cards and remove the event listener so they cannot be activated again
+    //DATASET NAMES, CARD STYLES, ADDITION OF CLASS NAMES AND CALLING OF incrementScore FUNCTION ARE MY OWN
     if (firstCard.dataset.name === secondCard.dataset.name) {
         firstCard.style.visibility = "hidden";
         // If a card is matched, add a new class.
@@ -254,13 +260,13 @@ function checkCards() {
         resetBoard();
         incrementScore();
     } else {
-        // Stop the player from flipping cards.
+        // Stop the player from flipping cards
         boardLocked = true;
-        // If the cards don't match, flip them back over to their original positions, with a 1 second delay so the user can view the selected cards.
+        // If the cards don't match, flip them back over to their original positions, with a 1 second delay so the user can view the selected cards
         setTimeout(() => {
             firstCard.classList.remove('flip');
             secondCard.classList.remove('flip');
-            // Allow the player to flip cards again.
+            // Allow the player to flip cards again
             resetBoard();
         }, 1000)
     }
@@ -271,7 +277,7 @@ function checkCards() {
 //THE CODE IN THE resetBoard FUNCTION WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek
 //---------------------------------------------------------------------------------------------------------
 
-/**Allows the matching process to start again, letting the player flip 2 cards. */
+/**Allows the matching process to start again, letting the player flip 2 cards */
 function resetBoard() {
     flippedCard = false;
     boardLocked = false
@@ -283,7 +289,7 @@ function resetBoard() {
 
 //THE CODE IN THE shuffleCards FUNCTION WAS MADE USING LOGIC FROM A FREECODECAMP TUTORIAL AND CUSTOMISED SIGNIFICANTLY: https://www.youtube.com/watch?v=ZniVgo8U7ek
 
-/**Shuffles the cards, putting them in a random order. Trigger the startGame function afterwards. */
+/**Shuffles the cards, putting them in a random order. Trigger the startGame function afterwards */
 function shuffleCards() {
     let cards = document.getElementsByClassName('card');
     for (let i = 0; i < cards.length; i++) {
@@ -293,11 +299,12 @@ function shuffleCards() {
     startGame();
 }
 
-/**Resets the score by calling resetScore function, stops the cat animation and removes the Start button when it's clicked on, counting down "3, 2, 1, GO!" with one second between each of them. */
+/**Resets the score by calling resetScore function, stops the cat animation and removes the Start button when it's clicked on, 
+ * counting down "3, 2, 1, GO!" with one second between each of them */
 function startGame() {
     let catAnimation = document.getElementById('cat-animation');
     catAnimation.classList.remove('moving-cat');
-    // remove the start button after one second and display "3" in its place.
+    // remove the start button after one second and display "3" in its place
     let startButton = document.getElementById('start-button');
     startButton.remove();
     let countdown = document.createElement('p');
@@ -306,20 +313,20 @@ function startGame() {
     let cardsGrid = document.getElementsByClassName('cards-grid');
     cardsGrid[0].append(countdown);
     setTimeout(() => {
-        // remove the "3" after one second and display "2" in its place.
+        // remove the "3" after one second and display "2" in its place
         countdown.innerHTML = "2";
         setTimeout(() => {
-            // remove the "2" after one second and display "1" in its place.
+            // remove the "2" after one second and display "1" in its place
             countdown.innerHTML = "1";
             setTimeout(() => {
-                // remove the "1" after one second and display "GO!" in its place.
+                // remove the "1" after one second and display "GO!" in its place
                 countdown.innerHTML = "GO!";
                 setTimeout(() => {
                     // remove the countdown.
                     countdown.remove();
                 }, 1000);
                 // immediately after "GO!" is removed, start the timer by triggering the startTimer 
-                // function and let the user play by triggering the flipCard function.
+                // function and let the user play by triggering the flipCard function
                 startTimer();
                 boardLocked = false;
                 flipCard();
@@ -328,7 +335,7 @@ function startGame() {
     }, 1000);
 }
 
-/**Starts the countdown from 60 seconds. If 0 is reached, the gameOver function is triggered. */
+/**Starts the countdown from 30 seconds for easy and normal modes, or 60 seconds for hard mode. If 0 is reached, the gameOver function is triggered */
 function startTimer() {
     let restartButton = document.getElementsByClassName('restart');
     restartButton[0].style.visibility = "visible";
@@ -344,12 +351,12 @@ function startTimer() {
     }
     let timer = setInterval(() => {
         /* If the timer has more than 0 seconds remaining, show how many seconds are left
-         in the gameTimer element. Then, deduct 1 second from the timer.*/
+         in the gameTimer element. Then, deduct 1 second from the timer*/
         if (maxTime > 0) {
-            // If there is less than 10 seconds on the timer, add a '0' before the number of seconds.
+            // If there is less than 10 seconds on the timer, add a '0' before the number of seconds
             gameTimer[0].innerHTML = `00:${maxTime < 10 ? '0' + maxTime : maxTime}`;
             maxTime--;
-            // If all 24 cards have the card-flipped class, remove the restart button and trigger the youWin function.
+            // If all 24 cards have the card-flipped class, remove the restart button and trigger the youWin function
             let cardFlipped = document.getElementsByClassName('card-flipped');
             if (maxTime > 0 && cardFlipped.length === 24) {
                 clearInterval(timer);
@@ -358,7 +365,7 @@ function startTimer() {
                 let catAnimation = document.getElementById('cat-animation');
                 catAnimation.classList.add('moving-cat');
                 restartButton[0].style.visibility = "hidden";
-                // If the game was played on normal mode and all 16 cards are matched, trigger the youWin function.
+                // If the game was played on normal mode and all 16 cards are matched, trigger the youWin function
             } else if (normalDifficulty === true && cardFlipped.length === 16) {
                 clearInterval(timer);
                 gameTimer[0].innerHTML = "00:00";
@@ -367,7 +374,7 @@ function startTimer() {
                 catAnimation.classList.add('moving-cat');
                 restartButton[0].style.visibility = "hidden";
             }
-            // If the game was played on easy mode and all 12 cards are matched, trigger the youWin function.
+            // If the game was played on easy mode and all 12 cards are matched, trigger the youWin function
             else if (easyDifficulty === true && cardFlipped.length === 12) {
                 clearInterval(timer);
                 gameTimer[0].innerHTML = "00:00";
@@ -383,7 +390,7 @@ function startTimer() {
                 startAgain = false;
             }
             /* If the timer reaches 0, show "00:00!" in the timer area, stop the timer, remove the restart button
-            and trigger the gameOver function.*/
+            and trigger the gameOver function*/
         } else {
             gameTimer[0].innerHTML = "00:00";
             clearInterval(timer);
@@ -395,7 +402,7 @@ function startTimer() {
 
 let startAgain = false;
 
-/**Restarts the game and the timer when the player clicks on the restart button in the middle of the current game. */
+/**Restarts the game and the timer when the player clicks on the restart button in the middle of the current game */
 function restartMidGame() {
     console.log('restart mid-game now');
     boardLocked = true;
@@ -421,7 +428,7 @@ function restartMidGame() {
     }, 500);
 }
 
-/** Shows the player a 'you won!' message with their total score, and lets them restart the game by clicking the 'play again' button. */
+/** Shows the player a 'YOU WON!' message with their total score, and lets them return the main page by clicking the 'EXIT' button. */
 function youWin() {
     saveScore();
     console.log('gameOver triggered');
@@ -455,11 +462,12 @@ function youWin() {
     // }, 2000);
 }
 
-/**Stops the player flipping cards and tells them the game is over, showing them their total score. Gives the player the option to play again with a retry button. */
+/**Stops the player flipping cards and displays a 'YOU LOSE!' message, showing them their total score. 
+ * Lets the player return to the main page by clicking on the 'EXIT' button. */
 function gameOver() {
     saveScore();
     console.log('gameOver triggered');
-    // get all elements with the class 'card' and iterate through them, adding the event listener for all.
+    // get all elements with the class 'card' and iterate through them, adding the event listener for each of them.
     let cards = document.getElementsByClassName('card');
     for (let i = 0; i < cards.length; i++) {
         cards[i].removeEventListener('click', flipCard);
