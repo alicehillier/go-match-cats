@@ -1,4 +1,4 @@
-
+/*jshint esversion: 6 */
 // Adds an event listener to the submit button in the welcome message, triggering the selectDifficulty function
 let submit = document.getElementById('submit');
 submit.addEventListener('click', selectDifficulty);
@@ -27,7 +27,7 @@ function playAudio() {
     audioIcon[0].classList.add('fa-volume-high');
     audioIcon[0].removeEventListener('click', playAudio);
     audioIcon[0].addEventListener('click', stopAudio);
-};
+}
 
 /**Creates the start button and adds a 'click' event listener to trigger the shuffleCards function. Appends the start button to the game area */
 function createStartButton() {
@@ -59,7 +59,7 @@ function selectDifficulty() {
     easy[0].addEventListener('click', easyMode);
     normal[0].addEventListener('click', normalMode);
     hard[0].addEventListener('click', hardMode);
-};
+}
 
 /**Sets the game to easy mode, runs the createStartButton function, and hides 12 cards, leaving a total of 12 playable cards. */
 function easyMode() {
@@ -192,7 +192,7 @@ function showInstructions() {
     <li>Too easy? Try a harder level!</li>
     </ul>
     <img src="assets/images/cartoon-cat-vector.png" alt="cartoon cat" class="cat-instructions">
-    `
+    `;
     let body = document.getElementsByTagName('body');
     body[0].prepend(instructions);
     console.log("instructions here");
@@ -235,7 +235,7 @@ function flipCard() {
         secondCard = this;
     }
     checkCards();
-};
+}
 //---------------------------------------------------------------------------------------------------------
 
 //SOME OF THE CODE IN THE checkCards FUNCTION WAS SOURCED FROM A FREECODECAMP TUTORIAL AND CUSTOMISED: https://www.youtube.com/watch?v=ZniVgo8U7ek
@@ -364,7 +364,7 @@ function startTimer() {
                 clearInterval(timer);
                 gameTimer[0].innerHTML = "00:00";
                 youWin();
-                catAnimation = document.getElementById('cat-animation');
+                let catAnimation = document.getElementById('cat-animation');
                 catAnimation.classList.add('moving-cat');
                 restartButton[0].style.visibility = "hidden";
             }
@@ -373,7 +373,7 @@ function startTimer() {
                 clearInterval(timer);
                 gameTimer[0].innerHTML = "00:00";
                 youWin();
-                catAnimation = document.getElementById('cat-animation');
+                let catAnimation = document.getElementById('cat-animation');
                 catAnimation.classList.add('moving-cat');
                 restartButton[0].style.visibility = "hidden";
             }
@@ -522,7 +522,6 @@ function incrementScore() {
 function resetScore() {
     let scoreCounter = document.getElementsByClassName('score-counter');
     let cardFlipped = document.getElementsByClassName('card-flipped');
-    let score = cardFlipped.length;
     if (cardFlipped.length >= 0) {
         let cards = document.getElementsByClassName('card');
         for (let i = 0; i < cards.length; i++) {
@@ -547,7 +546,7 @@ if (localStorageScore != null) {
 function saveScore() {
     let scoreCounter = document.getElementsByClassName('score-counter');
     let cardFlipped = document.getElementsByClassName('card-flipped');
-    score = (cardFlipped.length) * 2.5;
+    let score = (cardFlipped.length) * 2.5;
     scoreCounter[0].innerHTML = score;
 
     let username = document.getElementById('name');
