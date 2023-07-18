@@ -597,7 +597,11 @@ function showScoreboard() {
 
     // Loops through the objects and displays the values for name and score.
     top10.forEach((value) => {
-        listTop10[0].innerHTML += `<li><span class="player-name">${value.name}</span> : <span class="player-score">${value.score}</span></li>`;
+        if (value.name == '') {
+            listTop10[0].innerHTML += `<li><span class="player-name">GUEST</span> : <span class="player-score">${value.score}</span></li>`;
+        } else {
+            listTop10[0].innerHTML += `<li><span class="player-name">${value.name}</span> : <span class="player-score">${value.score}</span></li>`;
+        }
     });
     scoreboardDisplay.innerHTML += `
     </ul>
