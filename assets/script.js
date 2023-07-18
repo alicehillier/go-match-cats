@@ -228,13 +228,13 @@ function flipCard() {
     // If the cards cannot be flipped, stop the function.
     if (boardLocked) return;
     // If the same card is clicked on twice, stop the function so it doesn't match with itself
-    if (this === firstCard) return;
+    // if (this === firstCard) return;
 
     // get all elements with the class 'card' and iterate through them, adding the event listener for all
-    let cards = document.getElementsByClassName('card');
-    for (let i = 0; i < cards.length; i++) {
-        cards[i].addEventListener('click', flipCard);
-    }
+    // let cards = document.getElementsByClassName('card');
+    // for (let i = 0; i < cards.length; i++) {
+    //     cards[i].addEventListener('click', flipCard);
+    // }
 
     // Adds a 'flip' class to the card element. This allows the card to be flipped
     this.classList.add('flip');
@@ -247,8 +247,8 @@ function flipCard() {
         // When second card is selected. flippedCard is set back to false, ready for the next attempt
         flippedCard = false;
         secondCard = this;
+        checkCards();
     }
-    checkCards();
 }
 //---------------------------------------------------------------------------------------------------------
 
@@ -337,7 +337,11 @@ function startGame() {
                 // function and let the user play by triggering the flipCard function
                 startTimer();
                 boardLocked = false;
-                flipCard();
+                // flipCard();
+                let cards = document.getElementsByClassName('card');
+                for (let i = 0; i < cards.length; i++) {
+                    cards[i].addEventListener('click', flipCard);
+                }
             }, 1000);
         }, 1000);
     }, 1000);
