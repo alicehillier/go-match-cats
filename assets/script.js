@@ -228,8 +228,7 @@ function flipCard() {
     // If the cards cannot be flipped, stop the function.
     if (boardLocked) return;
     // If the same card is clicked on twice, stop the function so it doesn't match with itself
-    // if (this === firstCard) return;
-
+    if (this === firstCard) return;
     // get all elements with the class 'card' and iterate through them, adding the event listener for all
     // let cards = document.getElementsByClassName('card');
     // for (let i = 0; i < cards.length; i++) {
