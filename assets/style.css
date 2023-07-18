@@ -64,7 +64,7 @@ audio,
 .score,
 .difficulty-label,
 .audio-icon,
-.restart,
+.quit,
 .help,
 .scoreboard,
 #submit,
@@ -162,7 +162,7 @@ audio,
     margin: 0.6rem 0;
 }
 
-.restart {
+.quit {
     visibility: hidden;
 }
 
@@ -170,7 +170,7 @@ audio,
 #start-button:hover,
 #retry-button:hover,
 .scoreboard:hover,
-.restart:hover,
+.quit:hover,
 .help:hover,
 #submit:hover,
 .easy:hover,
@@ -553,7 +553,7 @@ li::marker {
         text-align: center;
     }
 
-    .restart,
+    .quit,
     .help,
     .scoreboard,
     .easy,
@@ -625,7 +625,7 @@ li::marker {
     .timer,
     .score,
     .difficulty-label,
-    .restart,
+    .quit,
     .help,
     .scoreboard {
         width: 100%;
@@ -669,11 +669,11 @@ li::marker {
         font-size: 1rem;
     }
 
-    /* Styles for timer, help and restart button */
+    /* Styles for timer, help and quit button */
     .timer,
     .score,
     .difficulty-label,
-    .restart,
+    .quit,
     .help,
     .scoreboard {
         font-size: 0.8rem;
@@ -734,7 +734,7 @@ li::marker {
         width: 3rem;
     }
 
-    .restart,
+    .quit,
     .help,
     .scoreboard {
         margin: 0.25rem;
@@ -768,7 +768,7 @@ li::marker {
     .timer,
     .score,
     .difficulty-label,
-    .restart,
+    .quit,
     .help,
     .scoreboard {
         font-size: 0.5rem;

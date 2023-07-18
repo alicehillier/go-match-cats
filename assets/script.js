@@ -348,9 +348,9 @@ function startGame() {
 
 /**Starts the countdown from 30 seconds for easy and normal modes, or 60 seconds for hard mode. If 0 is reached, the gameOver function is triggered */
 function startTimer() {
-    let restartButton = document.getElementsByClassName('restart');
-    restartButton[0].style.visibility = "visible";
-    restartButton[0].addEventListener('click', restartMidGame);
+    let quitButton = document.getElementsByClassName('quit');
+    quitButton[0].style.visibility = "visible";
+    quitButton[0].addEventListener('click', restartMidGame);
 
     let maxTime;
     console.log('start timer now!');
@@ -367,7 +367,7 @@ function startTimer() {
             // If there is less than 10 seconds on the timer, add a '0' before the number of seconds
             gameTimer[0].innerHTML = `00:${maxTime < 10 ? '0' + maxTime : maxTime}`;
             maxTime--;
-            // If all 24 cards have the card-flipped class, remove the restart button and trigger the youWin function
+            // If all 24 cards have the card-flipped class, remove the quit button and trigger the youWin function
             let cardFlipped = document.getElementsByClassName('card-flipped');
             if (maxTime > 0 && cardFlipped.length === 24) {
                 clearInterval(timer);
@@ -375,7 +375,7 @@ function startTimer() {
                 youWin();
                 let catAnimation = document.getElementById('cat-animation');
                 catAnimation.classList.add('moving-cat');
-                restartButton[0].style.visibility = "hidden";
+                quitButton[0].style.visibility = "hidden";
                 // If the game was played on normal mode and all 16 cards are matched, trigger the youWin function
             } else if (normalDifficulty === true && cardFlipped.length === 16) {
                 clearInterval(timer);
@@ -383,7 +383,7 @@ function startTimer() {
                 youWin();
                 let catAnimation = document.getElementById('cat-animation');
                 catAnimation.classList.add('moving-cat');
-                restartButton[0].style.visibility = "hidden";
+                quitButton[0].style.visibility = "hidden";
             }
             // If the game was played on easy mode and all 12 cards are matched, trigger the youWin function
             else if (easyDifficulty === true && cardFlipped.length === 12) {
@@ -392,30 +392,30 @@ function startTimer() {
                 youWin();
                 let catAnimation = document.getElementById('cat-animation');
                 catAnimation.classList.add('moving-cat');
-                restartButton[0].style.visibility = "hidden";
+                quitButton[0].style.visibility = "hidden";
             }
-            // If the restart button has been clicked on, stop the timer.
+            // If the quit button has been clicked on, stop the timer.
             if (maxTime > 0 && startAgain === true) {
                 clearInterval(timer);
                 gameTimer[0].innerHTML = "00:00";
                 startAgain = false;
             }
-            /* If the timer reaches 0, show "00:00!" in the timer area, stop the timer, remove the restart button
+            /* If the timer reaches 0, show "00:00!" in the timer area, stop the timer, remove the quit button
             and trigger the gameOver function*/
         } else {
             gameTimer[0].innerHTML = "00:00";
             clearInterval(timer);
             gameOver();
-            restartButton[0].style.visibility = "hidden";
+            quitButton[0].style.visibility = "hidden";
         }
     }, 1000);
 }
 
 let startAgain = false;
 
-/**Restarts the game and the timer when the player clicks on the restart button in the middle of the current game */
+/**Quits the game and the timer when the player clicks on the quit button in the middle of the current game */
 function restartMidGame() {
-    console.log('restart mid-game now');
+    console.log('quit mid-game now');
     let leaderboardButton = document.getElementsByClassName('scoreboard');
     leaderboardButton[0].addEventListener('click', showScoreboard);
     leaderboardButton[0].style.opacity = "1";
@@ -426,8 +426,8 @@ function restartMidGame() {
     helpButton[0].style.cursor = "pointer";
     boardLocked = true;
     // Hide the retry button as it has been clicked.
-    let restartButton = document.getElementsByClassName('restart');
-    restartButton[0].style.visibility = "hidden";
+    let quitButton = document.getElementsByClassName('quit');
+    quitButton[0].style.visibility = "hidden";
     startAgain = true;
     let cards = document.getElementsByClassName('card');
     for (let i = 0; i < cards.length; i++) {
