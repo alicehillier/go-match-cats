@@ -310,6 +310,14 @@ function shuffleCards() {
 /**Resets the score by calling resetScore function, stops the cat animation and removes the Start button when it's clicked on, 
  * counting down "3, 2, 1, GO!" with one second between each of them */
 function startGame() {
+    let leaderboardButton = document.getElementsByClassName('scoreboard');
+    leaderboardButton[0].removeEventListener('click', showScoreboard);
+    leaderboardButton[0].style.opacity = "0.5";
+    leaderboardButton[0].style.cursor = "not-allowed";
+    let helpButton = document.getElementsByClassName('help');
+    helpButton[0].removeEventListener('click', showInstructions);
+    helpButton[0].style.opacity = `0.5`;
+    helpButton[0].style.cursor = "not-allowed";
     let catAnimation = document.getElementById('cat-animation');
     catAnimation.classList.remove('moving-cat');
     // remove the start button after one second and display "3" in its place
@@ -337,7 +345,6 @@ function startGame() {
                 // function and let the user play by triggering the flipCard function
                 startTimer();
                 boardLocked = false;
-                // flipCard();
                 let cards = document.getElementsByClassName('card');
                 for (let i = 0; i < cards.length; i++) {
                     cards[i].addEventListener('click', flipCard);
@@ -417,6 +424,14 @@ let startAgain = false;
 /**Restarts the game and the timer when the player clicks on the restart button in the middle of the current game */
 function restartMidGame() {
     console.log('restart mid-game now');
+    let leaderboardButton = document.getElementsByClassName('scoreboard');
+    leaderboardButton[0].addEventListener('click', showScoreboard);
+    leaderboardButton[0].style.opacity = "1";
+    leaderboardButton[0].style.cursor = "pointer";
+    let helpButton = document.getElementsByClassName('help');
+    helpButton[0].addEventListener('click', showInstructions);
+    helpButton[0].style.opacity = `1`;
+    helpButton[0].style.cursor = "pointer";
     boardLocked = true;
     // Hide the retry button as it has been clicked.
     let restartButton = document.getElementsByClassName('restart');
@@ -466,6 +481,14 @@ function youWin() {
     retryButton.innerHTML = "EXIT";
     winningMessage.append(retryButton);
     retryButton.addEventListener('click', restartGame);
+    let leaderboardButton = document.getElementsByClassName('scoreboard');
+    leaderboardButton[0].addEventListener('click', showScoreboard);
+    leaderboardButton[0].style.opacity = "1";
+    leaderboardButton[0].style.cursor = "pointer";
+    let helpButton = document.getElementsByClassName('help');
+    helpButton[0].addEventListener('click', showInstructions);
+    helpButton[0].style.opacity = `1`;
+    helpButton[0].style.cursor = "pointer";
     resetScore();
 }
 
@@ -493,6 +516,15 @@ function gameOver() {
     retryButton.innerHTML = "EXIT";
     losingMessage.append(retryButton);
     retryButton.addEventListener('click', restartGame);
+    let leaderboardButton = document.getElementsByClassName('scoreboard');
+    leaderboardButton[0].addEventListener('click', showScoreboard);
+    leaderboardButton[0].style.opacity = "1";
+    leaderboardButton[0].style.cursor = "pointer";
+    let helpButton = document.getElementsByClassName('help');
+    helpButton[0].addEventListener('click', showInstructions);
+    helpButton[0].style.opacity = `1`;
+    helpButton[0].style.cursor = "pointer";
+
     resetScore();
 }
 
