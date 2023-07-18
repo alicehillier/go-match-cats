@@ -1,11 +1,37 @@
 /*jshint esversion: 6 */
+
+// Elements and actions to be implemented on load
+
 // Adds an event listener to the submit button in the welcome message, triggering the selectDifficulty function
 let submit = document.getElementById('submit');
 submit.addEventListener('click', selectDifficulty);
-
 // Adds an event listener to the audio icon, triggering the playAudio function
 let audioIcon = document.getElementsByClassName('audio-icon');
 audioIcon[0].addEventListener('click', playAudio);
+//Adds an event listener to the 'help' button to trigger the showInstructions function.
+let helpButton = document.getElementsByClassName('help');
+helpButton[0].addEventListener('click', showInstructions);
+// All difficulty modes are set to false until one has been selected.
+let easyDifficulty = false;
+let normalDifficulty = false;
+let hardDifficulty = false;
+//THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek
+// ---------------------------------
+// Sets flippedCard to false as no card has been flipped, declares firstCard and secondCard
+let flippedCard = false;
+let firstCard;
+let secondCard;
+// Cards can be flipped as the board is not locked.
+let boardLocked = false;
+// ---------------------------------
+let startAgain = false;
+let leaderboardButton = document.getElementsByClassName('scoreboard');
+leaderboardButton[0].addEventListener('click', showScoreboard);
+let scoreboard = [];
+let localStorageScore = JSON.parse(localStorage.getItem('score'));
+if (localStorageScore != null) {
+    scoreboard = localStorageScore;
+}
 
 /**Triggered by the player clicking on the audio icon, the audio is paused and the icon changes to a speaker with a cross on it. 
  * The event listener to trigger the stopAudio function is removed and the event listener to trigger the playAudio function is added */
@@ -39,15 +65,6 @@ function createStartButton() {
     cardsGrid[0].prepend(startButton);
 }
 
-//Adds an event listener to the 'help' button to trigger the showInstructions function.
-let helpButton = document.getElementsByClassName('help');
-helpButton[0].addEventListener('click', showInstructions);
-
-// All difficulty modes are set to false until one has been selected.
-let easyDifficulty = false;
-let normalDifficulty = false;
-let hardDifficulty = false;
-
 /**Removes the welcome message and adds 'click' event listeners to the difficulty level buttons. */
 function selectDifficulty() {
     let message = document.getElementsByClassName('get-username');
@@ -75,7 +92,6 @@ function easyMode() {
 
     let difficultyContainer = document.getElementsByClassName('difficulty-container');
     difficultyContainer[0].style.visibility = "hidden";
-    console.log('easy mode triggered');
     let cards = document.getElementsByClassName('card');
     // Hide the cards below
     cards[0].classList.add('no-display');
@@ -121,7 +137,6 @@ function normalMode() {
 
     let difficultyContainer = document.getElementsByClassName('difficulty-container');
     difficultyContainer[0].style.visibility = "hidden";
-    console.log('normal mode triggered');
     let cards = document.getElementsByClassName('card');
     cards[0].classList.add('no-display');
     cards[1].classList.add('no-display');
@@ -156,7 +171,6 @@ function hardMode() {
 
     let difficultyContainer = document.getElementsByClassName('difficulty-container');
     difficultyContainer[0].style.visibility = "hidden";
-    console.log('hard mode triggered');
     if (easyDifficulty === true || normalDifficulty === true) {
         let cards = document.getElementsByClassName('card');
         cards[0].classList.remove('no-display');
@@ -178,19 +192,6 @@ function hardMode() {
     return;
 }
 
-//THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek
-// ---------------------------------
-
-// Sets flippedCard to false as no card has been flipped, declares firstCard and secondCard
-let flippedCard = false;
-let firstCard;
-let secondCard;
-
-// Cards can be flipped as the board is not locked.
-let boardLocked = false;
-
-// ---------------------------------
-
 /**Creates instructions and shows them to the player. The function within also removes them when the 'X' in the top right corner is clicked on. */
 function showInstructions() {
     let instructions = document.createElement('div');
@@ -209,7 +210,6 @@ function showInstructions() {
     `;
     let body = document.getElementsByTagName('body');
     body[0].prepend(instructions);
-    console.log("instructions here");
     let exit = document.getElementsByClassName('exit-instructions');
     exit[0].addEventListener('click', closeInstructions);
 
@@ -353,7 +353,6 @@ function startTimer() {
     quitButton[0].addEventListener('click', restartMidGame);
 
     let maxTime;
-    console.log('start timer now!');
     let gameTimer = document.getElementsByClassName('timer');
     if (easyDifficulty === true || normalDifficulty === true) {
         maxTime = 29;
@@ -411,11 +410,8 @@ function startTimer() {
     }, 1000);
 }
 
-let startAgain = false;
-
 /**Quits the game and the timer when the player clicks on the quit button in the middle of the current game */
 function restartMidGame() {
-    console.log('quit mid-game now');
     let leaderboardButton = document.getElementsByClassName('scoreboard');
     leaderboardButton[0].addEventListener('click', showScoreboard);
     leaderboardButton[0].style.opacity = "1";
@@ -449,7 +445,6 @@ function restartMidGame() {
 /** Shows the player a 'YOU WON!' message with their total score, and lets them return the main page by clicking the 'EXIT' button. */
 function youWin() {
     saveScore();
-    console.log('gameOver triggered');
     // get all elements with the class 'card' and iterate through them, adding the event listener for all.
     let cards = document.getElementsByClassName('card');
     for (let i = 0; i < cards.length; i++) {
@@ -487,7 +482,6 @@ function youWin() {
  * Lets the player return to the main page by clicking on the 'EXIT' button. */
 function gameOver() {
     saveScore();
-    console.log('gameOver triggered');
     // get all elements with the class 'card' and iterate through them, adding the event listener for each of them.
     let cards = document.getElementsByClassName('card');
     for (let i = 0; i < cards.length; i++) {
@@ -521,7 +515,6 @@ function gameOver() {
 
 /**Removes the winning or losing message once the retry button has been clicked. Reset the game area and re-add the start button with its event listener so the game can be run again. */
 function restartGame() {
-    console.log('restart game now');
     // Remove the retry button as it has been clicked.
     let winningMessage = document.getElementsByClassName('winning-message');
     let losingMessage = document.getElementsByClassName('losing-message');
@@ -553,7 +546,6 @@ function incrementScore() {
     let cardFlipped = document.getElementsByClassName('card-flipped');
     let score = (cardFlipped.length) * 2.5;
     scoreCounter[0].innerHTML = score;
-    console.log(score);
     return score;
 }
 
@@ -569,16 +561,6 @@ function resetScore() {
         }
     }
     return;
-}
-
-let leaderboardButton = document.getElementsByClassName('scoreboard');
-leaderboardButton[0].addEventListener('click', showScoreboard);
-
-let scoreboard = [];
-
-let localStorageScore = JSON.parse(localStorage.getItem('score'));
-if (localStorageScore != null) {
-    scoreboard = localStorageScore;
 }
 
 /**Takes the current score and pushes it into the scoreboard array, creating a collection of scores. */
@@ -597,8 +579,6 @@ function saveScore() {
     // Push the grouped information to the scoreboard.
     scoreboard.push(nameAndScore);
     localStorage.setItem('score', JSON.stringify(scoreboard));
-    console.log(`${nameAndScore.name} and ${nameAndScore.score} added to scoreboard`);
-    console.log(scoreboard);
     return;
 }
 
@@ -611,11 +591,9 @@ function showScoreboard() {
     <h2>LEADERBOARD</h2>
     <ul class="top-10">
     `;
-    console.log(scoreboard, 'before display');
     // Copies the scoreboard content, sorts the numbers from highest to lowest, then takes values from index 0 - 9. Specify that I want score so the array isn't sorted by player name.
     let top10 = scoreboard.sort((a, b) => b.score - a.score).slice(0, 10);
     let listTop10 = scoreboardDisplay.getElementsByClassName('top-10');
-    console.log(top10);
 
     // Loops through the objects and displays the values for name and score.
     top10.forEach((value) => {
@@ -628,7 +606,6 @@ function showScoreboard() {
 
     let body = document.getElementsByTagName('body');
     body[0].prepend(scoreboardDisplay);
-    console.log("scoreboard here");
     let exit = document.getElementsByClassName('exit-scoreboard');
     exit[0].addEventListener('click', closeScoreboard);
 
