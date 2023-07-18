@@ -229,15 +229,8 @@ function flipCard() {
     if (boardLocked) return;
     // If the same card is clicked on twice, stop the function so it doesn't match with itself
     if (this === firstCard) return;
-    // get all elements with the class 'card' and iterate through them, adding the event listener for all
-    // let cards = document.getElementsByClassName('card');
-    // for (let i = 0; i < cards.length; i++) {
-    //     cards[i].addEventListener('click', flipCard);
-    // }
-
     // Adds a 'flip' class to the card element. This allows the card to be flipped
     this.classList.add('flip');
-
     if (!flippedCard) {
         // When first card is selected. flippedCard is now true. It has been flipped once
         flippedCard = true;
@@ -438,7 +431,6 @@ function restartMidGame() {
     startAgain = true;
     let cards = document.getElementsByClassName('card');
     for (let i = 0; i < cards.length; i++) {
-        // cards[i].removeEventListener('click', flipCard);
         // get all the cards and remove the 'flip' class, so they are all facing the same way.
         cards[i].classList.remove('flip');
         setTimeout(() => {
@@ -540,7 +532,6 @@ function restartGame() {
     }
     let cards = document.getElementsByClassName('card');
     for (let i = 0; i < cards.length; i++) {
-        // cards[i].removeEventListener('click', flipCard);
         // get all the cards and remove the 'flip' class, so they are all facing the same way.
         cards[i].classList.remove('flip');
         setTimeout(() => {
@@ -553,7 +544,6 @@ function restartGame() {
     setTimeout(() => {
         let difficultyContainer = document.getElementsByClassName('difficulty-container');
         difficultyContainer[0].style.visibility = "visible";
-        // startGame();
     }, 500);
 }
 
