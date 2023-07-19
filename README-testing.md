@@ -40,7 +40,10 @@
     - Players can access the leaderboard before a game begins and after a game finishes. Players can enter their name at the beginning of the session, which will appear on the leaderboard. The leaderboard uses data stored in local storage, so in order to view others' scores, players must use the same device.
 
 3. I want more levels to play.
+    - Players can play the game on easy, normal or hard mode, which enables them to experience a new challenge every time. While new levels are not available at the moment, additional themes could be introduced in future.
+
 4. I want to choose the level of difficulty.
+    - Players can play the game on easy, normal or hard mode. Each mode offers a different number of cards, offering a greater challenge for players if they desire. Easy and normal mode have a time limit set at 30 seconds, while hard mode has a time limit set at 60 seconds. While it is more challenging, it is still possible to win with the additional time.
 
 ## **Manual Testing**
 
