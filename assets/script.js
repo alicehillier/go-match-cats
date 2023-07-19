@@ -93,6 +93,10 @@ function easyMode() {
     let difficultyContainer = document.getElementsByClassName('difficulty-container');
     difficultyContainer[0].style.visibility = "hidden";
     let cards = document.getElementsByClassName('card');
+    // Adds a class to adjust the size of the cards in easy mode
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].classList.add('easy-card');
+    }
     // Hide the cards below
     cards[0].classList.add('no-display');
     cards[1].classList.add('no-display');
@@ -106,19 +110,6 @@ function easyMode() {
     cards[15].classList.add('no-display');
     cards[16].classList.add('no-display');
     cards[17].classList.add('no-display');
-    // Do not hide the cards below, but give them a new class
-    cards[6].classList.add('easy-card');
-    cards[7].classList.add('easy-card');
-    cards[8].classList.add('easy-card');
-    cards[9].classList.add('easy-card');
-    cards[10].classList.add('easy-card');
-    cards[11].classList.add('easy-card');
-    cards[18].classList.add('easy-card');
-    cards[19].classList.add('easy-card');
-    cards[20].classList.add('easy-card');
-    cards[21].classList.add('easy-card');
-    cards[22].classList.add('easy-card');
-    cards[23].classList.add('easy-card');
     return;
 }
 
@@ -131,13 +122,16 @@ function normalMode() {
     let cardsGrid = document.getElementsByClassName('cards-grid');
     cardsGrid[0].classList.remove('easy-cards-grid');
     cardsGrid[0].classList.add('normal-cards-grid');
+    let cards = document.getElementsByClassName('card');
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].classList.remove('easy-card');
+    }
 
     let difficultyLabel = document.getElementsByClassName('difficulty-label');
     difficultyLabel[0].innerHTML = '<p>NORMAL</p>';
 
     let difficultyContainer = document.getElementsByClassName('difficulty-container');
     difficultyContainer[0].style.visibility = "hidden";
-    let cards = document.getElementsByClassName('card');
     cards[0].classList.add('no-display');
     cards[1].classList.add('no-display');
     cards[2].classList.add('no-display');
@@ -147,6 +141,9 @@ function normalMode() {
     cards[14].classList.add('no-display');
     cards[15].classList.add('no-display');
     if (easyDifficulty === true) {
+        for (let i = 0; i < cards.length; i++) {
+            cards[i].classList.remove('easy-card');
+        }
         cards[4].classList.remove('no-display');
         cards[5].classList.remove('no-display');
         cards[16].classList.remove('no-display');
@@ -165,6 +162,10 @@ function hardMode() {
     let cardsGrid = document.getElementsByClassName('cards-grid');
     cardsGrid[0].classList.remove('easy-cards-grid');
     cardsGrid[0].classList.remove('normal-cards-grid');
+    let cards = document.getElementsByClassName('card');
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].classList.remove('easy-card');
+    }
 
     let difficultyLabel = document.getElementsByClassName('difficulty-label');
     difficultyLabel[0].innerHTML = '<p>HARD</p>';
@@ -172,7 +173,6 @@ function hardMode() {
     let difficultyContainer = document.getElementsByClassName('difficulty-container');
     difficultyContainer[0].style.visibility = "hidden";
     if (easyDifficulty === true || normalDifficulty === true) {
-        let cards = document.getElementsByClassName('card');
         cards[0].classList.remove('no-display');
         cards[1].classList.remove('no-display');
         cards[2].classList.remove('no-display');
