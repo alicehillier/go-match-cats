@@ -1,4 +1,4 @@
-# **Rainforest Cafe - Testing**
+# **Go-Match! Cats - Testing**
 
 [Go back to the README index](https://github.com/alicehillier/rainforest-cafe#go-match-cats)
 
@@ -10,23 +10,37 @@
 
 #### **First-Time Visitor Goal**
 
-- I want to read instructions about how to play the game.
-- I want to be able to restart the game before the round is over.
-- I want to see colourful, visually-appealing images.
-- I want to be able to view the cards when I flip them.
-- I want to know how much time I have to complete the game.
+1. I want to read instructions about how to play the game.
+    - Instructions about how to play the game can be found by clicking on the 'HELP' button in the header.
+
+2. I want to be able to restart the game before the round is over.
+    - While a game is in progress, a 'QUIT' button will appear in the header. When clicked, the game will restart and allow the player to select a different difficulty level.
+
+3. I want to see colourful, visually-appealing images.
+    - The background colours are bright, with a mix of blue and pink. The cartoon cat image is used regularly on larger screens, appearing in the title bar, as an animation at the bottom of the screen, in the leaderboard and instructions. On small screens, the cat animation can be seen in the header instead of the page title.
+
+4. I want to be able to view the cards when I flip them.
+    - Once two cards have been flipped, if they do not match, there is a one-second delay before the cards flip back over, allowing the player to view the images.
+
+5. I want to know how much time I have to complete the game.
+    - Once a game has begun, the timer in the top left corner starts the countdown, allowing the player to see how much time they have remaining to complete the game.
 
 #### **Returning Visitor Goal**
 
-- I want to see what my score was last time (and see if I can do better this time).
-- I want the cards to change positions every time I play.
+1. I want to see what my score was last time (and see if I can do better this time).
+    - Players can access the leaderboard before a game begins and after a game finishes. As the score is stored in local storage after every game, players can access their top scores beyond this session.
+    If players share a device, they can enter their names at the beginning of the session to ensure that they can identify their own scores.
+
+2. I want the cards to change positions every time I play.
+    - The cards are shuffled before every game begins, ensuring a different experience every time. By adding some unpredictability, the game becomes more re-playable and enjoyable for the player.
 
 #### **Frequent Visitor Goal**
 
-- I want to see how my scores compare with others.
-- I want to see what my best score was.
-- I want more levels to play.
-- I want to choose the level of difficulty.
+1. I want to see what my best score was and how my scores compare with others.
+    - Players can access the leaderboard before a game begins and after a game finishes. Players can enter their name at the beginning of the session, which will appear on the leaderboard. The leaderboard uses data stored in local storage, so in order to view others' scores, players must use the same device.
+
+3. I want more levels to play.
+4. I want to choose the level of difficulty.
 
 ## **Manual Testing**
 
