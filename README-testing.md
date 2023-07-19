@@ -49,21 +49,45 @@
 
 ### **Homepage Responsive Design Testing**
 
+The website has been designed to be responsive using media queries. Below are examples of the website's appearance on various devices.
+
+iPhone SE
+![iPhone SE](assets/images/readme-images/testing/iphone-se.png)
+
+iPhone XR
+![iPhone XR](assets/images/readme-images/testing/iphone-xr.png)
+
+iPhone 12 Pro
+![iPhone 12 Pro](assets/images/readme-images/testing/iphone-12-pro.png)
+
+Google Pixel 5
+![Google Pixel 5](assets/images/readme-images/testing/pixel-5.png)
+
+Samsung Galaxy S8+
+![Samsung Galaxy S8+](assets/images/readme-images/testing/samsung-galaxy-s8+.png)
+
+Samsung Galaxy S20 Ultra
+![Samsung Galaxy S20 Ultra](assets/images/readme-images/testing/samsung-galaxy-s20-ultra.png)
+
+iPad Mini
+![iPad Mini](assets/images/readme-images/testing/ipad-mini.png)
+
+iPad Air
+![iPad Air](assets/images/readme-images/testing/ipad-air.png)
+
 ## **Validation and Lighthouse**
 
 ### **W3C HTML Validation**
 
-#### **Homepage HTML Validation Results**
-
 ### **Jigsaw CSS Validation**
 
-#### **CSS Validation Results**
+### **Jshint JavaScript Validation**
 
 ### **Lighthouse Testing**
 
-#### **Homepage on Desktop**
+#### **Go-Match! Cats on Desktop**
 
-#### **Homepage on Mobile**
+#### **Go-Match! Cats on Mobile**
 
 ## **User Testing**
 
