@@ -87,15 +87,33 @@ iPad Air
 
 ### **W3C HTML Validation**
 
+![W3C HTML validation results](assets/images/readme-images/testing/html-validation-image.png)
+
+See the full results page [here](assets/images/readme-images/testing/html-validation.pdf).
+
 ### **Jigsaw CSS Validation**
 
-### **Jshint JavaScript Validation**
+![W3C CSS validation results](assets/images/readme-images/testing/css-validation-image.png)
+
+See the full results page [here](assets/images/readme-images/testing/css-validation.pdf).
+
+### **JSHint JavaScript Validation**
+
+![JSHint JavaScript validation results](assets/images/readme-images/testing/javascript-validation-image.png)
 
 ### **Lighthouse Testing**
 
 #### **Go-Match! Cats on Desktop**
 
+![Desktop Lighthouse test results](assets/images/readme-images/testing/testing-lighthouse-desktop.png)
+
+See the full results page [here](assets/images/readme-images/testing/testing-lighthouse-desktop-results.pdf).
+
 #### **Go-Match! Cats on Mobile**
+
+![Mobile Lighthouse test results](assets/images/readme-images/testing/testing-lighthouse-mobile.png)
+
+See the full results page [here](assets/images/readme-images/testing/testing-lighthouse-mobile-results.pdf).
 
 ## **User Testing**
 
