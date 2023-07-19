@@ -398,6 +398,8 @@ function startTimer() {
                 clearInterval(timer);
                 gameTimer[0].innerHTML = "00:00";
                 startAgain = false;
+                let catAnimation = document.getElementById('cat-animation');
+                catAnimation.classList.add('moving-cat');
             }
             /* If the timer reaches 0, show "00:00!" in the timer area, stop the timer, remove the quit button
             and trigger the gameOver function*/
@@ -406,6 +408,8 @@ function startTimer() {
             clearInterval(timer);
             gameOver();
             quitButton[0].style.visibility = "hidden";
+            let catAnimation = document.getElementById('cat-animation');
+            catAnimation.classList.add('moving-cat');
         }
     }, 1000);
 }
