@@ -117,6 +117,18 @@ See the full results page [here](assets/images/readme-images/testing/testing-lig
 
 ## **User Testing**
 
+1. Another suggestion was to include instructions for the game, so players new to the concept can quickly pick up the rules and understand what the objective is.
+    - To implement this, I created a 'leaderboard' button, which displays in the header alongside other information relevant to the game. When the player clicks on the 'instructions' button, a set of instructions appears as an overlay, taking up the full height and width of the viewport. The instructions are easy to exit, with a conventional 'X' in the top right corner. By displaying the instructions as an overlay, the main page remains active, meaning that there is no need to re-load or refresh the page. This is more efficient and user-friendly.
+
+2. My mentor recommended that the instructions and leaderboard should not be accessible while the game is being played as it could be distracting. 
+    - I took my mentor's advice and reduced the opacity of the instructions and leaderboard buttons, giving them a darker appearance. I also set their cursor to 'not-allowed', so the user knows that the button is not intended to be interacted with at that time. Once a game has finished, the buttons can be clicked on.
+
+3. My mentor also recommended only having the 'quit' button appear while a game is in progress.
+    - I set the visibility of the element to 'visible' when the startTimer function runs, and changed the visibility to 'hidden' when the player wins, loses or quits the game. 
+
+4. During testing, my husband found the header a little confusing as the elements on the left had the same appearance as the buttons on the right. He suggested that the elements on the left should have a different appearance so they don't look like buttons.
+    - I removed the background-colour and border, leaving only the text, as the content was display only. I also used white for the text, while the buttons have a white background with dark blue text. This helps the user to differentiate the items in the header and gives a clearer indication of which ones can be interacted with.
+
 ## **Further Testing**
 
 This website was tested on a variety of devices, including Windows laptops, iPhone 12 Mini and iPad Air. It was also tested on different browsers, including Google Chrome and Safari (iOS).
