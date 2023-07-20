@@ -147,6 +147,13 @@ audio,
     cursor: pointer;
 }
 
+.no-name {
+    position: absolute;
+    bottom: 2rem;
+    padding: 0 1rem;
+    font-size: 0.8rem;
+}
+
 /* Styles for difficulty buttons */
 .easy,
 .normal,
