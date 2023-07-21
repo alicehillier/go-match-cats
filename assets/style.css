@@ -21,7 +21,7 @@ header {
     margin-bottom: 3rem;
 }
 
-/* Styles for the primary unordered list containing all three sections of the header */
+/* Styles for the primary unordered list containing all three sections of the header. */
 .header {
     height: min-content;
     width: 100%;
@@ -36,6 +36,7 @@ header {
     display: flex;
 }
 
+/* Styles for items on the left and right of the header. */
 .score-and-timer,
 .header-buttons {
     display: flex;
@@ -52,14 +53,14 @@ h1 {
     text-shadow: 2px 2px 3px rgb(0, 0, 52);
 }
 
-/* Hide the header image (which will be visible on small screens), audio controls, and cards once they have been matched */
+/* Hide the header image (which will be visible on small screens), audio controls, and cards once they have been matched. */
 .header-image,
 audio,
 .no-display {
     display: none;
 }
 
-/* Styles for elements in the header and difficulty buttons */
+/* Styles for elements in the header and difficulty buttons. */
 .timer,
 .score,
 .difficulty-label,
@@ -97,7 +98,7 @@ audio,
     padding: 0;
 }
 
-/* Styles for welcome message with input area and the leaderboard display */
+/* Styles for the welcome message with input area, and the leaderboard display. */
 .get-username,
 .scoreboard-display {
     height: 100%;
@@ -127,7 +128,7 @@ audio,
     margin-bottom: 2rem;
 }
 
-/* Styles for welcome message input field */
+/* Styles for welcome message input field. */
 #name {
     width: 50%;
     text-align: center;
@@ -138,7 +139,7 @@ audio,
     color: rgb(0, 0, 52);
 }
 
-/* Styles for welcome message submit button */
+/* Styles for welcome message submit button. */
 #submit {
     background-color: white;
     color: rgb(0, 0, 52);
@@ -147,6 +148,7 @@ audio,
     cursor: pointer;
 }
 
+/* Styles for the span informing the player that not entering a name will result in them being called 'GUEST'. */
 .no-name {
     position: absolute;
     bottom: 1rem;
@@ -154,7 +156,7 @@ audio,
     font-size: 0.8rem;
 }
 
-/* Styles for difficulty buttons */
+/* Styles for difficulty buttons. */
 .easy,
 .normal,
 .hard {
@@ -169,11 +171,12 @@ audio,
     margin: 0.6rem 0;
 }
 
+/* Hides the 'quit' button outside of a game. */
 .quit {
     visibility: hidden;
 }
 
-/* Hover effect for all buttons */
+/* Hover effect for all buttons. */
 #start-button:hover,
 #retry-button:hover,
 .scoreboard:hover,
@@ -199,7 +202,7 @@ audio,
     box-shadow: 2px 2px 3px 3px white;
 }
 
-/* Styles for game area */
+/* Styles for game area. */
 .cards-grid {
     height: min-content;
     width: min-content;
@@ -211,32 +214,27 @@ audio,
     column-gap: 0;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     /* THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek */
-    /*creates 3D effect with code indicated in '.card' style */
+    /*creates 3D effect with code indicated in '.card' style. */
     perspective: 1000px;
 }
 
-/* Styles for game area while the difficulty level is set to 'easy' */
+/* Styles for game area while the difficulty level is set to 'easy'. */
 .easy-cards-grid {
     height: min-content;
     width: min-content;
     margin: auto;
     margin-bottom: 1rem;
     position: relative;
-    /* position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0; */
     display: grid;
     column-count: 4;
     column-gap: 0;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     /* THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek */
-    /*creates 3D effect with code indicated in '.card' style */
+    /*creates 3D effect with code indicated in '.card' style. */
     perspective: 1000px;
 }
 
-/* Styles for game area while the difficulty level is set to 'normal' */
+/* Styles for game area while the difficulty level is set to 'normal'. */
 .normal-cards-grid {
     height: min-content;
     width: min-content;
@@ -248,11 +246,11 @@ audio,
     column-gap: 0;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     /* THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek */
-    /*creates 3D effect with code indicated in '.card' style */
+    /*creates 3D effect with code indicated in '.card' style. */
     perspective: 1000px;
 }
 
-/* Styles for cartoon cat at the bottom of the screen */
+/* Styles for the cartoon cat at the bottom of the screen. */
 #cat-animation {
     height: 4.5rem;
     width: 6.5rem;
@@ -263,7 +261,7 @@ audio,
     transform: rotateY(180deg);
 }
 
-/* Animation for moving the cat along the bottom of the screen continuously */
+/* Animation for moving the cat along the bottom of the screen continuously. */
 .moving-cat {
     animation-name: moving-cat;
     animation-timing-function: cubic-bezier(0.25, 0.25, 0.25, 0.25);
@@ -281,7 +279,7 @@ audio,
     }
 }
 
-/* Styles for the cat image on the instructions page */
+/* Styles for the cat image on the instructions page. */
 .cat-instructions {
     position: absolute;
     bottom: 0;
@@ -290,7 +288,7 @@ audio,
     width: 22.5rem;
 }
 
-/* Styles for the cat image on the leaderboard page */
+/* Styles for the cat image on the leaderboard page. */
 .cat-leaderboard {
     position: absolute;
     bottom: 0;
@@ -300,7 +298,7 @@ audio,
     transform: rotateY(180deg);
 }
 
-/* Styles for the instructions page */
+/* Styles for the instructions page. */
 #instructions {
     position: absolute;
     height: 100%;
@@ -317,7 +315,7 @@ audio,
     text-align: center;
 }
 
-/* Styles for the 'X' button in the top right corner of the instructions and leaderboard pages */
+/* Styles for the 'X' button in the top right corner of the instructions and leaderboard pages. */
 .exit-instructions,
 .exit-scoreboard {
     line-height: 2rem;
@@ -334,7 +332,7 @@ audio,
     cursor: pointer;
 }
 
-/* Styles for the headings of the instructions and leaderboard pages */
+/* Styles for the headings of the instructions and leaderboard pages. */
 .instructions-title,
 .scoreboard-display h2 {
     padding: 2rem;
@@ -343,7 +341,7 @@ audio,
     font-size: 1.5rem;
 }
 
-/* Styles for the structure of the main content of instructions and leaderboard pages */
+/* Styles for the structure of the main content of instructions and leaderboard pages. */
 #instructions ul,
 .scoreboard-display ul {
     position: relative;
@@ -352,12 +350,12 @@ audio,
     padding: 2rem;
 }
 
-/* Removes bulletpoints from the leaderboard page */
+/* Removes bulletpoints from the leaderboard page. */
 li::marker {
     content: none;
 }
 
-/* Styles for the main content of the instructions and leaderboard pages */
+/* Styles for the main content of the instructions and leaderboard pages. */
 #instructions li,
 .top-10 li {
     width: 100%;
@@ -383,7 +381,7 @@ li::marker {
     text-align: center;
 }
 
-/* Styles for the start button, end-of-game exit button and container for difficulty buttons */
+/* Styles for the start button, countdown, end-of-game exit button and container for difficulty buttons. */
 #start-button,
 .start-countdown,
 #retry-button,
@@ -406,7 +404,7 @@ li::marker {
     font-size: 2rem;
 }
 
-/* Styles for the 'YOU WIN!' or 'YOU LOSE!' messages displayed at the end of each game */
+/* Styles for the 'YOU WON!' and 'YOU LOST!' messages displayed at the end of each game. */
 .winning-message,
 .losing-message {
     height: min-content;
@@ -434,13 +432,20 @@ li::marker {
     padding-bottom: 2rem;
 }
 
-/* Styles for the exit button at the end of each game */
+/* Styles for the exit button at the end of each game. */
 #retry-button {
     width: min-content;
+    z-index: 2;
+    position: relative;
+    margin: auto;
+    padding: 1rem;
+    border: none;
     border-radius: 1rem;
+    justify-content: center;
+    align-items: flex-end;
 }
 
-/* Styles for the container for the difficulty buttons displayed before each game */
+/* Styles for the container for the difficulty buttons displayed before each game. */
 .difficulty-container {
     display: flex;
     flex-direction: column;
@@ -452,18 +457,7 @@ li::marker {
     border: none;
 }
 
-/* Styles for the exit button displayed at the end of each game */
-#retry-button {
-    z-index: 2;
-    position: relative;
-    margin: auto;
-    padding: 1rem;
-    border: none;
-    justify-content: center;
-    align-items: flex-end;
-}
-
-/* Styles for the "3,2,1" countdown when the start button has been clicked */
+/* Styles for the "3,2,1, GO!" countdown when the start button has been clicked. */
 .start-countdown {
     line-height: 5rem;
     width: 8rem;
@@ -472,7 +466,7 @@ li::marker {
     border-radius: 50%;
 }
 
-/* Styles for the game's memory cards */
+/* Styles for the game's memory cards. */
 .card {
     height: 170px;
     width: 120px;
@@ -521,7 +515,7 @@ li::marker {
 
 /* Media Queries */
 
-/* Media queries for screens larger than 1201px */
+/* Media queries for screens larger than 1201px. */
 @media only screen and (min-width: 1201px) {
 
     .top-10 li {
@@ -544,7 +538,7 @@ li::marker {
     }
 }
 
-/* Media queries for screens up to 1200px */
+/* Media queries for screens up to 1200px. */
 @media only screen and (max-width: 1200px) {
 
     header {
@@ -613,7 +607,7 @@ li::marker {
     }
 }
 
-/* Media queries for screens up to 1020px */
+/* Media queries for screens up to 1020px. */
 @media only screen and (max-width: 1020px) {
 
     .card {
@@ -622,6 +616,7 @@ li::marker {
     }
 }
 
+/* Media queries for screens up to 767px. */
 @media only screen and (max-width: 767px) {
 
     header {
@@ -670,13 +665,12 @@ li::marker {
     }
 }
 
-/* Media queries for screens up to 679px */
+/* Media queries for screens up to 679px. */
 @media only screen and (max-width: 679px) {
     h1 {
         font-size: 1rem;
     }
 
-    /* Styles for timer, help and quit button */
     .timer,
     .score,
     .difficulty-label,
@@ -723,7 +717,7 @@ li::marker {
     }
 }
 
-/* Media queries for screens up to 480px */
+/* Media queries for screens up to 480px. */
 @media only screen and (max-width: 480px) {
 
     header {
@@ -769,7 +763,7 @@ li::marker {
     }
 }
 
-/* Media queries for screens up to 391px */
+/* Media queries for screens up to 391px. */
 @media only screen and (max-width: 391px) {
 
     .timer,
