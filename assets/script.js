@@ -11,6 +11,9 @@ audioIcon[0].addEventListener('click', playAudio);
 //Adds an event listener to the 'help' button to trigger the showInstructions function.
 let helpButton = document.getElementsByClassName('help');
 helpButton[0].addEventListener('click', showInstructions);
+// Adds an event listener to the 'leaderboard' button to trigger the showScoreboard function.
+let leaderboardButton = document.getElementsByClassName('scoreboard');
+leaderboardButton[0].addEventListener('click', showScoreboard);
 // All difficulty modes are set to false until one has been selected.
 let easyDifficulty = false;
 let normalDifficulty = false;
@@ -25,12 +28,38 @@ let secondCard;
 let boardLocked = false;
 // ---------------------------------
 let startAgain = false;
-let leaderboardButton = document.getElementsByClassName('scoreboard');
-leaderboardButton[0].addEventListener('click', showScoreboard);
 let scoreboard = [];
 let localStorageScore = JSON.parse(localStorage.getItem('score'));
 if (localStorageScore != null) {
     scoreboard = localStorageScore;
+}
+
+/**Creates instructions and shows them to the player. The function within also removes them when the 'X' in the top right corner is clicked on. */
+function showInstructions() {
+    let instructions = document.createElement('div');
+    instructions.setAttribute('id', 'instructions');
+    instructions.innerHTML = `
+    <button class="exit-instructions">X</button>
+    <h2 class="instructions-title">HOW TO PLAY</h2>
+    <ul>
+    <li>The aim of the game is to match your cards.</li>
+    <li>Click on two cards. If they match, they'll disappear. If not, they'll return to their positions.</li>
+    <li>Have another go, selecting two cards. Try to remember where each card is on the board and you'll have a better chance of winning!</li>
+    <li>Don't forget, you've got a time limit! If the timer runs out and you haven't matched all the cards, you'll lose the game.</li>
+    <li>Too easy? Try a harder level!</li>
+    </ul>
+    <img src="assets/images/cartoon-cat-vector.png" alt="cartoon cat" class="cat-instructions">
+    `;
+    let body = document.getElementsByTagName('body');
+    body[0].prepend(instructions);
+    let exit = document.getElementsByClassName('exit-instructions');
+    exit[0].addEventListener('click', closeInstructions);
+
+    /**Exit instructions and return to the main page. */
+    function closeInstructions() {
+        instructions.removeAttribute('id', 'instructions');
+        instructions.style.display = "none";
+    }
 }
 
 /**Triggered by the player clicking on the audio icon, the audio is paused and the icon changes to a speaker with a cross on it. 
@@ -53,16 +82,6 @@ function playAudio() {
     audioIcon[0].classList.add('fa-volume-high');
     audioIcon[0].removeEventListener('click', playAudio);
     audioIcon[0].addEventListener('click', stopAudio);
-}
-
-/**Creates the start button and adds a 'click' event listener to trigger the shuffleCards function. Appends the start button to the game area */
-function createStartButton() {
-    let startButton = document.createElement('button');
-    startButton.setAttribute('id', 'start-button');
-    startButton.innerHTML = "START";
-    startButton.addEventListener('click', shuffleCards);
-    let cardsGrid = document.getElementsByClassName('cards-grid');
-    cardsGrid[0].prepend(startButton);
 }
 
 /**Removes the welcome message and adds 'click' event listeners to the difficulty level buttons. */
@@ -192,100 +211,15 @@ function hardMode() {
     return;
 }
 
-/**Creates instructions and shows them to the player. The function within also removes them when the 'X' in the top right corner is clicked on. */
-function showInstructions() {
-    let instructions = document.createElement('div');
-    instructions.setAttribute('id', 'instructions');
-    instructions.innerHTML = `
-    <button class="exit-instructions">X</button>
-    <h2 class="instructions-title">HOW TO PLAY</h2>
-    <ul>
-    <li>The aim of the game is to match your cards.</li>
-    <li>Click on two cards. If they match, they'll disappear. If not, they'll return to their positions.</li>
-    <li>Have another go, selecting two cards. Try to remember where each card is on the board and you'll have a better chance of winning!</li>
-    <li>Don't forget, you've got a time limit! If the timer runs out and you haven't matched all the cards, you'll lose the game.</li>
-    <li>Too easy? Try a harder level!</li>
-    </ul>
-    <img src="assets/images/cartoon-cat-vector.png" alt="cartoon cat" class="cat-instructions">
-    `;
-    let body = document.getElementsByTagName('body');
-    body[0].prepend(instructions);
-    let exit = document.getElementsByClassName('exit-instructions');
-    exit[0].addEventListener('click', closeInstructions);
-
-    /**Exit instructions and return to the main page. */
-    function closeInstructions() {
-        instructions.removeAttribute('id', 'instructions');
-        instructions.style.display = "none";
-    }
+/**Creates the start button and adds a 'click' event listener to trigger the shuffleCards function. Appends the start button to the game area */
+function createStartButton() {
+    let startButton = document.createElement('button');
+    startButton.setAttribute('id', 'start-button');
+    startButton.innerHTML = "START";
+    startButton.addEventListener('click', shuffleCards);
+    let cardsGrid = document.getElementsByClassName('cards-grid');
+    cardsGrid[0].prepend(startButton);
 }
-
-//THE CODE IN THE flipCard FUNCTION WAS SOURCED FROM A FREECODECAMP TUTORIAL AND CUSTOMISED: https://www.youtube.com/watch?v=ZniVgo8U7ek
-//---------------------------------------------------------------------------------------------------------
-/**Allows cards to be flipped, checks if cards match and hides them if they do, or returns them to their original position if they don't 
- * (with 1 sec delay for viewing) */
-function flipCard() {
-    // If the cards cannot be flipped, stop the function.
-    if (boardLocked) return;
-    // If the same card is clicked on twice, stop the function so it doesn't match with itself
-    if (this === firstCard) return;
-    // Adds a 'flip' class to the card element. This allows the card to be flipped
-    this.classList.add('flip');
-    if (!flippedCard) {
-        // When first card is selected. flippedCard is now true. It has been flipped once
-        flippedCard = true;
-        firstCard = this;
-    } else {
-        // When second card is selected. flippedCard is set back to false, ready for the next attempt
-        flippedCard = false;
-        secondCard = this;
-        checkCards();
-    }
-}
-//---------------------------------------------------------------------------------------------------------
-
-//SOME OF THE CODE IN THE checkCards FUNCTION WAS SOURCED FROM A FREECODECAMP TUTORIAL AND CUSTOMISED: https://www.youtube.com/watch?v=ZniVgo8U7ek
-//---------------------------------------------------------------------------------------------------------
-/** Checks if cards match. If so, they disappear and cannot be clicked again. If not, they are flipped back to their original positions. 
- * Triggers the incrementScore function. */
-function checkCards() {
-    // If the cards match, hide the cards and remove the event listener so they cannot be activated again
-    //DATASET NAMES, CARD STYLES, ADDITION OF CLASS NAMES AND CALLING OF incrementScore FUNCTION ARE MY OWN
-    if (firstCard.dataset.name === secondCard.dataset.name) {
-        firstCard.style.visibility = "hidden";
-        // If a card is matched, add a new class.
-        firstCard.classList.add('card-flipped');
-        firstCard.removeEventListener('click', flipCard);
-        secondCard.style.visibility = "hidden";
-        // If a card is matched, add a new class.
-        secondCard.classList.add('card-flipped');
-        secondCard.removeEventListener('click', flipCard);
-        resetBoard();
-        incrementScore();
-    } else {
-        // Stop the player from flipping cards
-        boardLocked = true;
-        // If the cards don't match, flip them back over to their original positions, with a 1 second delay so the user can view the selected cards
-        setTimeout(() => {
-            firstCard.classList.remove('flip');
-            secondCard.classList.remove('flip');
-            // Allow the player to flip cards again
-            resetBoard();
-        }, 1000);
-    }
-}
-//---------------------------------------------------------------------------------------------------------
-
-//THE CODE IN THE resetBoard FUNCTION WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek
-//---------------------------------------------------------------------------------------------------------
-/**Allows the matching process to start again, letting the player flip 2 cards */
-function resetBoard() {
-    flippedCard = false;
-    boardLocked = false;
-    firstCard = null;
-    secondCard = null;
-}
-//---------------------------------------------------------------------------------------------------------
 
 //THE CODE IN THE shuffleCards FUNCTION WAS MADE USING LOGIC FROM A FREECODECAMP TUTORIAL AND CUSTOMISED SIGNIFICANTLY: https://www.youtube.com/watch?v=ZniVgo8U7ek
 
@@ -413,6 +347,73 @@ function startTimer() {
         }
     }, 1000);
 }
+
+//THE CODE IN THE flipCard FUNCTION WAS SOURCED FROM A FREECODECAMP TUTORIAL AND CUSTOMISED: https://www.youtube.com/watch?v=ZniVgo8U7ek
+//---------------------------------------------------------------------------------------------------------
+/**Allows cards to be flipped, checks if cards match and hides them if they do, or returns them to their original position if they don't 
+ * (with 1 sec delay for viewing) */
+function flipCard() {
+    // If the cards cannot be flipped, stop the function.
+    if (boardLocked) return;
+    // If the same card is clicked on twice, stop the function so it doesn't match with itself
+    if (this === firstCard) return;
+    // Adds a 'flip' class to the card element. This allows the card to be flipped
+    this.classList.add('flip');
+    if (!flippedCard) {
+        // When first card is selected. flippedCard is now true. It has been flipped once
+        flippedCard = true;
+        firstCard = this;
+    } else {
+        // When second card is selected. flippedCard is set back to false, ready for the next attempt
+        flippedCard = false;
+        secondCard = this;
+        checkCards();
+    }
+}
+//---------------------------------------------------------------------------------------------------------
+
+//SOME OF THE CODE IN THE checkCards FUNCTION WAS SOURCED FROM A FREECODECAMP TUTORIAL AND CUSTOMISED: https://www.youtube.com/watch?v=ZniVgo8U7ek
+//---------------------------------------------------------------------------------------------------------
+/** Checks if cards match. If so, they disappear and cannot be clicked again. If not, they are flipped back to their original positions. 
+ * Triggers the incrementScore function. */
+function checkCards() {
+    // If the cards match, hide the cards and remove the event listener so they cannot be activated again
+    //DATASET NAMES, CARD STYLES, ADDITION OF CLASS NAMES AND CALLING OF incrementScore FUNCTION ARE MY OWN
+    if (firstCard.dataset.name === secondCard.dataset.name) {
+        firstCard.style.visibility = "hidden";
+        // If a card is matched, add a new class.
+        firstCard.classList.add('card-flipped');
+        firstCard.removeEventListener('click', flipCard);
+        secondCard.style.visibility = "hidden";
+        // If a card is matched, add a new class.
+        secondCard.classList.add('card-flipped');
+        secondCard.removeEventListener('click', flipCard);
+        resetBoard();
+        incrementScore();
+    } else {
+        // Stop the player from flipping cards
+        boardLocked = true;
+        // If the cards don't match, flip them back over to their original positions, with a 1 second delay so the user can view the selected cards
+        setTimeout(() => {
+            firstCard.classList.remove('flip');
+            secondCard.classList.remove('flip');
+            // Allow the player to flip cards again
+            resetBoard();
+        }, 1000);
+    }
+}
+//---------------------------------------------------------------------------------------------------------
+
+//THE CODE IN THE resetBoard FUNCTION WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek
+//---------------------------------------------------------------------------------------------------------
+/**Allows the matching process to start again, letting the player flip 2 cards */
+function resetBoard() {
+    flippedCard = false;
+    boardLocked = false;
+    firstCard = null;
+    secondCard = null;
+}
+//---------------------------------------------------------------------------------------------------------
 
 /**Quits the game and the timer when the player clicks on the quit button in the middle of the current game */
 function restartMidGame() {
