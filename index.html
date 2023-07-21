@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +11,6 @@
     <link rel="icon" type="image/x-icon" href="favicon-cat.ico">
     <title>Go Match! Cats</title>
 </head>
-
 <body>
     <!-- Header split into three sections -->
     <header>
@@ -27,7 +25,7 @@
                         <p class="score">SCORE: <span class="score-counter"></span></p>
                     </li>
                     <li>
-                        <p class="difficulty-label">DIFFICULTY</p>
+                        <p class="difficulty-label">HARD</p>
                     </li>
                     <li>
                         <audio id="music" src="assets/audio/background-music.mp3" autoplay controls loop>Your device
@@ -52,157 +50,151 @@
             </li>
         </ul>
     </header>
-
-    <!-- Game area -->
-
-    <div class="cards-grid">
-
-        <!-- Welcome message and input field for name to be used on the leaderboard -->
-        <div class="get-username">
-            <p>Yay! You're here!</p>
-            <label for="name">What's your name?</label>
-            <input type="text" id="name" name="name" placeholder="GUEST" autocomplete="off">
-            <button type="submit" id="submit" name="submit">CONFIRM</button>
-            <span class="no-name">No name? No problem! If you leave the space blank, we'll call you GUEST!</span>
+    <main>
+        <!-- Game area -->
+        <div class="cards-grid">
+            <!-- Welcome message and input field for name to be used on the leaderboard -->
+            <div class="get-username">
+                <p>Yay! You're here!</p>
+                <label for="name">What's your name?</label>
+                <input type="text" id="name" name="name" placeholder="GUEST" autocomplete="off">
+                <button type="submit" id="submit" name="submit">CONFIRM</button>
+                <span class="no-name">No name? No problem! If you leave the space blank, we'll call you GUEST!</span>
+            </div>
+            <!-- Buttons for the player to select game difficulty -->
+            <div class="difficulty-container">
+                <button class="easy">EASY</button>
+                <button class="normal">NORMAL</button>
+                <button class="hard">HARD</button>
+            </div>
+            <!-- The game's memory cards with front and back images -->
+            <!-- ONLY DATA NAMES WERE ADDED ACCORDING TO A FREECODECAMP TUTORIAL AND CUSTOMISED: https://www.youtube.com/watch?v=ZniVgo8U7ek -->
+            <!-- Card 1 -->
+            <div class="card" data-name="cats-1">
+                <img class="card-front" src="assets/images/cats-1.jfif" alt="cats card one">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 2 -->
+            <div class="card" data-name="cats-2">
+                <img class="card-front" src="assets/images/cats-2.jfif" alt="cats card two">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 3 -->
+            <div class="card" data-name="cats-3">
+                <img class="card-front" src="assets/images/cats-3.jfif" alt="cats card three">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 4 -->
+            <div class="card" data-name="cats-4">
+                <img class="card-front" src="assets/images/cats-4.jfif" alt="cats card four">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 5 -->
+            <div class="card" data-name="cats-5">
+                <img class="card-front" src="assets/images/cats-5.jfif" alt="cats card five">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 6 -->
+            <div class="card" data-name="cats-6">
+                <img class="card-front" src="assets/images/cats-6.jfif" alt="cats card six">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 7 -->
+            <div class="card" data-name="cats-7">
+                <img class="card-front" src="assets/images/cats-7.jfif" alt="cats card seven">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 8 -->
+            <div class="card" data-name="cats-8">
+                <img class="card-front" src="assets/images/cats-8.jfif" alt="cats card eight">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 9 -->
+            <div class="card" data-name="cats-9">
+                <img class="card-front" src="assets/images/cats-9.jfif" alt="cats card nine">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 10 -->
+            <div class="card" data-name="cats-10">
+                <img class="card-front" src="assets/images/cats-10.jfif" alt="cats card ten">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 11 -->
+            <div class="card" data-name="cats-11">
+                <img class="card-front" src="assets/images/cats-11.jfif" alt="cats card eleven">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 12 -->
+            <div class="card" data-name="cats-12">
+                <img class="card-front" src="assets/images/cats-12.jfif" alt="cats card twelve">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 13 (Card 1 Duplicate) -->
+            <div class="card" data-name="cats-1">
+                <img class="card-front" src="assets/images/cats-1.jfif" alt="cats card one">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 14 (Card 2 Duplicate) -->
+            <div class="card" data-name="cats-2">
+                <img class="card-front" src="assets/images/cats-2.jfif" alt="cats card two">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 15 (Card 3 Duplicate) -->
+            <div class="card" data-name="cats-3">
+                <img class="card-front" src="assets/images/cats-3.jfif" alt="cats card three">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 16 (Card 4 Duplicate) -->
+            <div class="card" data-name="cats-4">
+                <img class="card-front" src="assets/images/cats-4.jfif" alt="cats card four">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 17 (Card 5 Duplicate) -->
+            <div class="card" data-name="cats-5">
+                <img class="card-front" src="assets/images/cats-5.jfif" alt="cats card five">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 18 (Card 6 Duplicate) -->
+            <div class="card" data-name="cats-6">
+                <img class="card-front" src="assets/images/cats-6.jfif" alt="cats card six">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 19 (Card 7 Duplicate) -->
+            <div class="card" data-name="cats-7">
+                <img class="card-front" src="assets/images/cats-7.jfif" alt="cats card seven">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 20 (Card 8 Duplicate) -->
+            <div class="card" data-name="cats-8">
+                <img class="card-front" src="assets/images/cats-8.jfif" alt="cats card eight">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 21 (Card 9 Duplicate) -->
+            <div class="card" data-name="cats-9">
+                <img class="card-front" src="assets/images/cats-9.jfif" alt="cats card nine">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 22 (Card 10 Duplicate) -->
+            <div class="card" data-name="cats-10">
+                <img class="card-front" src="assets/images/cats-10.jfif" alt="cats card ten">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 23 (Card 11 Duplicate) -->
+            <div class="card" data-name="cats-11">
+                <img class="card-front" src="assets/images/cats-11.jfif" alt="cats card eleven">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
+            <!-- Card 24 (Card 12 Duplicate) -->
+            <div class="card" data-name="cats-12">
+                <img class="card-front" src="assets/images/cats-12.jfif" alt="cats card twelve">
+                <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
+            </div>
         </div>
-
-        <!-- Buttons for the player to select game difficulty -->
-        <div class="difficulty-container">
-            <button class="easy">EASY</button>
-            <button class="normal">NORMAL</button>
-            <button class="hard">HARD</button>
-        </div>
-
-        <!-- The game's memory cards with front and back images -->
-        <!-- DATA NAMES WERE ADDED ACCORDING TO A FREECODECAMP TUTORIAL AND CUSTOMISED: https://www.youtube.com/watch?v=ZniVgo8U7ek -->
-        <!-- Card 1 -->
-        <div class="card" data-name="cats-1">
-            <img class="card-front" src="assets/images/cats-1.jfif" alt="cats card one">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 2 -->
-        <div class="card" data-name="cats-2">
-            <img class="card-front" src="assets/images/cats-2.jfif" alt="cats card two">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 3 -->
-        <div class="card" data-name="cats-3">
-            <img class="card-front" src="assets/images/cats-3.jfif" alt="cats card three">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 4 -->
-        <div class="card" data-name="cats-4">
-            <img class="card-front" src="assets/images/cats-4.jfif" alt="cats card four">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 5 -->
-        <div class="card" data-name="cats-5">
-            <img class="card-front" src="assets/images/cats-5.jfif" alt="cats card five">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 6 -->
-        <div class="card" data-name="cats-6">
-            <img class="card-front" src="assets/images/cats-6.jfif" alt="cats card six">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 7 -->
-        <div class="card" data-name="cats-7">
-            <img class="card-front" src="assets/images/cats-7.jfif" alt="cats card seven">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 8 -->
-        <div class="card" data-name="cats-8">
-            <img class="card-front" src="assets/images/cats-8.jfif" alt="cats card eight">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 9 -->
-        <div class="card" data-name="cats-9">
-            <img class="card-front" src="assets/images/cats-9.jfif" alt="cats card nine">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 10 -->
-        <div class="card" data-name="cats-10">
-            <img class="card-front" src="assets/images/cats-10.jfif" alt="cats card ten">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 11 -->
-        <div class="card" data-name="cats-11">
-            <img class="card-front" src="assets/images/cats-11.jfif" alt="cats card eleven">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 12 -->
-        <div class="card" data-name="cats-12">
-            <img class="card-front" src="assets/images/cats-12.jfif" alt="cats card twelve">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 13 (Card 1 Duplicate) -->
-        <div class="card" data-name="cats-1">
-            <img class="card-front" src="assets/images/cats-1.jfif" alt="cats card one">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 14 (Card 2 Duplicate) -->
-        <div class="card" data-name="cats-2">
-            <img class="card-front" src="assets/images/cats-2.jfif" alt="cats card two">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 15 (Card 3 Duplicate) -->
-        <div class="card" data-name="cats-3">
-            <img class="card-front" src="assets/images/cats-3.jfif" alt="cats card three">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 16 (Card 4 Duplicate) -->
-        <div class="card" data-name="cats-4">
-            <img class="card-front" src="assets/images/cats-4.jfif" alt="cats card four">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 17 (Card 5 Duplicate) -->
-        <div class="card" data-name="cats-5">
-            <img class="card-front" src="assets/images/cats-5.jfif" alt="cats card five">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 18 (Card 6 Duplicate) -->
-        <div class="card" data-name="cats-6">
-            <img class="card-front" src="assets/images/cats-6.jfif" alt="cats card six">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 19 (Card 7 Duplicate) -->
-        <div class="card" data-name="cats-7">
-            <img class="card-front" src="assets/images/cats-7.jfif" alt="cats card seven">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 20 (Card 8 Duplicate) -->
-        <div class="card" data-name="cats-8">
-            <img class="card-front" src="assets/images/cats-8.jfif" alt="cats card eight">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 21 (Card 9 Duplicate) -->
-        <div class="card" data-name="cats-9">
-            <img class="card-front" src="assets/images/cats-9.jfif" alt="cats card nine">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 22 (Card 10 Duplicate) -->
-        <div class="card" data-name="cats-10">
-            <img class="card-front" src="assets/images/cats-10.jfif" alt="cats card ten">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 23 (Card 11 Duplicate) -->
-        <div class="card" data-name="cats-11">
-            <img class="card-front" src="assets/images/cats-11.jfif" alt="cats card eleven">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-        <!-- Card 24 (Card 12 Duplicate) -->
-        <div class="card" data-name="cats-12">
-            <img class="card-front" src="assets/images/cats-12.jfif" alt="cats card twelve">
-            <img class="card-back" src="assets/images/card-back.jpg" alt="back of card">
-        </div>
-    </div>
-
+    </main>
     <!-- Animated cartoon cat image that moves along the bottom of the screen -->
     <img src="assets/images/cartoon-cat-vector.png" alt="cartoon cat" id="cat-animation" class="moving-cat">
-
     <!-- Font Awesome and JavaScript file links -->
     <script src="https://kit.fontawesome.com/a4e93f9a19.js" crossorigin="anonymous"></script>
     <script src="assets/script.js"></script>
 </body>
-
 </html>
