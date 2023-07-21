@@ -1,11 +1,11 @@
 /*jshint esversion: 6 */
 
-// Elements and actions to be implemented on load
+// Elements and actions to be implemented on load.
 
-// Adds an event listener to the submit button in the welcome message, triggering the selectDifficulty function
+// Adds an event listener to the submit button in the welcome message, triggering the selectDifficulty function.
 let submit = document.getElementById('submit');
 submit.addEventListener('click', selectDifficulty);
-// Adds an event listener to the audio icon, triggering the playAudio function
+// Adds an event listener to the audio icon, triggering the playAudio function.
 let audioIcon = document.getElementsByClassName('audio-icon');
 audioIcon[0].addEventListener('click', playAudio);
 //Adds an event listener to the 'help' button to trigger the showInstructions function.
@@ -18,23 +18,28 @@ leaderboardButton[0].addEventListener('click', showScoreboard);
 let easyDifficulty = false;
 let normalDifficulty = false;
 let hardDifficulty = false;
+
 //THE CODE BELOW WAS SOURCED FROM A FREECODECAMP TUTORIAL: https://www.youtube.com/watch?v=ZniVgo8U7ek
 // ---------------------------------
-// Sets flippedCard to false as no card has been flipped, declares firstCard and secondCard
+// Sets flippedCard to false as no card has been flipped, declares firstCard and secondCard.
 let flippedCard = false;
 let firstCard;
 let secondCard;
 // Cards can be flipped as the board is not locked.
 let boardLocked = false;
 // ---------------------------------
+
+// Variable created to represent whether or not the 'quit' button has been clicked.
 let startAgain = false;
+// Array to store player names and scores.
 let scoreboard = [];
+// If there are scores in local storage, these should be included on the leaderboard.
 let localStorageScore = JSON.parse(localStorage.getItem('score'));
 if (localStorageScore != null) {
     scoreboard = localStorageScore;
 }
 
-/**Creates instructions and shows them to the player. The function within also removes them when the 'X' in the top right corner is clicked on. */
+/**Creates instructions and shows them to the player. The closeInstructions function within also removes the instructions when the 'X' in the top right corner is clicked on. */
 function showInstructions() {
     let instructions = document.createElement('div');
     instructions.setAttribute('id', 'instructions');
@@ -54,7 +59,6 @@ function showInstructions() {
     body[0].prepend(instructions);
     let exit = document.getElementsByClassName('exit-instructions');
     exit[0].addEventListener('click', closeInstructions);
-
     /**Exit instructions and return to the main page. */
     function closeInstructions() {
         instructions.removeAttribute('id', 'instructions');
@@ -63,7 +67,7 @@ function showInstructions() {
 }
 
 /**Triggered by the player clicking on the audio icon, the audio is paused and the icon changes to a speaker with a cross on it. 
- * The event listener to trigger the stopAudio function is removed and the event listener to trigger the playAudio function is added */
+ * The event listener to trigger the stopAudio function is removed and the event listener to trigger the playAudio function is added. */
 function stopAudio() {
     let audio = document.getElementById('music');
     audio.pause();
@@ -74,7 +78,7 @@ function stopAudio() {
 }
 
 /**Triggered by the player clicking on the audio icon, the audio is played and the icon changes to a speaker with increased volume. 
- * The event listener to trigger the playAudio function is removed and the event listener to trigger the stopAudio function is added */
+ * The event listener to trigger the playAudio function is removed and the event listener to trigger the stopAudio function is added. */
 function playAudio() {
     let audio = document.getElementById('music');
     audio.play();
@@ -84,11 +88,10 @@ function playAudio() {
     audioIcon[0].addEventListener('click', stopAudio);
 }
 
-/**Removes the welcome message and adds 'click' event listeners to the difficulty level buttons. */
+/**Hides the welcome message and adds 'click' event listeners to the difficulty level buttons. */
 function selectDifficulty() {
     let message = document.getElementsByClassName('get-username');
     message[0].style.display = "none";
-
     let easy = document.getElementsByClassName('easy');
     let normal = document.getElementsByClassName('normal');
     let hard = document.getElementsByClassName('hard');
@@ -101,22 +104,22 @@ function selectDifficulty() {
 function easyMode() {
     easyDifficulty = true;
     createStartButton();
-
+    // Add the 'easy-cards-grid' class to 'cards-grid'.
     let cardsGrid = document.getElementsByClassName('cards-grid');
     cardsGrid[0].classList.remove('normal-cards-grid');
     cardsGrid[0].classList.add('easy-cards-grid');
-
+    // Change the difficulty label text to 'EASY'.
     let difficultyLabel = document.getElementsByClassName('difficulty-label');
     difficultyLabel[0].innerHTML = '<p>EASY</p>';
-
+    // Hide difficulty buttons.
     let difficultyContainer = document.getElementsByClassName('difficulty-container');
     difficultyContainer[0].style.visibility = "hidden";
     let cards = document.getElementsByClassName('card');
-    // Adds a class to adjust the size of the cards in easy mode
+    // Adds the 'easy-card' class to adjust the size of the cards in easy mode.
     for (let i = 0; i < cards.length; i++) {
         cards[i].classList.add('easy-card');
     }
-    // Hide the cards below
+    // Hide the cards below.
     cards[0].classList.add('no-display');
     cards[1].classList.add('no-display');
     cards[2].classList.add('no-display');
@@ -137,20 +140,18 @@ function easyMode() {
 function normalMode() {
     normalDifficulty = true;
     createStartButton();
-
+    // Add the 'normal-cards-grid' class to 'cards-grid'.
     let cardsGrid = document.getElementsByClassName('cards-grid');
     cardsGrid[0].classList.remove('easy-cards-grid');
     cardsGrid[0].classList.add('normal-cards-grid');
-    let cards = document.getElementsByClassName('card');
-    for (let i = 0; i < cards.length; i++) {
-        cards[i].classList.remove('easy-card');
-    }
-
+    // Change the difficulty label text to 'NORMAL'.
     let difficultyLabel = document.getElementsByClassName('difficulty-label');
     difficultyLabel[0].innerHTML = '<p>NORMAL</p>';
-
+    // Hide difficulty buttons.
     let difficultyContainer = document.getElementsByClassName('difficulty-container');
     difficultyContainer[0].style.visibility = "hidden";
+    // Hide the cards below.
+    let cards = document.getElementsByClassName('card');
     cards[0].classList.add('no-display');
     cards[1].classList.add('no-display');
     cards[2].classList.add('no-display');
@@ -159,10 +160,12 @@ function normalMode() {
     cards[13].classList.add('no-display');
     cards[14].classList.add('no-display');
     cards[15].classList.add('no-display');
+    // If the game was played on easy mode previously, remove the 'easy-card' class from cards.
     if (easyDifficulty === true) {
         for (let i = 0; i < cards.length; i++) {
             cards[i].classList.remove('easy-card');
         }
+        // Make the cards below visible.
         cards[4].classList.remove('no-display');
         cards[5].classList.remove('no-display');
         cards[16].classList.remove('no-display');
@@ -222,14 +225,15 @@ function createStartButton() {
 }
 
 //THE CODE IN THE shuffleCards FUNCTION WAS MADE USING LOGIC FROM A FREECODECAMP TUTORIAL AND CUSTOMISED SIGNIFICANTLY: https://www.youtube.com/watch?v=ZniVgo8U7ek
-
 /**Shuffles the cards, putting them in a random order. Trigger the startGame function afterwards */
 function shuffleCards() {
     let cards = document.getElementsByClassName('card');
+    // ---------------------------------
     for (let i = 0; i < cards.length; i++) {
         let randomNumber = Math.floor(Math.random() * 24);
         cards[i].style.order = randomNumber;
     }
+    // ---------------------------------
     startGame();
 }
 
