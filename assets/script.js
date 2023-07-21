@@ -180,36 +180,24 @@ function normalMode() {
 function hardMode() {
     hardDifficulty = true;
     createStartButton();
-
+    // Removes the 'easy-cards-grid' and 'normal-cards-grid' classes from 'cards-grid'.
     let cardsGrid = document.getElementsByClassName('cards-grid');
     cardsGrid[0].classList.remove('easy-cards-grid');
     cardsGrid[0].classList.remove('normal-cards-grid');
-    let cards = document.getElementsByClassName('card');
-    for (let i = 0; i < cards.length; i++) {
-        cards[i].classList.remove('easy-card');
-    }
-
+    // Change the difficulty label text to 'HARD'.
     let difficultyLabel = document.getElementsByClassName('difficulty-label');
     difficultyLabel[0].innerHTML = '<p>HARD</p>';
-
+    // Hide difficulty buttons.
     let difficultyContainer = document.getElementsByClassName('difficulty-container');
     difficultyContainer[0].style.visibility = "hidden";
+    // If the game was played on easy or normal mode previously, remove the 'easy-card' and 'no-display' classes from all cards.
     if (easyDifficulty === true || normalDifficulty === true) {
-        cards[0].classList.remove('no-display');
-        cards[1].classList.remove('no-display');
-        cards[2].classList.remove('no-display');
-        cards[3].classList.remove('no-display');
-        cards[4].classList.remove('no-display');
-        cards[5].classList.remove('no-display');
-        cards[12].classList.remove('no-display');
-        cards[13].classList.remove('no-display');
-        cards[14].classList.remove('no-display');
-        cards[15].classList.remove('no-display');
-        cards[16].classList.remove('no-display');
-        cards[17].classList.remove('no-display');
+        let cards = document.getElementsByClassName('card');
+        for (let i = 0; i < cards.length; i++) {
+            cards[i].classList.remove('easy-card', 'no-display');
+        }
         easyDifficulty = false;
         normalDifficulty = false;
-
     }
     return;
 }
